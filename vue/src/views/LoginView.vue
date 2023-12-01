@@ -1,7 +1,10 @@
 <template>
   <div id="login">
+    <div id="home">
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+    </div>
     <form v-on:submit.prevent="login">
-      <h1 >Please Sign In</h1>
+      <h1>Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -18,16 +21,26 @@
       </div>
       <button type="submit">Sign in</button>
       <p>
-      <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
+        <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link>
+      </p>
     </form>
+    <img id="brewscout" src="../assets/img/BrewScout.png" alt="">
+
+  </div>
+
+  <div class="footer">
+    <FooterView />
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
+import FooterView from "./FooterView.vue";
 
 export default {
-  components: {},
+  components: {
+    FooterView
+  },
   data() {
     return {
       user: {
@@ -61,10 +74,58 @@ export default {
 </script>
 
 <style scoped>
-.form-input-group {
+.footer {
+  height: 3rem;
+}
+
+
+#brewscout {
+  width: 30%;
+  height: 50%;
+  margin-top: 2rem;
+}
+
+button {
+  border-radius: 0.5rem;
+  border: 0.4rem solid black;
+  width: 10rem;
+  height: 3rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
+
+
+input {
+
+  width: 30rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: 0.4rem solid black;
+  margin-bottom: 1rem;
+  text-align: center;
+
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.form-input-group {
+  margin-bottom: 2rem;
+  background-color: rgb(155, 132, 2);
+  text-align: center;
+}
+
 label {
   margin-right: 0.5rem;
+  text-align: center;
+
+}
+
+#login {
+  background-color: grey;
+  height: 119rem;
+  text-align: center;
+  font-size: 5rem;
 }
 </style>

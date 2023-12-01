@@ -1,4 +1,7 @@
 <template>
+  <div id="home">
+    <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+  </div>
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
@@ -76,6 +79,7 @@ export default {
 .form-input-group {
   margin-bottom: 1rem;
 }
+
 label {
   margin-right: 0.5rem;
 }

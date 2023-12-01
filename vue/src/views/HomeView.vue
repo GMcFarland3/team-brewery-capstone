@@ -1,11 +1,30 @@
+
 <template>
-  <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+  <div class="header">
+    <HeaderView />
+  </div>
+  <div class="main">
+    <MainView />
+  </div>
+  <div class="footer">
+    <FooterView />
   </div>
 </template>
 
 <script>
+import MainView from "@/views/MainView.vue";
+import HeaderView from "@/views/HeaderView.vue";
+import FooterView from "@/views/FooterView.vue";
+
 export default {
+  components: {
+    HeaderView,
+    MainView,
+    FooterView
+  }
 };
 </script>
+
+<style scoped>
+/* Add any styles specific to the HomeView component */
+</style>
