@@ -3,6 +3,7 @@ import { useStore } from 'vuex'
 
 // Import components
 import HomeView from '../views/HomeView.vue';
+import BreweryListView from '../views/BreweryListView.vue';
 import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
@@ -24,6 +25,12 @@ const routes = [
       requiresAuth: false
     }
   },
+  {
+    path: '/breweries',
+    name: 'breweries',
+    component: BreweryListView,
+  },
+
   {
     path: "/login",
     name: "login",

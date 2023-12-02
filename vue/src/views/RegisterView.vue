@@ -25,7 +25,7 @@
         <p><router-link v-bind:to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
       </form>
     </div>
-    <img src="../assets/img/giphy.gif" alt="">
+    <img id="brewscout" src="../assets/img/giphy.gif" alt="">
 
   </div>
   <div class="footer">
@@ -87,6 +87,13 @@ export default {
 </script>
 
 <style scoped>
+#brewscout {
+  width: 20rem;
+  height: 20rem;
+  margin-top: 2rem;
+}
+
+
 #login {
   background-color: rgb(113, 112, 112);
   height: 52rem;
