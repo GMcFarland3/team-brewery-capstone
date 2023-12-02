@@ -24,7 +24,7 @@
         <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link>
       </p>
     </form>
-    <img id="brewscout" src="../assets/img/BrewScout.png" alt="">
+    <img id="brewscout" src="../assets/img/giphy.gif" alt="">
 
   </div>
 
@@ -74,46 +74,46 @@ export default {
 </script>
 
 <style scoped>
+#home {
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+
 .footer {
   height: 3rem;
 }
 
 
 #brewscout {
-  width: 30%;
-  height: 50%;
+  width: 20rem;
+  height: 20rem;
   margin-top: 2rem;
 }
 
-button {
-  border-radius: 0.5rem;
-  border: 0.4rem solid black;
-  width: 10rem;
-  height: 3rem;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-
 input {
-
-  width: 30rem;
-  height: 2rem;
-  border-radius: 0.5rem;
-  border: 0.4rem solid black;
+  width: 9rem;
+  height: 1rem;
   margin-bottom: 1rem;
   text-align: center;
 
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .form-input-group {
   margin-bottom: 2rem;
-  background-color: rgb(155, 132, 2);
   text-align: center;
+  color: gold;
+  font-weight: bold;
 }
 
 label {
@@ -123,9 +123,8 @@ label {
 }
 
 #login {
-  background-color: grey;
-  height: 119rem;
+  background-color: rgb(113, 112, 112);
+  height: 52rem;
   text-align: center;
-  font-size: 5rem;
 }
 </style>

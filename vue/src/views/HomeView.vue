@@ -26,5 +26,9 @@ export default {
 </script>
 
 <style scoped>
+.footer {
+  height: 3rem;
+}
+
 /* Add any styles specific to the HomeView component */
 </style>

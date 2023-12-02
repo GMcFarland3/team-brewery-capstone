@@ -13,6 +13,6 @@ export default {
 <style scoped>
 #beer {
     width: 100%;
-    height: 100%;
+    height: 38rem;
 }
 </style>
