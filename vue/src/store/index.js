@@ -5,7 +5,24 @@ export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
       token: currentToken || '',
-      user: currentUser || {}
+      user: currentUser || {},
+      breweries: [{
+        brewId: '',
+        userId: '',
+        name: '',
+        address: '',
+        address2: '',
+        city: '',
+        stateAbbr: '',
+        zipCode: '',
+        phone: '',
+        website: '',
+        history: '',
+        operationHours: '',
+        image: ''
+      }]
+
+
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -23,6 +40,9 @@ export function createStore(currentToken, currentUser) {
         state.token = '';
         state.user = {};
         axios.defaults.headers.common = {};
+      },
+      SET_BREWERIES(state, brewery) {
+        state.breweries.push(brewery.brewId, brewery.userId, brewery.name, brewery.address, brewery.address2, brewery.city, brewery.stateAbbr, brewery.zipCode, brewery.phone, brewery.website, brewery.history, brewery.operationHours, brewery.image);
       }
     },
   });

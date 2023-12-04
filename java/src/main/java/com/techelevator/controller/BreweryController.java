@@ -12,8 +12,9 @@ import org.springframework.web.server.ResponseStatusException;
 import java.security.Principal;
 import java.util.List;
 
+@CrossOrigin
 @RestController
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 public class BreweryController {
 
     private final BrewDao brewDao;
@@ -25,7 +26,7 @@ public class BreweryController {
         this.userDao = userDao;
     }
 
-//    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/breweries", method = RequestMethod.GET)
     public List<Brewery> listBreweries(Principal principal) {
@@ -39,4 +40,17 @@ public class BreweryController {
 //        }
     }
 
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.GET)
+    public Brewery getBreweryById(@PathVariable int id, Principal principal) {
+        Brewery newBrewery = this.brewDao.getBreweryById(id);
+//        if (newBrewery == null) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brewery NOT found");
+//        } else if ((newBrewery.getTo_id() == this.getLoggedInUserId(principal)) || (newBrewery.getFrom_id() == this.getLoggedInUserId(principal))){
+            return newBrewery;
+//        } else {
+//            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
+//        }
+    }
 }

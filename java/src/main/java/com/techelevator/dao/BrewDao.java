@@ -8,4 +8,7 @@ import java.util.List;
 public interface BrewDao {
 
     List<Brewery> listBreweries();
+
+    Brewery getBreweryById(int breweryId);
+
 }

@@ -1,10 +1,16 @@
 <template>
     <div>
         <HeaderView />
+        <div></div>
         <div class="list">
             <h1>Breweries</h1>
-            <img id="madtree" src="../assets/img/madtree.jpg" alt="">
-            <h2>MadTree Brewing</h2>
+            <section class="breweries-list">
+                <Brewery-List class="breweries" :breweries="breweries" v-for="breweries in breweries"
+                    :key="breweries.brewId" />
+            </section>
+            <!-- <img id="madtree" src="../assets/img/madtree.jpg"> -->
+
+            <!-- <h2>MadTree Brewing</h2>
             <h3>3301 Madison Road
                 Cincinnati, OH 45209</h3>
             <h4>T: 513.836.8733</h4>
@@ -25,7 +31,7 @@
                 10AM | 12AM
                 Sunday
                 10AM | 11PM
-            </p>
+            </p> -->
 
         </div>
 
@@ -34,26 +40,42 @@
     </div>
 </template>
 
-
 <script>
 import HeaderView from './HeaderView.vue'
-import FooterView from './FooterView.vue'
-export default {
+import BreweryList from '../components/BreweryList.vue';
+import FooterView from './FooterView.vue';
+import brewService from "../services/BreweriesService";
 
+export default {
     data() {
         return {
-            liked: false
-        };
+            breweries: []
+        }
     },
-
+    created() {
+        brewService
+            .getBreweries()
+            .then(response => {
+                if (response.status == 200) {
+                    this.breweries = response.data;
+                }
+            })
+            .catch(error => {
+                const response = error.response;
+                if (response.status === 401) {
+                    this.invalidCredentials = true;
+                }
+            });
+    },
     methods: {
         toggleLike() {
             this.liked = !this.liked;
-        }
+        },
     },
 
     components: {
         HeaderView,
+        BreweryList,
         FooterView
     }
 }
