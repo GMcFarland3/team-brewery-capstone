@@ -56,18 +56,6 @@ export default {
 </script>
 
 <style scoped>
-#awards {
-    height: 150px;
-    width: 200px;
-    margin-top: 2rem;
-}
-
-#likeButtonmadtree {
-    margin-top: 1rem;
-    width: 100px;
-    height: 20px;
-}
-
 h1 {
     color: white;
     text-align: center;
@@ -79,18 +67,5 @@ h1 {
     display: flex;
     flex-direction: column;
     height: auto;
-}
-
-#madtreebeers {
-    height: 300px;
-    width: 500px;
-
-    margin-top: 2rem;
-}
-
-#madtree {
-    height: 300px;
-    width: 500px;
-    margin-top: 2rem;
 }
 </style>
