@@ -8,6 +8,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import AdminView from '../views/AdminView.vue';
+import BreweryInfoView from '../views/BreweryInfoView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -31,6 +32,12 @@ const routes = [
     path: '/breweries',
     name: 'breweries',
     component: BreweryListView,
+  },
+
+  {
+    path: '/breweryInfo',
+    name: 'breweryInfo',
+    component: BreweryInfoView,
   },
 
   {
