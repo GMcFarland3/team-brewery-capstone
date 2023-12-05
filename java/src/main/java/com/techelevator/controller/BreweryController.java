@@ -48,7 +48,7 @@ public class BreweryController {
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/breweries/{id}/beers", method = RequestMethod.GET)
-    public List<Beer> getBreweryById(@PathVariable int id, Principal principal) {
+    public List<Beer> getBeersByBrewerId(@PathVariable int id, Principal principal) {
 
 //        if (newBrewery == null) {
 //            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brewery NOT found");
@@ -59,4 +59,25 @@ public class BreweryController {
 //            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
 //        }
     }
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.GET)
+    public Brewery getBreweryById(@PathVariable int id, Principal principal) {
+        Brewery newBrewery = this.brewDao.getBreweryById(id);
+//        if (newBrewery == null) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brewery NOT found");
+//        } else if ((newBrewery.getTo_id() == this.getLoggedInUserId(principal)) || (newBrewery.getFrom_id() == this.getLoggedInUserId(principal))){
+        return newBrewery;
+//        } else {
+//            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
+//        }
+    }
+
+
+
+
+
+
+
+
 }
