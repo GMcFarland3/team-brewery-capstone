@@ -9,8 +9,5 @@ export default {
     addBrewery(brewery) {
         return axios.post('/breweries', brewery)
     },
-    getBreweriesById(brewId) {
-        return axios.get('/breweries', brewId)
-    }
 
 }
