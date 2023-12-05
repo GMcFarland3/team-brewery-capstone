@@ -10,13 +10,11 @@
             </form>
         </div>
 
-
         <div>
-            <h3>all registered users</h3>
-            <select v-model="selectedUserId">
-                <option value="">Select a user</option>
-                <option v-for="user in userList" :key="user.id" :value="user.id">{{ user.name }}</option>
-            </select>
+            <h3>All Registered Users</h3>
+            <ul>
+                <li v-for="user in userList" :key="user.id">{{ user.name }}</li>
+            </ul>
         </div>
 
         <div>
@@ -55,7 +53,9 @@ export default {
             breweries: [],
             invalidCredentials: false,
             userList: [],
-            selectedUserId: "",
+            userId: "", // Add userId data property for updating/deleting users
+            role: "",  // Add role data property for updating users
+            selectedUserId: "", // Add selectedUserId data property
         };
     },
     methods: {
@@ -77,7 +77,7 @@ export default {
 
         getAllUsers() {
             // Make an API request to get all users
-            userService.getAllUsers()
+            userService.getUsers()
                 .then((response) => {
                     this.userList = response.data;
                 })
@@ -117,8 +117,7 @@ export default {
 
     },
     mounted() {
-        this.getAllUsers();
-        // Code to be executed when the component is mounted
+        this.getAllUsers(); // Call getAllUsers when the component is mounted
     },
     components: {
         HeaderView,
