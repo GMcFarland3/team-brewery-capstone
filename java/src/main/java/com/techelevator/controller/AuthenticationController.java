@@ -7,6 +7,7 @@ import com.techelevator.model.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -18,6 +19,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
+
+import java.security.Principal;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -66,6 +70,11 @@ public class AuthenticationController {
         } catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
         }
+    }
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/users", method = RequestMethod.GET)
+    public List<User> getAllUsers() {
+          return userDao.getUsers();
     }
 
 }

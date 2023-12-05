@@ -9,6 +9,7 @@
                     :key="breweries.brewId" />
             </section>
 
+
         </div>
 
         <FooterView />
@@ -59,39 +60,11 @@ export default {
 </script>
 
 <style scoped>
-#awards {
-    height: 150px;
-    width: 200px;
-
-    margin-top: 2rem;
-}
-
-#likeButtonmadtree {
-    margin-top: 1rem;
-    width: 100px;
-    height: 20px;
-}
-
-
 .list {
     display: flex;
     flex-direction: column;
     height: auto;
 
     background-color: rgb(212, 211, 209);
-}
-
-#madtreebeers {
-    height: 300px;
-    width: 500px;
-
-    margin-top: 2rem;
-}
-
-#madtree {
-    height: 300px;
-    width: 500px;
-
-    margin-top: 2rem;
 }
 </style>

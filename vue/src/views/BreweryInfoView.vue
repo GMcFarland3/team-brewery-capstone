@@ -4,7 +4,7 @@
         <div class="info">
             <h1>{{ breweries.name }}</h1>
         </div>
-
+        <FooterView />
 
     </div>
 </template>
@@ -14,9 +14,11 @@ import HeaderView from './HeaderView.vue';
 import BreweriesService from '../services/BreweriesService';
 import FooterView from './FooterView.vue';
 import HeaderView from './HeaderView.vue';
+import FooterView from './FooterView.vue';
 export default {
     components: {
-        HeaderView
+        HeaderView,
+        FooterView
     }
 
 }
