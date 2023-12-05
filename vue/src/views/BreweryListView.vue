@@ -5,33 +5,9 @@
         <div class="list">
             <h1>Breweries</h1>
             <section class="breweries-list">
-                <Brewery-List class="breweries" :breweries="breweries" v-for="breweries in breweries"
+                <BreweryList class="breweries" :breweries="breweries" v-for="breweries in breweries"
                     :key="breweries.brewId" />
             </section>
-            <!-- <img id="madtree" src="../assets/img/madtree.jpg"> -->
-
-            <!-- <h2>MadTree Brewing</h2>
-            <h3>3301 Madison Road
-                Cincinnati, OH 45209</h3>
-            <h4>T: 513.836.8733</h4>
-            <p>List of beers goes here</p>
-            <img id="madtreebeers" src="../assets/img/madtree brewing beers.webp" alt="">
-            <img id="awards" src="../assets/img/OHIO+CRAFT+BREWERS+CUP+2020_MEDALS-01.png" alt="">
-
-            <div>
-                <button id="likeButtonmadtree" @click="toggleLike">{{ liked ? 'Unlike' : 'Like' }}</button>
-            </div>
-
-            <p>Hours of Operation
-                Monday | Thursday
-                11AM | 11PM
-                Friday
-                11AM | 12AM
-                Saturday
-                10AM | 12AM
-                Sunday
-                10AM | 11PM
-            </p> -->
 
         </div>
 
