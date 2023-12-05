@@ -1,34 +1,19 @@
 <template>
+    
     <div class="brewery-card">
       <div class="image-box">
-        <img :src="breweries.image" @click="toggleDropdown" />
+        <img :src="breweries.image" />
       </div>
-      <select v-if="showDropdown" class="brewery-info">
-        <option value="name">{{ breweries.name }}</option>
-        <option value="address">{{ breweries.address }}</option>
-        <option value="city">{{ breweries.city }}</option>
-        <option value="state_abbr">{{ breweries.state_abbr }}</option>
-        <option value="zip">{{ breweries.zip }}</option>
-        <option value="phone">{{ breweries.phone }}</option>
-        <option value="website">{{ breweries.website }}</option>
-        <option value="operation_hours">{{ breweries.operation_hours }}</option>
-      </select>
+      <div class="brewery-info">
+        <h1>{{ breweries.name }}</h1>
+      </div>
     </div>
+    
   </template>
   
   <script>
   export default {
     props: ['breweries'],
-    data() {
-      return {
-        showDropdown: false,
-      };
-    },
-    methods: {
-      toggleDropdown() {
-        this.showDropdown = !this.showDropdown;
-      },
-    },
   };
   </script>
   
@@ -36,16 +21,21 @@
   .brewery-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    display: inline-block;
     margin: 10px;
     border: 1px solid rgb(199, 170, 2);
     padding: 10px;
+    width: 200px; /* Adjust the width as needed */
   }
   
-  .image-box {
+   .image-box {
     width: 150px; /* Adjust the width as needed */
     height: 150px; /* Adjust the height as needed */
     overflow: hidden;
+    margin: 0 auto; /* Center the image horizontally */
+    display: flex; /* Center the image vertically */
+    justify-content: center; /* Center the image vertically */
+    align-items: center; /* Center the image vertically */
   }
   
   img {
@@ -53,15 +43,11 @@
     max-height: 100%;
     object-fit: cover;
     cursor: pointer;
+    align-content: center;
   }
   
   .brewery-info {
-    display: none;
-    text-align: left;
-  }
-  
-  .show-dropdown .brewery-info {
-    display: block;
+    text-align: center;
   }
   </style>
   
