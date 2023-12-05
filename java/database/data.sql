@@ -18,4 +18,5 @@ INSERT INTO public.breweries(user_id, name, address, address2, city, state_abbr,
 INSERT INTO public.breweries(user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image)
     VALUES (2, 'BlueMoon', '3750 Chestnut Pl', '', 'Colorado', 'CO', '80216', ' (303) 728-2337', 'https://www.bluemoonbrewingcompany.com/en-US', 'M-F 2-11', 'no history', 'https://static.wikia.nocookie.net/beer/images/f/fd/Blue-moon.jpg/revision/latest?cb=20110120192943');
 
+
 COMMIT TRANSACTION;

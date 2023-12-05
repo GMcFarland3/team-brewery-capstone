@@ -13,12 +13,12 @@ export function createStore(currentToken, currentUser) {
         address: '',
         address2: '',
         city: '',
-        stateAbbr: '',
-        zipCode: '',
+        state_abbr: '',
+        zip_code: '',
         phone: '',
         website: '',
         history: '',
-        operationHours: '',
+        operation_hours: '',
         image: ''
       }]
 

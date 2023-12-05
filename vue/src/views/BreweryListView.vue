@@ -1,17 +1,13 @@
 <template>
     <div>
         <HeaderView />
-        <div></div>
+        <h1>Breweries</h1>
         <div class="list">
-            <h1>Breweries</h1>
             <section class="breweries-list">
                 <BreweryList class="breweries" :breweries="breweries" v-for="breweries in breweries"
                     :key="breweries.brewId" />
             </section>
-
-
         </div>
-
         <FooterView />
 
     </div>
@@ -60,11 +56,16 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+    color: white;
+    text-align: center;
+    background-color: rgb(113, 112, 112);
+    margin: 0px 0px 0px 0px;
+}
+
 .list {
     display: flex;
     flex-direction: column;
     height: auto;
-
-    background-color: rgb(212, 211, 209);
 }
 </style>
