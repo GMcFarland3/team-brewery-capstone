@@ -1,14 +1,14 @@
 <template>
-    
-    <div class="brewery-card">
-      <div class="image-box">
-        <img :src="breweries.image" />
-      </div>
-      <div class="brewery-info">
-        <h1>{{ breweries.name }}</h1>
+    <div class="brewList-container">
+      <div class="brewery-card">
+        <div class="image-box">
+          <img :src="breweries.image" />
+        </div>
+        <div class="brewery-info">
+          <h1>{{ breweries.name }}</h1>
+        </div>
       </div>
     </div>
-    
   </template>
   
   <script>
@@ -18,17 +18,21 @@
   </script>
   
   <style scoped>
+  .brewList-container {
+    display: flex; /* Display cards in a row */
+    flex-wrap: wrap; /* Allow cards to wrap to the next row when needed */
+    justify-content: center; /* Center cards horizontally */
+    gap: 20px; /* Adjust the gap between cards as needed */
+  }
+  
   .brewery-card {
-    display: flex;
-    flex-direction: column;
-    display: inline-block;
     margin: 10px;
     border: 1px solid rgb(199, 170, 2);
     padding: 10px;
     width: 200px; /* Adjust the width as needed */
   }
   
-   .image-box {
+  .image-box {
     width: 150px; /* Adjust the width as needed */
     height: 150px; /* Adjust the height as needed */
     overflow: hidden;
