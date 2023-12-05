@@ -35,7 +35,7 @@ const routes = [
   },
 
   {
-    path: '/breweryInfo/:id',
+    path: '/breweryInfo',
     name: 'breweryInfo',
     component: BreweryInfoView,
   },
