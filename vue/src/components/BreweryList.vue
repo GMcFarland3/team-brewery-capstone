@@ -1,67 +1,58 @@
 <template>
-    <div>
-        <ul class="brewList">
-            <li>{{ breweries.name }}</li>
-            <li>{{ breweries.address }}</li>
-            <li>{{ breweries.address2 }}</li>
-            <li>{{ breweries.city }}</li>
-            <li>{{ breweries.state_abbr }}</li>
-            <li>{{ breweries.zip_code }}</li>
-            <li>{{ breweries.operation_hours }}</li>
-        </ul>
+  <div class="brewery-card">
+    <div class="image-box">
+      <img :src="breweries.image" />
     </div>
-    <div>
-        <h2>{{ breweries.image }}</h2>
+    <div class="brewery-info">
+      <h1>{{ breweries.name }}</h1>
     </div>
-    <div>
-        <h2>{{ breweries.address }}</h2>
-    </div>
-    <div>
-        <h2>{{ breweries.city }}</h2>
-    </div>
-    <div>
-        <h2>{{ breweries.state_abbr }}</h2>
-    </div>
-    <div>
-        <h2>{{ breweries.zip }}</h2>
-    </div>
-    <div>
-        <h2>{{ breweries.phone }}</h2>
-    </div>
-    <div>
-        <h2>{{ breweries.website }}</h2>
-    </div>
-    <div>
-        <h2>{{ breweries.operation_hours }}</h2>
-    </div>
+  </div>
 </template>
-
+  
 <script>
-
-
 export default {
-    props: ['breweries'],
-
-}
+  props: ['breweries'],
+};
 </script>
-
+  
 <style scoped>
-.brewList {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 15px;
-    text-align: left;
-    border-color: rgb(199, 170, 2);
+.brewery-card {
+  display: flex;
+  flex-direction: column;
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid rgb(199, 170, 2);
+  padding: 10px;
+  width: 200px;
+  /* Adjust the width as needed */
 }
 
+.image-box {
+  width: 150px;
+  /* Adjust the width as needed */
+  height: 150px;
+  /* Adjust the height as needed */
+  overflow: hidden;
+  margin: 0 auto;
+  /* Center the image horizontally */
+  display: flex;
+  /* Center the image vertically */
+  justify-content: center;
+  /* Center the image vertically */
+  align-items: center;
+  /* Center the image vertically */
+}
 
-li {
-    display: inline-flex;
-    text-align: left;
-    margin: 5px 5px 5px 5px;
-    padding: 5px 5px 5px 5px;
-    border-color: rgb(199, 170, 2);
-    color: rgb(199, 170, 2);
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  align-content: center;
+}
+
+.brewery-info {
+  text-align: center;
 }
 </style>
+  
