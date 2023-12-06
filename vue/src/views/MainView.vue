@@ -1,9 +1,8 @@
 <template>
     <div>
         <h1>Featured Breweries</h1>
-        <div class="list">
+        <div class="fadephoto">
             <section class="breweries-list">
-                <!-- <BreweryList class="breweries" :breweries="breweries" v-for="breweries in breweries" :key="breweries.brew_Id" /> -->
                 <BreweryList class="breweries" :breweries="breweries" v-for="breweries in sixRandom"
                     :key="breweries.brew_Id" />
             </section>
@@ -42,10 +41,12 @@ export default {
             });
 
     },
+
     methods: {
         getRandom(a, b) {
             return 0.5 - Math.random()
-        }
+        },
+
     },
     components: {
         BreweryList,

@@ -5,9 +5,10 @@
         </div>
         <div id="BrewScout">
             <h1>BrewScout</h1>
+            <p>The best place to find your local breweries, beers, rate and review them!!</p>
         </div>
 
-        <div class="login">
+        <div class="nav">
             <router-link v-bind:to="{ name: 'home' }">Home</router-link>
             <!-- <router-link v-bind:to="{ name: 'breweryInfo', params: { brew_Id: 1 } }">brewInfo</router-link> -->
             <router-link v-bind:to="{ name: 'breweries' }">Breweries</router-link>
@@ -40,6 +41,14 @@ export default {
   #BrewScout {
       text-align: center;
       font-size: 2rem;
+      justify-content: top;
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+  }
+
+  h1 {
+      padding: 5px 0px 0px 0px;
+      margin: 5px 0px 0px 0px;
   }
 
   .logo {
@@ -49,16 +58,27 @@ export default {
 
   section {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
       background-color: rgb(199, 170, 2);
+      height: 11rem;
   }
 
-  .login {
-      font-size: 2rem;
+  .nav {
       display: flex;
+      font-size: 2rem;
       padding-left: 4rem;
-      justify-content: space-evenly;
+      justify-content: flex-end;
+      flex-direction: column;
+      text-decoration: none;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
+  }
+
+  a {
+      text-decoration: none;
+      text-align: right;
+
   }
 </style>
   
