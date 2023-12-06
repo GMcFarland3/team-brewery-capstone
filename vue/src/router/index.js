@@ -28,11 +28,7 @@ const routes = [
   },
 
   {
-<<<<<<< HEAD
-    path: '/breweryInfo',
-=======
     path: '/breweryInfo/:brewId',
->>>>>>> d93b60e670754c26e38be3f7853b4859f6d5a302
     name: 'breweryInfo',
     component: BreweryInfoView,
     props: true
