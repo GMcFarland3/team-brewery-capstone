@@ -6,6 +6,8 @@
             <div v-if="brewery">
                 <BreweryInfo :brewery="brewery" />
 
+                <BeerList :beers="beers" />
+
             </div>
         </section>
         <FooterView />
@@ -16,25 +18,48 @@
 import HeaderView from './HeaderView.vue';
 import FooterView from './FooterView.vue';
 import BreweryInfo from '../components/BreweryInfo.vue';
+import BeerList from '../components/BeerList.vue';
+import brewService from '../services/BreweriesService';
 
 export default {
     data() {
         return {
             brewery: {},
+            beers: [],
         }
     },
 
     created() {
         const brew_Id = this.$route.params.brew_Id;
         this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
-        console.log('Brewery Data:', this.brewery); // Debugging output
-        console.log('Brewery ID:', brew_Id); // Debugging output
+
+
+
+
+        brewService
+            .getBeers()
+            .then(response => {
+                if (response.status == 200) {
+                    this.$store.commit('SET_BEERS', response.data);
+                    this.beers = this.$store.state.beers.filter(b => b.brewId == brew_Id);
+                    console.log('Beers Data:', this.beers);
+                }
+            })
+            .catch(error => {
+                const response = error.response;
+                if (response.status === 401) {
+                    this.invalidCredentials = true;
+                }
+            });
+
+
     },
 
 
     components: {
         HeaderView,
         BreweryInfo,
+        BeerList,
         FooterView
     },
 };
