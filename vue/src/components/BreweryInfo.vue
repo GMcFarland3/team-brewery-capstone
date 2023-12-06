@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="picture">
-            <img :src="brewery.imageSrc"> <!-- Use the brewery's image source -->
+            <img :src="brewery.imageSrc" alt="image broken"> <!-- Use the brewery's image source -->
         </div>
         <div class="cardList">
             <div class="mainInfo">
