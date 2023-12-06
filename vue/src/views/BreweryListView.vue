@@ -29,6 +29,7 @@ export default {
       .then(response => {
         if (response.status == 200) {
           this.breweries = response.data;
+          // this.$store.commit('SET_BREWERIES', this.breweries)
         }
       })
       .catch(error => {
