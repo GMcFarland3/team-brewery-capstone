@@ -41,13 +41,13 @@ import BreweryInfo from '../components/BreweryInfo.vue';
 export default {
     data() {
         return {
-            brewery: null, // Initialize as null to handle loading state
+            brewery: {},
         }
     },
 
     created() {
         const brew_Id = this.$route.params.brew_Id;
-        this.brewery = this.$store.state.breweries.find(b => b.brew_Id == brew_Id);
+        this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
         console.log('Brewery Data:', this.brewery); // Debugging output
         console.log('Brewery ID:', brew_Id); // Debugging output
     },

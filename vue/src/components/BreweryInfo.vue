@@ -33,7 +33,7 @@ export default {
 
     created() {
         const brew_Id = this.$route.params.brew_Id;
-        this.brewery = this.$store.state.breweries.find(b => b.brew_Id == brew_Id);
+        this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
         console.log('Brewery im wrong:', this.brewery); // Debugging output
     },
 }
