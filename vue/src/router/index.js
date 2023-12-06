@@ -35,6 +35,13 @@ const routes = [
   },
 
   {
+    path: '/breweries/beers',
+    name: 'beers',
+    component: BreweryInfoView,
+    props: true
+  },
+
+  {
     path: '/admin',
     name: 'admin',
     component: AdminView,
@@ -42,7 +49,6 @@ const routes = [
       requiresAuth: false
     }
   },
-
 
   {
     path: "/login",
