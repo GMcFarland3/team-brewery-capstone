@@ -63,9 +63,5 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (2, 'Lo-Pitch', 'Hazy IPA', 'Juicy American hops and a light malt bill make Lo-Pitch the perfect pairing for sandy shores, mountain tops, or backyard hangs', '5.5%', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_397,h_1030/https://hiwirebrewing.com/wp-content/uploads/2021/08/lopitch_front-397x1030.png');
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 03156955b650f7b89d27332bd965df7789a64950
 COMMIT TRANSACTION;
