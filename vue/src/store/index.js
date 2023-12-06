@@ -7,7 +7,7 @@ export function createStore(currentToken, currentUser) {
       token: currentToken || '',
       user: currentUser || {},
       breweries: [{
-        brewId: '',
+        brew_Id: '',
         userId: '',
         name: '',
         address: '',
@@ -41,8 +41,9 @@ export function createStore(currentToken, currentUser) {
         state.user = {};
         axios.defaults.headers.common = {};
       },
-      SET_BREWERIES(state, brewery) {
-        state.breweries.push(brewery.brewId, brewery.userId, brewery.name, brewery.address, brewery.address2, brewery.city, brewery.stateAbbr, brewery.zipCode, brewery.phone, brewery.website, brewery.history, brewery.operationHours, brewery.image);
+      SET_BREWERIES(state, breweries) {
+        state.breweries = breweries;
+        console.log(breweries);
       }
     },
   });
