@@ -67,7 +67,9 @@ export default {
     display: flex;
     justify-content: center;
     height: 667px;
+}
 
-
+h1 {
+    text-align: center;
 }
 </style>
