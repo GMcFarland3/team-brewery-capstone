@@ -6,17 +6,19 @@
         <div class="cardList">
             <div class="mainInfo">
                 <h1>{{ brewery.name }}</h1> <!-- Display the brewery's name -->
-                <h2>{{ brewery.description }}</h2> <!-- Display the brewery's description -->
+                <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
             </div>
 
             <div class="details">
                 <h3>Details</h3>
                 <ul>
                     <li>{{ brewery.address }}</li>
-                    <li>{{ brewery.location }}</li>
+                    <li>{{ brewery.city }}</li>
+                    <li>{{ brewery.state_abbr }}</li>
+                    <li>{{ brewery.zip_code }}</li>
                     <li>{{ brewery.website }}</li>
                     <li>{{ brewery.phone }}</li>
-                    <li>{{ brewery.hours }}</li>
+                    <li>{{ brewery.operation_hours }}</li>
                 </ul>
             </div>
         </div>
