@@ -1,34 +1,17 @@
 <template>
-    <HeaderView />
-    <section class="Brewery-Info">
-        <BreweryInfo :brewery="brewery" />
-        <div class="picture">
-            <img :src="brewery.imageSrc"> <!-- Use the brewery's image source -->
-        </div>
-        <div class="cardList">
-            <div class="mainInfo">
-                <h1>{{ brewery.name }}</h1> <!-- Display the brewery's name -->
-                <h2>{{ brewery.description }}</h2> <!-- Display the brewery's description -->
-            </div>
-            <div class="details">
-                <h3>Details</h3>
-                <ul>
-                    <li>{{ brewery.address }}</li>
-                    <li>{{ brewery.location }}</li>
-                    <li>{{ brewery.website }}</li>
-                    <li>{{ brewery.phone }}</li>
-                    <li>{{ brewery.hours }}</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <div>
+        <HeaderView />
+        <section class="Brewery-Info">
 
+            <div v-if="brewery">
+                <BreweryInfo :brewery="brewery" />
 
-    <FooterView />
+            </div>
+        </section>
+        <FooterView />
+    </div>
 </template>
   
-
-
 <script>
 import HeaderView from './HeaderView.vue';
 import FooterView from './FooterView.vue';
@@ -42,23 +25,21 @@ export default {
     },
 
     created() {
-        const brewId = this.$route.params.brewId;
-        this.brewery = this.$store.state.breweries.find(b => b.brewId == brewId);
+        const brew_Id = this.$route.params.brew_Id;
+        this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
+        console.log('Brewery Data:', this.brewery); // Debugging output
+        console.log('Brewery ID:', brew_Id); // Debugging output
     },
+
 
     components: {
         HeaderView,
         BreweryInfo,
         FooterView
     },
-
-    computed: {
-
-    }
-
-}
-
+};
 </script>
+  
 
 
 
