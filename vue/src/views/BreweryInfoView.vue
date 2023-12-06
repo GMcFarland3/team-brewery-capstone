@@ -5,6 +5,7 @@
 
             <div v-if="brewery">
                 <BreweryInfo :brewery="brewery" />
+
                 <BeerList :beers="beers" />
 
             </div>
@@ -40,7 +41,7 @@ export default {
             .then(response => {
                 if (response.status == 200) {
                     this.$store.commit('SET_BEERS', response.data);
-                    this.beers = this.$store.state.beers.filter(b => b.brew_id == brew_Id);
+                    this.beers = this.$store.state.beers.filter(b => b.brewId == brew_Id);
                     console.log('Beers Data:', this.beers);
                 }
             })

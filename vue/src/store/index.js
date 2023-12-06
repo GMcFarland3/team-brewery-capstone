@@ -22,7 +22,17 @@ export function createStore(currentToken, currentUser) {
         image: ''
       }],
 
-      beers: [],
+      beers: [
+        {
+          beer_Id: '',
+          brew_Id: '',
+          name: '',
+          type: '',
+          abv: '',
+          description: '',
+          image: ''
+        }
+      ],
 
 
     },

@@ -1,8 +1,8 @@
 package com.techelevator.model;
 
 public class Beer {
-    private int beerId;
-    private int brewId;
+    private int beer_id;
+    private int brew_id;
     private String name;
     private String type;
     private String description;
@@ -10,19 +10,19 @@ public class Beer {
     private String image;
 
     public int getBeerId() {
-        return beerId;
+        return beer_id;
     }
 
-    public void setBeerId(int beerId) {
-        this.beerId = beerId;
+    public void setBeerId(int beer_id) {
+        this.beer_id = beer_id;
     }
 
     public int getBrewId() {
-        return brewId;
+        return brew_id;
     }
 
-    public void setBrewId(int brewId) {
-        this.brewId = brewId;
+    public void setBrewId(int brew_id) {
+        this.brew_id = brew_id;
     }
 
     public String getName() {
