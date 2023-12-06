@@ -1,35 +1,43 @@
 <template>
     <section>
-
         <div class="picture">
-            <img src="../assets/img/madtree.jpg">
+            <img :src="brewery.imageSrc" alt="image broken"> <!-- Use the brewery's image source -->
         </div>
         <div class="cardList">
             <div class="mainInfo">
-                <h1>MadTree</h1>
-                <h2>The history of the brewery as we know it.</h2>
+                <h1>{{ brewery.name }}</h1> <!-- Display the brewery's name -->
+                <h2>{{ brewery.description }}</h2> <!-- Display the brewery's description -->
             </div>
+
             <div class="details">
                 <h3>Details</h3>
                 <ul>
-                    <li>123 Main Street</li>
-                    <li>Hamilton, OH 45011</li>
-                    <li>www.municipal.com</li>
-                    <li>513-555-5555</li>
-                    <li>Mon-Fri (2pm-11pm)</li>
+                    <li>{{ brewery.address }}</li>
+                    <li>{{ brewery.location }}</li>
+                    <li>{{ brewery.website }}</li>
+                    <li>{{ brewery.phone }}</li>
+                    <li>{{ brewery.hours }}</li>
                 </ul>
             </div>
         </div>
     </section>
 </template>
-
+  
 <script>
-
-
 export default {
-    //props: ['breweries']
+    data() {
+        return {
+            brewery: {},
+        }
+    },
+
+    created() {
+        const brewId = this.$route.params.brewId;
+        this.brewery = this.$store.state.breweries.find(b => b.brewId == brewId);
+    },
 }
 </script>
+
 
 <style scoped>
 section {
