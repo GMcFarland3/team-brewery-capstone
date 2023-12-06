@@ -10,7 +10,7 @@
     <FooterView />
   </div>
 </template>
-
+  
 <script>
 import HeaderView from './HeaderView.vue'
 import BreweryList from '../components/BreweryList.vue';
@@ -50,36 +50,34 @@ export default {
   }
 }
 </script>
-
+  
 <style scoped>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 h1 {
   color: white;
   text-align: center;
   background-color: rgb(113, 112, 112);
-  margin: 0;
-  padding: 0;
+  margin: 0px 0px 0px 0px;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Make the content take up the full viewport height */
-  margin-bottom: 60px; /* Adjust as needed to prevent the footer from overlapping content */
+  min-height: 100vh;
+  /* Make the content take up at least the full viewport height */
+  margin-bottom: 60px;
+  /* Adjust as needed to prevent the footer from overlapping content */
 }
 
 FooterView {
   position: fixed;
   bottom: 0;
+  /* Position at the bottom of the viewport */
   width: 100%;
+  /* Take up the full width of the viewport */
   background-color: rgb(113, 112, 112);
   color: white;
   text-align: center;
   padding: 10px;
 }
 </style>
+  

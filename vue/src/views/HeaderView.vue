@@ -9,7 +9,7 @@
 
         <div class="login">
             <router-link v-bind:to="{ name: 'home' }">Home</router-link>
-            <router-link v-bind:to="{ name: 'breweryInfo' }">brewInfo</router-link>
+            <router-link v-bind:to="{ name: 'breweryInfo', params: { brewId: 1 } }">brewInfo</router-link>
             <router-link v-bind:to="{ name: 'breweries' }">Breweries</router-link>
             <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
             <router-link v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''">Register</router-link>
