@@ -10,4 +10,8 @@ export default {
         return axios.post('/breweries', brewery)
     },
 
+    getBrewery(id) {
+        return axios.get(`/breweries/${id}`)
+    }
+
 }

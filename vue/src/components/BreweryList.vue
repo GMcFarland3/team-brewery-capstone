@@ -1,12 +1,14 @@
 <template>
-  <div class="brewery-card">
-    <div class="image-box">
-      <img :src="breweries.image" />
+  <router-link :to="'/breweryInfo/' + breweries.brew_id">
+    <div class="brewery-card">
+      <div class="image-box">
+        <img :src="breweries.image" />
+      </div>
+      <div class="brewery-info">
+        <h1>{{ breweries.name }}</h1>
+      </div>
     </div>
-    <div class="brewery-info">
-      <h1>{{ breweries.name }}</h1>
-    </div>
-  </div>
+  </router-link>
 </template>
   
 <script>
