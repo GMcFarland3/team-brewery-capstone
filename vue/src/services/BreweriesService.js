@@ -2,12 +2,12 @@ import axios from 'axios';
 
 export default {
 
-    getBreweries() {
-        return axios.get('/breweries')
+    login(user) {
+        return axios.post('/login', user)
     },
 
-    addBrewery(brewery) {
-        return axios.post('/breweries', brewery)
-    },
+    register(user) {
+        return axios.post('/register', user)
+    }
 
 }
