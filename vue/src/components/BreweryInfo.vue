@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="picture">
-            <img :src="brewery.imageSrc" alt="image broken"> <!-- Use the brewery's image source -->
+            <img :src="brewery.image" alt="image broken"> <!-- Use the brewery's image source -->
         </div>
         <div class="cardList">
             <div class="mainInfo">
@@ -32,8 +32,9 @@ export default {
     },
 
     created() {
-        const brewId = this.$route.params.brewId;
-        this.brewery = this.$store.state.breweries.find(b => b.brewId == brewId);
+        const brew_Id = this.$route.params.brew_Id;
+        this.brewery = this.$store.state.breweries.find(b => b.brew_Id == brew_Id);
+        console.log('Brewery im wrong:', this.brewery); // Debugging output
     },
 }
 </script>

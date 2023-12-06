@@ -28,7 +28,7 @@ const routes = [
   },
 
   {
-    path: '/breweryInfo/:brewId',
+    path: '/breweryInfo/:brew_Id',
     name: 'breweryInfo',
     component: BreweryInfoView,
     props: true
