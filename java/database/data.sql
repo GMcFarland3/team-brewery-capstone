@@ -33,7 +33,6 @@ VALUES (2, 'Woodburn', '2800 Woodburn Ave', '', 'Cincinnati', 'OH', '45206', '(5
 INSERT INTO public.breweries(user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image)
 VALUES (2, 'Braxton Brewing', '27 W 7th St', '', 'Covington', 'KY', '41011', '(859) 261-5600', 'https://www.braxtonbrewing.com/', 'Varies, check their website for details', 'Easily accessible from Cincinnati with a variety of craft beers', 'https://findvectorlogo.com/wp-content/uploads/2020/02/braxton-brewing-company-vector-logo.png');
 
-
 INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (1,'Happy Amber', 'Hoppy Amber Ale', 'Caramel, Floral, Bready', '6.0%', 'https://madtree.com/wp-content/uploads/2023/01/Happy-Amber_Can-Render.png');
 
@@ -138,5 +137,6 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 
 INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (7, 'Antelope', 'Amber Lager', 'This amber lager leaps through fields of toasty, amber malts and grazes on ample cascade and crystal hops for a malt-forward, bready profile with just a hint of hop bitterness and a clean finish.', '5.0%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2018/09/03180411/Med-Color-Pint-768x1316.png');
+
 
 COMMIT TRANSACTION;
