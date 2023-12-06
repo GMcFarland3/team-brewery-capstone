@@ -1,11 +1,13 @@
 <template>
     <div>
 
-        <section class="beers-list">
-            <BeerList class="beers" :beers="beers" v-for="beers in beers" :key="beers.beer_id" />
-            <img src="{{ beers.image }}" alt="beer" />
+        <section class="beers-list" v-for="beer in beers" :key="beer.beer_id">
+            <img :src="beer.image" alt="beer" />
             <ul>
-                <li>{{ beers.name }}</li>
+                <li>{{ beer.name }}</li>
+                <li>{{ beer.type }}</li>
+                <li>{{ beer.abv }}</li>
+                <li>{{ beer.description }}</li>
             </ul>
         </section>
 
@@ -18,4 +20,16 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.beers-list {
+    display: flex;
+    display: inline-block;
+}
+
+img {
+    display: flex;
+    max-width: 200px;
+    max-height: 200px;
+
+}
+</style>
