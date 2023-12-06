@@ -8,7 +8,9 @@
             <div class="mainInfo">
                 <h1>MadTree</h1>
                 <h2>The history of the brewery as we know it.</h2>
+                <p>hi</p>
             </div>
+
             <div class="details">
                 <h3>Details</h3>
                 <ul>
