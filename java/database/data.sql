@@ -64,4 +64,79 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (2, 'Lo-Pitch', 'Hazy IPA', 'Juicy American hops and a light malt bill make Lo-Pitch the perfect pairing for sandy shores, mountain tops, or backyard hangs', '5.5%', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_397,h_1030/https://hiwirebrewing.com/wp-content/uploads/2021/08/lopitch_front-397x1030.png');
 
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (3,'Game Ball', 'Golden Ale', 'Game Ball, our golden ale, is brewed for celebrating all your favorite Cincinnati sports teams.', '5.0%', 'https://assets.untappd.com/photos/2023_11_03/efd9c575de27126cd2d40114e91d8446_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (3,'Kanpai', 'Japanese Rice Lager', 'Kampai, our Japanese-style Rice Lager, made with jasmine rice and pilsner malt, will surely delight the senses and the palate.', '4.0%', 'https://assets.untappd.com/site/beer_logos_hd/beer-5599906_3b89a_hd.jpeg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (3, 'Return of the Mac', 'Blonde Ale', 'Dripping in aromatics of coconut, honey, and fresh vanilla blended together in a fresh cup of your favorite morning coffee.', '5.5%', 'https://assets.untappd.com/site/beer_logos_hd/beer-2061260_80689_hd.jpeg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (3, 'Pineapple Midwesty', 'IPA-Fruited', 'Check out this super secret, uber-limited FOURTH different variant of Midwesty, Pineapple Midwesty! This West Coast India Pale Ale is complimented by that sweet nectar of the gods, Pineapple!','7.0%', 'https://assets.untappd.com/site/beer_logos_hd/beer-5604525_c50a9_hd.jpeg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (3, 'Whos A Good Beer', 'Hazy Pale Ale', 'Whos a Good Beer? Hazy Pale Ale made with Cltra, Mosaic and El Dorado hops Is our way to help fund two local Cincinnati animal shelters', '5.0%', 'https://assets.untappd.com/site/beer_logos_hd/beer-3730048_4adfe_hd.jpeg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (4,'Vlad', 'Pilsner', 'This International-Style Pils is a recipient of many awards and is the perfect medium-body, European style lager.', '5.3%', 'https://ohio.org/static/uploads/0688y000004Qr14AAC.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (4,'Peso In My Hand', 'Mexican Lager', 'Brewed with generous amounts of corn, this easy drinking Mexican-style Lager is a crowd pleaser. 2020 Cervecera Del Pacifico bronze medal winner.', '5.3%', 'https://assets.untappd.com/photos/2022_05_27/2368712711cd2faa8c8c5b769b5afb25_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (4, 'Reba Strawberry', 'Blonde Ale', 'This light cream style ale infused with just the right amount of strawberry. Its bubbly and effervescent and a fan favorite', '5.3%', 'https://images.squarespace-cdn.com/content/v1/6400c622d90f2c202613ca3d/add69cc7-9c92-4412-a716-181100971e61/RebaSingleCanMock.png');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (4, 'Fretboard Light', 'Premium Lager', 'Perfect light lager. You can now enjoy this domestic light lager in 15 and 24 packs.','4.0%', 'https://images.squarespace-cdn.com/content/v1/6400c622d90f2c202613ca3d/035675e0-b6b7-4b83-a1e9-114359a65aaa/FretLight1920x1080V2.png');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (4, 'Bootsy Brewski', 'India Pale Ale', 'This light and crispy IPA is a 5 time winner of medals in the US Beer Open Championship', '7.0%', 'https://www.cincinnati.com/gcdn/presto/2019/08/05/PCIN/99ec70f7-5226-410c-b1e7-1a5e8a0eb0e1-Bootsy_6_pack.PNG');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (5,'Belgian White', 'Belgian-Style Wheat Ale', 'A wheat beer brewed with Valencia orange peel for a suble sweetness and bright, citrus aroma.', '5.4%', 'https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/styles/beers/public/beers/2018-06/BlueMoon-BelgianWhite.png?itok=NZQsZ8D-');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (5,'Lightsky Tropical Wheat', 'Tropical Wheat Beer', 'A new light and refreshing wheat beer brewed with pineapple and orange peel for a lighter, exceptional taste.', '4.0%', 'https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/styles/beers/public/beers/2022-03/LightSky%20Tropical_.png?itok=PHAvh_Mk');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (5, 'Lightsky', 'Citrus Wheat', 'A light and refreshing wheat beer, brewed with real tangerine peel.', '4.0%', 'https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/styles/beers/public/beers/2020-02/Light%20Sky.png?itok=dHVQHOMb');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (5, 'Moon Haze', 'Hazy Pale Ale', 'Hazy brewed with dried whole oranges to infuse the flavor into the beer, creating a delicious, juicy flavor and bright color.','5.7%', 'https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/styles/beers/public/beers/2021-09/Blue_Moon_Moon_Haze_Can.png?itok=RrRhjA3p');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (5, 'Mango Wheat', 'Mango Wheat Beer', 'A refreshing beer with ripe mango flavor and biscuity malt sweetness', '5.4%', 'https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/styles/beers/public/beers/2018-06/BlueMoon-MangoWheat.png?itok=5mGbkI3j');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (6,'Jackpot Joey', 'Golden Ale', 'Clean, crisp, and way more crushable than its namesake. The perfect game day beer.', '5.2%', 'https://i0.wp.com/beersbeardspod.com/wp-content/uploads/2022/09/brink-jackpot-joey-rotated.jpg?resize=678%2C381&ssl=1');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (6,'Comet', 'Fresh Hopped IPA', 'Its light in body like a west coast IPA, its dank and resinous, but with notes of peach, apricot, and citrus.', '7.2%', 'https://assets.untappd.com/photos/2023_10_17/89b29c73d25376ef82ad38bbf2fee74d_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (6, 'Hold The Reins', 'English Mild', 'Malty, brown British Ale. Medium body. Smooth caramel, toffee sweetness with hints of coffee and chocolate.', '5.2%', 'https://potablepastime.files.wordpress.com/2021/05/brink-hold-the-reins-og2.jpg?w=500');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (6, 'Nightbringer', 'Imperial Stout', 'Slightly bitter dark chocolate turns into a richer, smoother, creamier chocolate flavor with hints of dark caramel and coffee as this behemoth stout warms up.','10.0%', 'https://assets.untappd.com/photos/2023_09_10/377905315e27599710cce24d5211ce12_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (6, 'Tropical Wheat', 'American Wheat Ale', 'Traditional American wheat ale gets loaded up with guava and pineapple, with plenty of light grain maltiness to support the island party in your mouth.', '4.9%', 'https://assets.untappd.com/photo/2023_04_19/0359a2fe3004bcb977500e41a6c830fa_c_1266485894_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (7,'Cincy Light', 'American Lager', 'A refreshingly crisp lager. This easy-drinking classic is the perfect way to celebrate the Queen City.', '4.2%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2023/06/10185212/CincyLight_12oz_CanRender-768x1179.png');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (7,'Juicy Truth', 'Juicy India Pale Ale', 'Brewed to unleash the mouthwatering, tropical notes and aromas of the generous hop bill, Juicy Truth delivers on the promise by the iconic IPA: always bold, always consistent, always fresh, always delicious. ', '6.5%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2022/12/31102148/JuicyTruth_CanRender-768x1179.png');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (7, 'Cheetah', 'Lager', 'Swift in body and mind, Cheetah sprints forward. Pure, crisp, clean.', '4.8%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2018/08/04022328/Cheetah_12oz_CanRender-768x1179.png');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (7, '93 Octane', 'Four Peel Blonde Ale', 'Slightly fruity aroma, flavor is bright sublte malt characteristics, fruity flavors, hints at orange.','6.2%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2018/09/03180359/Light-Beer-Color-768x1316.png');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (7, 'Antelope', 'Amber Lager', 'This amber lager leaps through fields of toasty, amber malts and grazes on ample cascade and crystal hops for a malt-forward, bready profile with just a hint of hop bitterness and a clean finish.', '5.0%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2018/09/03180411/Med-Color-Pint-768x1316.png');
+
 COMMIT TRANSACTION;
