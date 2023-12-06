@@ -8,6 +8,7 @@
                 <h1>{{ brewery.name }}</h1> <!-- Display the brewery's name -->
                 <h2>{{ brewery.description }}</h2> <!-- Display the brewery's description -->
             </div>
+
             <div class="details">
                 <h3>Details</h3>
                 <ul>
