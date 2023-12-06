@@ -17,11 +17,11 @@ public class JdbcBeerDao implements BeerDao{
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override
-    public List<Beer> listBeersByBreweryId( int brewId) {
+    public List<Beer> listBeers(){
         List<Beer> beers = new ArrayList<>();
-        String sql = "SELECT beer_id, brew_id, name, type, description, abv, image FROM public.beers WHERE brew_id = ?;";
+        String sql = "SELECT beer_id, brew_id, name, type, description, abv, image FROM beers;";
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql,brewId);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
                 Beer beer = mapRowToBeer(results);
                 beers.add(beer);

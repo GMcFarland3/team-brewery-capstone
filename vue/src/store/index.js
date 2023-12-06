@@ -20,7 +20,19 @@ export function createStore(currentToken, currentUser) {
         history: '',
         operation_hours: '',
         image: ''
-      }]
+      }],
+
+      beers: [
+        {
+          beer_Id: '',
+          brew_Id: '',
+          name: '',
+          type: '',
+          abv: '',
+          description: '',
+          image: ''
+        }
+      ],
 
 
     },
@@ -43,8 +55,11 @@ export function createStore(currentToken, currentUser) {
       },
       SET_BREWERIES(state, breweries) {
         state.breweries = breweries;
-        console.log(breweries);
-      }
+      },
+      SET_BEERS(state, beers) {
+        state.beers = beers;
+        console.log(beers);
+      },
     },
   });
   return store;
