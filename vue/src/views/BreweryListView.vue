@@ -68,17 +68,5 @@ h1 {
   margin-bottom: 60px;
   /* Adjust as needed to prevent the footer from overlapping content */
 }
-
-FooterView {
-  position: fixed;
-  bottom: 0;
-  /* Position at the bottom of the viewport */
-  width: 100%;
-  /* Take up the full width of the viewport */
-  background-color: rgb(113, 112, 112);
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
 </style>
   
