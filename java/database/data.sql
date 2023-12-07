@@ -139,4 +139,5 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (7, 'Antelope', 'Amber Lager', 'This amber lager leaps through fields of toasty, amber malts and grazes on ample cascade and crystal hops for a malt-forward, bready profile with just a hint of hop bitterness and a clean finish.', '5.0%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2018/09/03180411/Med-Color-Pint-768x1316.png');
 
 
+
 COMMIT TRANSACTION;
