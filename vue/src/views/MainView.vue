@@ -8,6 +8,15 @@
             </section>
         </div>
     </div>
+    <div class="about-box">
+        <h2>About Us</h2>
+        <p>
+            Welcome to our brewery website! Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Nulla aliquam, justo eget maximus
+            posuere, orci risus tristique quam, non varius libero dui eu
+            tellus. Vivamus vel justo in lorem fringilla venenatis.
+        </p>
+    </div>
 </template>
 
 <script>
@@ -57,20 +66,17 @@ export default {
 </script>
 
 <style scoped>
-#beer {
-    width: 55rem;
-    height: 40rem;
-    margin-top: auto;
-}
-
-#main {
-    background-color: #5a5858;
-    display: flex;
-    justify-content: center;
-    height: 667px;
-}
-
 h1 {
     text-align: center;
+}
+
+.about-box {
+    position: fixed;
+    bottom: 80px;
+    width: 100%;
+    background-color: #F5F5F5;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 </style>
