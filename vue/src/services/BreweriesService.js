@@ -8,6 +8,10 @@ export default {
 
     getBeers() {
         return axios.get('/breweries/beers')
+    },
+
+    insertReview(review) {
+        return axios.post('/breweries/:user_id/:brew_id', review)
     }
 
 }
