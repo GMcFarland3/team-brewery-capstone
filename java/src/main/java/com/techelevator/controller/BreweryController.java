@@ -2,15 +2,18 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BeerDao;
 import com.techelevator.dao.BrewDao;
+import com.techelevator.dao.ReviewDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
+import com.techelevator.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -21,14 +24,15 @@ public class BreweryController {
 
     private final BrewDao brewDao;
     private final UserDao userDao;
-
     private final BeerDao beerDao;
+    private final ReviewDao reviewDao;
 
     @Autowired
-    public BreweryController(BrewDao brewDao, UserDao userDao,BeerDao beerDao) {
+    public BreweryController(BrewDao brewDao, UserDao userDao,BeerDao beerDao, ReviewDao reviewDao) {
         this.brewDao = brewDao;
         this.userDao = userDao;
         this.beerDao = beerDao;
+        this.reviewDao = reviewDao;
     }
 
     @PreAuthorize("hasRole('USER')")
@@ -49,35 +53,46 @@ public class BreweryController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/breweries/beers", method = RequestMethod.GET)
     public List<Beer> getBeers(Principal principal) {
-
-//        if (newBrewery == null) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brewery NOT found");
-//        } else if ((newBrewery.getTo_id() == this.getLoggedInUserId(principal)) || (newBrewery.getFrom_id() == this.getLoggedInUserId(principal))){
             return this.beerDao.listBeers();
-//
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
-//        }
-    }
+   }
+
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/breweries/{id}", method = RequestMethod.GET)
     public Brewery getBreweryById(@PathVariable int id, Principal principal) {
         Brewery newBrewery = this.brewDao.getBreweryById(id);
-//        if (newBrewery == null) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brewery NOT found");
-//        } else if ((newBrewery.getTo_id() == this.getLoggedInUserId(principal)) || (newBrewery.getFrom_id() == this.getLoggedInUserId(principal))){
         return newBrewery;
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
-//        }
     }
 
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/reviews/user/{id}", method = RequestMethod.GET)
+    public List<Review> getReviewsByUserId(@PathVariable int id, Principal principal) {
+        return this.reviewDao.getReviewsByUserId(id);
+    }
 
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/reviews/brew/{id}", method = RequestMethod.GET)
+    public List<Review> getReviewsByBrewId(@PathVariable int id, Principal principal) {
+        return this.reviewDao.getReviewsByBrewId(id);
+    }
 
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/reviews/beer/{id}", method = RequestMethod.GET)
+    public List<Review> getReviewsByBeerId(@PathVariable int id, Principal principal) {
+        return this.reviewDao.getReviewsByBeerId(id);
+    }
 
-
-
-
-
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/review/user/{id}", method = RequestMethod.POST)
+    public Review createReview(@Valid @RequestBody Review review) {
+        try {
+            return reviewDao.createReview(review);
+        } catch (ResponseStatusException rse) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
+        }
+    }
 }
