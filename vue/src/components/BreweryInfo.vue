@@ -86,7 +86,7 @@ ul li {
     align-content: flex-end;
     background-color: whitesmoke;
     padding-right: 2rem;
-
+    border: 2.5px solid rgb(199, 170, 2);
 
 
 }
@@ -102,5 +102,9 @@ section.details {
     align-items: center;
     font-size: xx-large;
 
+}
+
+.details>h3 {
+    font-size: x-large;
 }
 </style>
