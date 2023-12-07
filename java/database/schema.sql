@@ -25,7 +25,7 @@ CREATE  TABLE breweries (
     phone varchar(20),
     website varchar(190),
     operation_hours varchar(100),
-    history varchar(120),
+    history varchar(1000),
     image varchar(500),
     CONSTRAINT PK_brew PRIMARY KEY (brew_id),
     CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
