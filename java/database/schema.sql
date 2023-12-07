@@ -25,7 +25,7 @@ CREATE  TABLE breweries (
     phone varchar(20),
     website varchar(190),
     operation_hours varchar(100),
-    history varchar(120),
+    history varchar(1000),
     image varchar(500),
     CONSTRAINT PK_brew PRIMARY KEY (brew_id),
     CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -48,6 +48,17 @@ CREATE TABLE beers (
     image varchar(500),
     CONSTRAINT PK_beer PRIMARY KEY (beer_id),
     CONSTRAINT FK_brew FOREIGN KEY (brew_id) REFERENCES breweries(brew_id)
+);
+
+CREATE TABLE reviews (
+    user_id int NOT NULL,
+    brew_id int,
+    beer_id int,
+    review varchar(500),
+    rating int,
+    favorite boolean,
+    liked boolean,
+    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 COMMIT TRANSACTION;

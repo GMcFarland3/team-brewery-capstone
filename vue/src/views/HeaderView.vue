@@ -5,7 +5,7 @@
         </div>
         <div id="BrewScout">
             <h1>BrewScout</h1>
-            <p> your go-to companion for exploring and enjoying local breweries and their delightful array of beers. With
+            <p> Your go-to companion for exploring and enjoying local breweries and their delightful array of beers. With
                 BrewScout, you can seamlessly navigate the world of craft brewing, uncover hidden gems in your area, and
                 connect with fellow enthusiasts.</p>
         </div>
