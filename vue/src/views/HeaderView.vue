@@ -5,18 +5,6 @@
         </div>
         <div id="BrewScout">
             <h1>BrewScout</h1>
-<<<<<<< HEAD
-        </div>
-
-        <div class="login">
-            <router-link v-bind:to="{ name: 'home' }">Home</router-link>
-            <!-- <router-link v-bind:to="{ name: 'breweryInfo', params: { brew_Id: 1 } }">brewInfo</router-link> -->
-            <router-link v-bind:to="{ name: 'breweries' }">Breweries</router-link>
-            <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
-            <router-link v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''">Register</router-link>
-            <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-            <router-link v-bind:to="{ name: 'admin' }">admin</router-link>
-=======
             <p> your go-to companion for exploring and enjoying local breweries and their delightful array of beers. With
                 BrewScout, you can seamlessly navigate the world of craft brewing, uncover hidden gems in your area, and
                 connect with fellow enthusiasts.</p>
@@ -31,7 +19,6 @@
             <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
                 class="nav-link">Logout</router-link>
             <router-link v-bind:to="{ name: 'admin' }" class="nav-link">Admin</router-link>
->>>>>>> 4efc6d743a2e87b0c066ade401f8a7737cc384a1
         </div>
     </section>
 </template>
@@ -60,43 +47,18 @@ h1 {
     margin: 5px 0px 0px 0px;
 }
 
-<<<<<<< HEAD
-  #BrewScout {
-      text-align: center;
-      font-size: 2rem;
-  }
-=======
 p {
     padding: 0px 0px 0px 40px;
     margin: 0px 0px 0px 0px;
     max-width: 95%;
 
 }
->>>>>>> 4efc6d743a2e87b0c066ade401f8a7737cc384a1
 
 .logo {
     display: flex;
     height: 1px;
 }
 
-<<<<<<< HEAD
-  section {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background-color: rgb(199, 170, 2);
-  }
-
-  .login {
-      font-size: 2rem;
-      display: flex;
-      padding-left: 4rem;
-      justify-content: space-evenly;
-  }
-</style>
-  
-  
-=======
 section {
     display: flex;
     flex-direction: row;
@@ -138,4 +100,3 @@ section {
     /* Add additional styling for the hover effect, e.g., background color change */
 }
 </style>
->>>>>>> 4efc6d743a2e87b0c066ade401f8a7737cc384a1

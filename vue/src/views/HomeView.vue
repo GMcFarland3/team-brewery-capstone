@@ -26,11 +26,11 @@ export default {
 </script>
 
 <style scoped>
-.footer {
+/* .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-}
+} */
 
 /* Add any styles specific to the HomeView component */
 </style>
