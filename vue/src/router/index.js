@@ -34,12 +34,12 @@ const routes = [
     props: true
   },
 
-  // {
-  //   path: '/breweries/beers',
-  //   name: 'beers',
-  //   component: BreweryInfoView,
-  //   props: true
-  // },
+  {
+    path: '/breweries/beers',
+    name: 'beers',
+    component: BreweryInfoView,
+    props: true
+  },
 
   {
     path: '/admin',
