@@ -34,8 +34,6 @@ export default {
         this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
 
 
-
-
         brewService
             .getBeers()
             .then(response => {
