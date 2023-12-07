@@ -27,7 +27,9 @@ export default {
 
 <style scoped>
 .footer {
-  height: 3rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Add any styles specific to the HomeView component */

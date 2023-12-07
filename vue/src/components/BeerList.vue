@@ -12,10 +12,10 @@
         </section>
 
     </div>
-  </template>
+</template>
   
-  <script>
-  export default {
+<script>
+export default {
     props: ['beers'],
 };
 </script>
