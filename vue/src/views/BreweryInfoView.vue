@@ -9,6 +9,7 @@
                 <BeerList :beers="beers" />
 
             </div>
+
         </section>
         <FooterView />
     </div>
@@ -51,10 +52,24 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
-
-
     },
 
+    methods: {
+        submitReview(review) {
+            brewService
+                .insertReview(review)
+                .then(response => {
+                    if (response.status === 200) {
+                        this.$store.commit('SET_REVIEWS', response.data);
+                        this.reviews = this.$store.state.reviews.filter(r => r.brewId == brew_Id);
+                        console.log('Reviews Data:', this.reviews);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting review:', error);
+                });
+        }
+    },
 
     components: {
         HeaderView,
