@@ -16,13 +16,13 @@
         <div class="details">
             <h3>Details</h3>
             <ul>
-                <li>{{ brewery.address }}</li>
-                <li>{{ brewery.city }}</li>
-                <li>{{ brewery.state_abbr }}</li>
-                <li>{{ brewery.zip_code }}</li>
-                <li>{{ brewery.phone }}</li>
-                <li>{{ brewery.operation_hours }}</li>
-                <li><a v-bind:href="brewery.website" target="_blank">{{ brewery.website }}</a></li>
+                <li>Address: {{ brewery.address }}</li>
+                <li>City: {{ brewery.city }}</li>
+                <li>State: {{ brewery.state_abbr }}</li>
+                <li>Zip Code: {{ brewery.zip_code }}</li>
+                <li>Phone: {{ brewery.phone }}</li>
+                <li>Hours: {{ brewery.operation_hours }}</li>
+                <li>Website:<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
             </ul>
         </div>
     </section>
