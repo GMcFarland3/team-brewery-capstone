@@ -7,6 +7,7 @@
                 <BreweryInfo :brewery="brewery" />
 
                 <BeerList :beers="beers" />
+                <Review :reviews="reviews" @submitReview="submitReview" />
 
             </div>
 
@@ -21,6 +22,7 @@ import FooterView from './FooterView.vue';
 import BreweryInfo from '../components/BreweryInfo.vue';
 import BeerList from '../components/BeerList.vue';
 import brewService from '../services/BreweriesService';
+import Review from '../components/Review.vue';
 
 export default {
     data() {
@@ -75,6 +77,7 @@ export default {
         HeaderView,
         BreweryInfo,
         BeerList,
+        Review,
         FooterView
     },
 };
