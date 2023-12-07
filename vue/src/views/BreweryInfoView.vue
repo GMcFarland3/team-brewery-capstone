@@ -7,8 +7,10 @@
                 <BreweryInfo :brewery="brewery" />
 
                 <BeerList :beers="beers" />
+                <Review :reviews="reviews" @submitReview="submitReview" />
 
             </div>
+
         </section>
         <FooterView />
     </div>
@@ -20,6 +22,7 @@ import FooterView from './FooterView.vue';
 import BreweryInfo from '../components/BreweryInfo.vue';
 import BeerList from '../components/BeerList.vue';
 import brewService from '../services/BreweriesService';
+import Review from '../components/Review.vue';
 
 export default {
     data() {
@@ -49,15 +52,30 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
-
-
     },
 
+    methods: {
+        submitReview(review) {
+            brewService
+                .insertReview(review)
+                .then(response => {
+                    if (response.status === 200) {
+                        this.$store.commit('SET_REVIEWS', response.data);
+                        this.reviews = this.$store.state.reviews.filter(r => r.brewId == brew_Id);
+                        console.log('Reviews Data:', this.reviews);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting review:', error);
+                });
+        }
+    },
 
     components: {
         HeaderView,
         BreweryInfo,
         BeerList,
+        Review,
         FooterView
     },
 };

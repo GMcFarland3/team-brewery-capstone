@@ -16,13 +16,13 @@
         <div class="details">
             <h3>Details</h3>
             <ul>
-                <li>{{ brewery.address }}</li>
-                <li>{{ brewery.city }}</li>
-                <li>{{ brewery.state_abbr }}</li>
-                <li>{{ brewery.zip_code }}</li>
-                <li>{{ brewery.phone }}</li>
-                <li>{{ brewery.operation_hours }}</li>
-                <li><a v-bind:href="brewery.website" target="_blank">{{ brewery.website }}</a></li>
+                <li>Address: {{ brewery.address }}</li>
+                <li>City: {{ brewery.city }}</li>
+                <li>State: {{ brewery.state_abbr }}</li>
+                <li>Zip Code: {{ brewery.zip_code }}</li>
+                <li>Phone: {{ brewery.phone }}</li>
+                <li>Hours: {{ brewery.operation_hours }}</li>
+                <li>Website:<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
             </ul>
         </div>
     </section>
@@ -55,6 +55,7 @@ section {
 img {
     max-width: 400px;
     max-height: 400px;
+    margin: 15px 0px 15px 0px;
 }
 
 .history {
@@ -63,6 +64,7 @@ img {
     width: 200rem;
     padding-left: 1.5rem;
     flex-grow: 2;
+    padding-right: 1.5rem;
 
 }
 
@@ -70,6 +72,7 @@ img {
     list-style-type: none;
     font-size: 1.5rem;
     justify-content: center;
+    margin-top: 1px;
 
 }
 
@@ -87,6 +90,7 @@ ul li {
     background-color: whitesmoke;
     padding-right: 2rem;
     border: 2.5px solid rgb(199, 170, 2);
+    margin: 15px 0px 15px 0px;
 
 
 }
@@ -105,6 +109,11 @@ section.details {
 }
 
 .details>h3 {
-    font-size: x-large;
+    font-size: xx-large;
+    text-decoration: underline;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0px 15px 15px;
+
 }
 </style>
