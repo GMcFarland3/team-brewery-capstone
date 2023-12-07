@@ -55,6 +55,18 @@ public class JdbcReviewDao implements ReviewDao {
             throw new DaoException("Unable to connect to server or database", e);
         }
         return review;
+
+//   This is the JSON body for create Review
+//        {
+//                 "user_id": 3,
+//                "brew_id": 1,
+//                "beer_id": 1,
+//                "review": "love this place",
+//                "rating": 5,
+//                "favorite": "true",
+//                "liked": "true"
+//        }
+
     }
 
     @Override
