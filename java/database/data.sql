@@ -138,5 +138,50 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (7, 'Antelope', 'Amber Lager', 'This amber lager leaps through fields of toasty, amber malts and grazes on ample cascade and crystal hops for a malt-forward, bready profile with just a hint of hop bitterness and a clean finish.', '5.0%', 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2018/09/03180411/Med-Color-Pint-768x1316.png');
 
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (8,'Gavel Banger', 'American IPA', 'American IPA brewed and dry hopped with heaps of Citra and Mosaic hops, juicy, hoppy justice.', '7.0%', 'https://thegnarlygnome.com/wp-content/uploads/2019/10/adjustments-dsqz-9-400x400.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (8,'Cold Boy', 'Lager', 'This anytime lager features American Pilsner malt and Saaz hops for a clean, balanced character that drinks smooth every time.', '4.5%', 'https://assets.untappd.com/photos/2022_03_12/84a76f5c6fcbb452610a08ad08cfda49_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (8, 'Santas Bribe', 'Christmas Cookie Ale', 'Winter warmer ale brewed with cinnamon, ginger and vanilla.', '6.2%', 'https://assets.untappd.com/photos/2023_01_08/e4f196324ecf8bfd35bd14d8c7ed2b64_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (8, 'Nellies Orange Creamsicle Ale', 'American Wheat Ale', 'A juicy, adults-only cream ale brewed with heaps of orange to transport you back to a simpler time.','4.8%', 'https://assets.untappd.com/photos/2023_06_27/c46e80ddd4e3e7018273874448c96d2f_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (8, 'Oktubberfest', 'Festbier', 'Our festbier shines a deep golden orange with German malts and hops in all the right places.', '5.7%', 'https://i.redd.it/were-in-the-thick-of-it-now-which-local-oktoberfest-beers-v0-1y9463hf5rjb1.jpg?width=2779&format=pjpg&auto=webp&s=470a4098154ba35a60a3eae143792e92b57c3276');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (9,'American Pilsner', 'Pilsner', 'Reformulated and better than ever! Now more American!', '4.6%', 'https://static.wixstatic.com/media/a3d152_126794080a254d9faf8c59a0d4102a07~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/beerfrontpage.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (9,'1803 Blonde Ale', 'Blonde Ale', 'Crisp American blonde ale.', '4.9%', 'https://cdn.shortpixel.ai/spai/q_lossless+w_1082+to_webp+ret_img/imbibemagazine.com/wp-content/uploads/2017/05/real-ale-firemans-no-4-draft2-crdt-max-kelly.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (9, 'Solo', 'Coffee Blonde Ale', 'Coffee infused blonde ale. Loaded with LaTerza coffee, this traditional Blonde Ale delivers bright coffee and vanilla notes through a bright fluffy pillow of foam.', '5.0%', 'https://cdn.beeradvocate.com/im/beers/548403.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (9, 'Orange Cream', 'Cream Ale', 'This bright orange cream ale is brewed basmati rice. After fermentation, blood orange and vanilla are packed into this brew, reminding you of hot summer days and tasty treats.','5.0%', 'https://photos.bringfido.com/restaurants/7/8/5/74587/74587_276961.jpg?size=slide&density=2x');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (9, 'Craft American Lager', 'Lager-Pale', 'Well-balanced malty and hop flavor, harvest gold in color. Slight sweetness gives way to a crisp refreshing finish. The aroma has notes of orange marmalade, grapefruit, spice, brown bread and caramel.', '4.8%', 'https://assets.untappd.com/photos/2023_11_11/54f1180d365f46fd485c0192f2b4d5a8_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (10,'Spur', 'Amber Lager', 'This friendly amber lager is malt-forward, has a deep golden hue and a body thats as sharp as it is smooth.', '4.0%', 'https://thepartysource.com/image/cache//catalog/inventory/BRAXTON-SPUR-AMERICAN-LAGER-6-PACK-500x500.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (10,'Schwarzbier', 'Schwarzbier', 'A schwarzbier is a dark lager and this one is brewed with 100% German-based Weyermann malt. An array of speciality malts bring a dark color, light roast, and a breadth of malt character.', '5.1%', 'https://assets.untappd.com/photos/2023_10_11/790f6bf55b3a595717f427db653e92d7_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (10, 'Opera Cream Stout', 'American Stout', 'A dessert-like sweet stout starts as a delicious milk stout made up of chocolate and caramel malts, we then add Lactose and hops to give the beer a sweet finish and full mouthfeel.', '5.5%', 'https://d1ynl4hb5mx7r8.cloudfront.net/wp-content/uploads/2023/09/14131039/7dab6193c7343a89e04c.png');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (10, 'Jubilee', 'Imperial IPA', 'Jubilee Hoppy Holiday Extra IPA features strong citrus and tropical fruit aromas, flavors including orange, tangerine, mango, and pineapple with subtle fresh pine notes as well as a clean, soft finish.','8.0%', 'https://thepartysource.com/image/cache/catalog/inventory/BRAXTON-JUBILEE-6-PACK-228x228.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (10, 'Scooter Blood Orange Radler', 'Shandy', 'Take your tastebuds on a refreshing ride with this unique infusion of sweet and citrus perfection. Enjoy the delicious flavors and aromas of freshly cut, ripe blood oranges.', '4.0%', 'https://www.kroger.com/product/images/large/front/0086058500027');
+
 
 COMMIT TRANSACTION;
