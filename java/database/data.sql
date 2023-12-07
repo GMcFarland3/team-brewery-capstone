@@ -184,4 +184,5 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (10, 'Scooter Blood Orange Radler', 'Shandy', 'Take your tastebuds on a refreshing ride with this unique infusion of sweet and citrus perfection. Enjoy the delicious flavors and aromas of freshly cut, ripe blood oranges.', '4.0%', 'https://www.kroger.com/product/images/large/front/0086058500027');
 
 
+
 COMMIT TRANSACTION;

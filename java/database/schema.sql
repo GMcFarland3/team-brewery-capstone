@@ -50,4 +50,15 @@ CREATE TABLE beers (
     CONSTRAINT FK_brew FOREIGN KEY (brew_id) REFERENCES breweries(brew_id)
 );
 
+CREATE TABLE reviews (
+    user_id int NOT NULL,
+    brew_id int,
+    beer_id int,
+    review varchar(500),
+    rating int,
+    favorite boolean,
+    liked boolean,
+    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
 COMMIT TRANSACTION;
