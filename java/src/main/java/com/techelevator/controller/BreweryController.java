@@ -95,4 +95,11 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
+    public List<Review> listReviews(Principal principal) {
+        return this.reviewDao.listReviews();
+    }
+
 }

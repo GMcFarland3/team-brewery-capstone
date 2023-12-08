@@ -11,7 +11,11 @@ export default {
     },
 
     insertReview(review) {
-        return axios.post('/breweries/:user_id/:brew_id', review)
+        return axios.post('/review/user/:id', review)
+    },
+
+    getReviews() {
+        return axios.get('/reviews')
     }
 
 }
