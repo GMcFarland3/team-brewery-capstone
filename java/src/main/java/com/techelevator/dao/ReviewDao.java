@@ -15,5 +15,7 @@ public interface ReviewDao {
 
     Review createReview(Review review);
 
+    List<Review> listReviews();
+
 
 }

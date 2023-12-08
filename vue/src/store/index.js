@@ -34,6 +34,18 @@ export function createStore(currentToken, currentUser) {
         }
       ],
 
+      reviews: [
+        {
+          user_id: '',
+          brew_id: '',
+          beer_id: '',
+          review: '',
+          rating: '',
+          favorite: '',
+          liked: '',
+        }
+      ]
+
 
     },
     mutations: {
@@ -58,9 +70,13 @@ export function createStore(currentToken, currentUser) {
       },
       SET_BEERS(state, beers) {
         state.beers = beers;
-        console.log(beers);
       },
+      SET_REVIEWS(state, reviews) {
+        state.reviews = reviews;
+      }
     },
+
+
   });
   return store;
 }
