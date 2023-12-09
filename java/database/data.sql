@@ -2,7 +2,10 @@ BEGIN TRANSACTION;
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('bob','$2a$10$ocEQn6rIm3xDEr7SVUSLPuu5YFG12RBTu82uBgGXlwJUsf2AWH1Bq','ROLE_USER');
 
+
+--  Adding Breweries here
 INSERT INTO public.breweries(user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image)
 	VALUES (2, 'MadTree', '3301 Madison Rd', '', 'Cincinnati', 'Ohio', '45209', '5135555555', 'https://madtree.com/', 'M-F 2-11', 'MadTree was born out of a passion for the craft, a heart for the community, and a desire to actually love what you do. It started as friends brewing beer together in a garage who took the leap to open a craft brewery. Considering themselves “mad scientists” as well as being inspired by trees representing life and growth, the two words were forged together creating MadTree.', 'https://d2pxm94gkd1wuq.cloudfront.net/BreweryLogos/Standard/568634387.madtree.logo.green-squarepng.png');
 
@@ -33,6 +36,10 @@ VALUES (2, 'Woodburn', '2800 Woodburn Ave', '', 'Cincinnati', 'OH', '45206', '(5
 INSERT INTO public.breweries(user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image)
 VALUES (2, 'Braxton Brewing', '27 W 7th St', '', 'Covington', 'KY', '41011', '(859) 261-5600', 'https://www.braxtonbrewing.com/', 'Varies, check their website for details', 'In Braxton`s world, a garage isn`t just walls; it`s where dreams find a home, with garden tools neatly stored. A hub for venturing into the world, a haven for safe returns. Saturdays resonate with solitude or shared moments. Picture your dad`s garage—the scent of oil and beer, fixing lawnmowers, instilling respect. The family garage transforms into an incubator, a renaissance space.', 'https://findvectorlogo.com/wp-content/uploads/2020/02/braxton-brewing-company-vector-logo.png');
 
+INSERT INTO public.breweries(user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image)
+VALUES (2, 'Municipal Brew Works', '20 High St', '', 'Hamilton', 'OH', '45011', '513 642 2424', 'https://www.braxtonbrewing.com/', 'M-T 3-10 | F 2-11 | S 12-11 | S 12-8', 'This neighborhood brewery opened up with a focus on making great beer, establishing strong community roots, and educating people about craft beer.  It’s hard to look past the amazing building that Municipal Brew Works calls home. The Municipal Building, also called the Frederick Mueller Building, was built in 1933 and shows off the Art Deco style of that time.', 'https://scontent.fluk1-1.fna.fbcdn.net/v/t39.30808-6/326729903_575278417452978_7034802942236221159_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=_RHL31sQRpgAX-GVxwN&_nc_ht=scontent.fluk1-1.fna&oh=00_AfCUBO5c27OAYl_BboLCgHhSF01KfsSLF23KsBb50NN8Xw&oe=6579FB24');
+
+-- Adding Beers here
 INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (1,'Happy Amber', 'Hoppy Amber Ale', 'Caramel, Floral, Bready', '6.0%', 'https://madtree.com/wp-content/uploads/2023/01/Happy-Amber_Can-Render.png');
 
@@ -183,6 +190,56 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (10, 'Scooter Blood Orange Radler', 'Shandy', 'Take your tastebuds on a refreshing ride with this unique infusion of sweet and citrus perfection. Enjoy the delicious flavors and aromas of freshly cut, ripe blood oranges.', '4.0%', 'https://www.kroger.com/product/images/large/front/0086058500027');
 
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Approachable Blond', 'Ale', 'It won the silver medal at the Ohio Craft Brewers Cup.', '4.7%', 'https://assets.untappd.com/photos/2023_12_01/13ea1cda364bf537445a90990651a4d7_640x640.jpg');
 
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Woltermelon Blonde', 'Ale', 'Takes their great blonde ale and loads it with watermelon. Named after a local fallen firefighter, Patrick Wolterman.', '4.8%', 'https://assets.untappd.com/photos/2023_07_08/38d7cf72ed41e75263c4dd696675fbd6_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Orange Agave Blonde', 'Ale', 'Blonde that taste like a liquid creamsicle.', '5.0%', 'https://assets.untappd.com/photos/2023_11_27/efc0b04ecf3f05da8704038eb2a8fb18_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+    VALUES (11, 'Anniversary Series #2', 'Double IPA', 'This Double IPA was released at their 2nd anniversary event. With the addition of honey, this beer is just as sweet and boozy as it is hoppy.', '10.0%', 'https://assets.untappd.com/photos/2018_12_23/2e35263874349c0e2a94afb240e314cd_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Scout IPA', 'IPA', 'A true mosaic of flavors make up this beer’s profile as hints of orange peel and kumquats greet you up front while the bite of grapefruit and pine resin make up the encore.', '6.5%', 'https://assets.untappd.com/photos/2023_11_25/cd16e32885e1a0408a9ab5d77013653c_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'The Duelist', 'Belgian Stout', 'Strong roasted malt flavors dominate here, with intense notes of bitter dark chocolate out front and wisps of licorice and campfire smoke dancing in the background.', '8.0%', 'https://assets.untappd.com/photos/2020_08_07/f4d14a0f5435ad4fc75fc610f59c10e2_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Midnight Cut', 'Porter', 'The sophistication of roasted coffee, the sharp bite of dark chocolate and the slightest wisp of smokiness.', '6.18%', 'https://assets.untappd.com/photos/2023_11_19/9d26746a589e0214d3d7374a5aa00e9a_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Courageous', 'IPA', 'Light and smooth with a nice west coast hop presence.', '5.6%', 'https://assets.untappd.com/photos/2023_07_08/1dc0795ac3413e446ba7af43c21a7718_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'True West', 'Porter', 'We take our Midnight Cut porter and blend in some fantastic cold-brewed coffee from our friends at True West Coffee.', '5.4%', 'https://assets.untappd.com/photos/2023_11_21/8b838a97615ef3ef5a894cd6495d6d23_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Free City Ale', 'Red Ale', 'Sweet, clean malts out front give way to a balancing dose of spicy hops on the back end that make this an easy drinking, tasty and fun brew.', '6.3%', 'https://assets.untappd.com/photos/2022_10_08/1b0a01f59c372db808370b92cddcc8b5_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Our Two Cents', 'Pale Ale', 'Our version of a West Coast Pale Ale loaded up with nothing but Centennial.', '7.5%', 'https://assets.untappd.com/photos/2023_02_02/6d2232fcb3b7b1444fa82f7b45a68bf3_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Station 2', 'Rye', 'Our unique pale ale has generous amounts of rye for that "bite" yet the hops bring it right around at the end.', '5.12%', 'https://assets.untappd.com/photos/2022_03_16/39d931610bafba1718ce370036381e2a_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, '1791 Oktoberfest', 'Festbier', 'This rich Amber brew expertly captures the smells, flavors, and colors of autumn with hints of dried fruit and molasses on the nose and notes of caramel and toffee on the tongue.', '7.0%', 'https://assets.untappd.com/photos/2023_10_02/eaf3c641968e42da6e27c2f6fb8de525_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Weiz Guys', 'Wheat', 'This quaffable wheat beer has a nose that you will go bananas for and a bright lemony finish.', '4.3%', 'https://assets.untappd.com/photos/2022_09_18/d3a7c71543a355020c1b47ee0463f674_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Recovery Red', 'Red Ale', '', '7.1%', 'https://assets.untappd.com/photos/2023_11_19/ed6026adfa280cf8d69f579d0c32a0bc_640x640.jpg');
+
+INSERT INTO public.beers(brew_id, name, type, description, abv, image)
+	VALUES (11, 'Timber Trail Brown Ale', 'Brown Ale', 'The nutty aroma and flavors comes from the generous portion of Maris Otter malt we use during the brewing process. To finish it off we add one of our favorite hops to give it an American signature', '6.5%', 'https://assets.untappd.com/photos/2023_07_06/3b732a782ff9380dff1d37a57d4a4e5d_640x640.jpg');
+
+-- Adding Reviews here
+INSERT INTO public.reviews(user_id, brew_id, beer_id, review, rating, favorite, liked) VALUES(3, 11, 51, 'Love this blonde!', 5, true, true);
+INSERT INTO public.reviews(user_id, brew_id, beer_id, review, rating, favorite, liked) VALUES(3, 11, 53, 'Love this orange blonde!', 5, true, true);
 
 COMMIT TRANSACTION;
