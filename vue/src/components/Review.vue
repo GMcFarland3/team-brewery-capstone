@@ -5,9 +5,9 @@
             <form @submit.prevent="submitReview">
                 <div class="beers">
                     <label for="beerList">Beers => </label>
-                    <select id="beerList" v-model="beerList.beerId">
-                        <option v-for="beerList in filteredBeers" :key="beerList.beerId" value="beerList.beerId">{{
-                            beerList.name }}</option>
+                    <select id="beerList" v-model="this.currentBeerId">
+                        <option v-for="beerList in filteredBeers" :key="beerList.beerId" :value="{ id: beersList.beerId }">
+                            {{ beerList.name }}</option>
                     </select>
                 </div>
                 <div class="rating">
@@ -35,12 +35,19 @@
             <ul class="review">
                 <li v-for="(review, index) in filteredReviews" :key="index">
                     <div>
-                        <strong>{{ $store.state.user.username }}</strong>
-                        <strong> {{ }}</strong>
+                        <div>
+                            <h1>{{ $store.state.user.username }}</h1>
+                        </div>
+                        <div>
+                            <h3>{{ review.beerName }}</h3>
+                        </div>
                         <div>
                             <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         </div>
                         <p>{{ review.review }}</p>
+                        <div class="reviewImage">
+                            <img :src="review.image" alt="pic not found">
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -58,9 +65,10 @@ export default {
                 user_id: '',      // You can set this later when you have user data
                 brew_id: '',      // Will be populated with the brewery ID
                 beer_id: '',      // Will be populated with the selected beer ID
-                name: '',          // The user's name (if needed)
+                beerName: '',          // The user's name (if needed)
                 rating: '',
                 review: '',
+                image: '',
             },
             reviews: [],
             beerList: {
@@ -72,7 +80,17 @@ export default {
                 description: '',
                 image: ''
             },
-            beersList: []
+            beersList: [],
+            oneBeer: {
+                beerId: '',
+                brewId: '',
+                name: '',
+                type: '',
+                abv: '',
+                description: '',
+                image: ''
+            },
+            currentBeerId: ''
         };
     },
     props: {
@@ -85,7 +103,7 @@ export default {
             required: false
         },
         beer_id: {
-            type: String,
+            type: Number,
             required: false
         },
     },
@@ -97,7 +115,7 @@ export default {
         },
         filteredBeers() {
             return this.beersList.filter(beerList => beerList.brewId == this.brew_id);
-        }
+        },
 
     },
 
@@ -108,7 +126,6 @@ export default {
                 if (response.status == 200) {
                     this.reviews = response.data;
                     this.$store.commit('SET_REVIEWS', response.data);
-
                 }
             })
             .catch(error => {
@@ -124,20 +141,24 @@ export default {
         submitReview() {
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
-            this.review.beer_id = this.beer_id; // Set the beer ID
+            this.review.beer_id = this.beerList.beerId;
             brewService
                 .insertReview(this.review)
                 .then(response => {
                     if (response.status === 201) {
                         // Handle successful creation (e.g., update this.reviews)
                         this.reviews.push(response.data); // Add the new review to the local reviews array
-                        console.log('Review submitted successfully:', response.data);
+                        // console.log('Review submitted successfully:', response.data);
                     }
                 })
                 .catch(error => {
                     console.error('Error submitting review:', error);
                 });
         },
+        // getBeerName(id) {
+        //     this.oneBeer = this.beersList.find(b => b.beerId == id);
+        //     return this.oneBeer.name;
+        // }
     }
 };
 </script>
@@ -189,6 +210,11 @@ h1 {
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
     padding: 20px;
+}
+
+.reviewImage.img {
+    width: 50px;
+    height: 50px;
 }
 
 li {

@@ -239,7 +239,7 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image)
 	VALUES (11, 'Timber Trail Brown Ale', 'Brown Ale', 'The nutty aroma and flavors comes from the generous portion of Maris Otter malt we use during the brewing process. To finish it off we add one of our favorite hops to give it an American signature', '6.5%', 'https://assets.untappd.com/photos/2023_07_06/3b732a782ff9380dff1d37a57d4a4e5d_640x640.jpg');
 
 -- Adding Reviews here
-INSERT INTO public.reviews(user_id, brew_id, beer_id, review, rating, favorite, liked) VALUES(3, 11, 51, 'Love this blonde!', 5, true, true);
-INSERT INTO public.reviews(user_id, brew_id, beer_id, review, rating, favorite, liked) VALUES(3, 11, 53, 'Love this orange blonde!', 5, true, true);
+INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 51, 'Approachable Blond', 'Love this blonde!', 5, true, true, 'https://assets.untappd.com/photos/2023_12_01/13ea1cda364bf537445a90990651a4d7_640x640.jpg');
+INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 53, 'Orange Agave Blonde', 'Love this orange blonde!', 5, true, true, 'https://assets.untappd.com/photos/2023_11_27/efc0b04ecf3f05da8704038eb2a8fb18_640x640.jpg');
 
 COMMIT TRANSACTION;
