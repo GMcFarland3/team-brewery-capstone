@@ -5,7 +5,7 @@
             <form @submit.prevent="submitReview">
                 <div class="beers">
                     <label for="beerList">Beers => </label>
-                    <select id="beerList" v-model="this.currentBeerId">
+                    <select id="beerList" v-model="oneBeer">
                         <option v-for="beerList in filteredBeers" :key="beerList.beerId" :value="{ id: beersList.beerId }">
                             {{ beerList.name }}</option>
                     </select>
@@ -90,7 +90,7 @@ export default {
                 description: '',
                 image: ''
             },
-            currentBeerId: ''
+            currentBeerId: null,
         };
     },
     props: {
@@ -171,7 +171,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 600px;
+    width: 35rem;
+    height: 12rem;
     margin: auto;
     border-radius: 1rem;
     border: black solid 1px;
@@ -188,6 +189,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .allReviews {
@@ -212,9 +214,11 @@ h1 {
     padding: 20px;
 }
 
-.reviewImage.img {
-    width: 50px;
-    height: 50px;
+img {
+    width: 15rem;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
 }
 
 li {
