@@ -1,40 +1,49 @@
 <template>
-    <div>
-        <h1>Leave a Review</h1>
-        <form @submit.prevent="submitReview">
-
-            <div class="rating">
-                <label for="rating">Rating:</label>
-                <select id="rating" v-model="review.rating" required>
-                    <option value="">Select a rating</option>
-                    <option value="1">1 star</option>
-                    <option value="2">2 stars</option>
-                    <option value="3">3 stars</option>
-                    <option value="4">4 stars</option>
-                    <option value="5">5 stars</option>
-                </select>
-            </div>
-            <div class="comment">
-                <label for="comment">Comment:</label>
-                <textarea id="comment" v-model="review.review" required></textarea>
-            </div>
-            <div class="submit">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-        <h2>Reviews</h2>
-        <ul class="review">
-            <li v-for="(review, index) in filteredReviews" :key="index">
-                <div>
-                    <strong>{{ $store.state.user.username }}</strong>
-                    <div>
-                        <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
-                    </div>
-                    <p>{{ review.review }}</p>
+    <section>
+        <div class="leaveReview">
+            <h1>Leave a Review</h1>
+            <form @submit.prevent="submitReview">
+                <div class="beers">
+                    <label for="beerList">Beers => </label>
+                    <select id="beerList" v-model="beer.beer_Id">
+                        <option v-for="beer in fBeers" :key="beer.beer_Id" value="beer.beer_Id">{{ beer.name }}</option>
+                    </select>
                 </div>
-            </li>
-        </ul>
-    </div>
+                <div class="rating">
+                    <label for="rating">Rating => </label>
+                    <select id="rating" v-model="review.rating" required>
+                        <option value="">Select a rating</option>
+                        <option value="1">1 star</option>
+                        <option value="2">2 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="5">5 stars</option>
+                    </select>
+                </div>
+                <div class="comment">
+                    <label for="comment">Comment => </label>
+                    <textarea id="comment" v-model="review.review" required></textarea>
+                </div>
+                <div class="submit">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="allReviews">
+            <h2>Reviews</h2>
+            <ul class="review">
+                <li v-for="(review, index) in filteredReviews" :key="index">
+                    <div>
+                        <strong>{{ $store.state.user.username }}</strong>
+                        <div>
+                            <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
+                        </div>
+                        <p>{{ review.review }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
 </template>
   
 <script>
@@ -51,16 +60,26 @@ export default {
                 rating: '',
                 review: '',
             },
-            reviews: []
+            reviews: [],
+            beer: {
+                beer_Id: '',
+                brew_Id: '',
+                name: '',
+                type: '',
+                abv: '',
+                description: '',
+                image: ''
+            },
+            fBeers: []
         };
     },
     props: {
         user_id: {
-            type: String,
+            type: Number,
             required: true
         },
         brew_id: {
-            type: String,
+            type: Number,
             required: false
         },
         beer_id: {
@@ -73,7 +92,11 @@ export default {
     computed: {
         filteredReviews() {
             return this.reviews.filter(review => review.brew_id == this.brew_id);
-        }
+        },
+        // filteredBeers() {
+        //     return this.fBeers.filter(beer => beer.brew_Id == this.brew_id);
+        // }
+
     },
 
     created() {
@@ -92,6 +115,7 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
+        this.fBeers = this.$store.state.beers;
     },
 
     methods: {
@@ -137,12 +161,28 @@ h1 {
     text-align: center;
 }
 
+.leaveReview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allReviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.beers {
+    margin-bottom: 20px;
+}
+
 .review {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 600px;
-    margin: 0 0 3rem 34rem;
+    /* margin: 0 0 3rem 34rem; */
     border-radius: 1rem;
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
