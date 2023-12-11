@@ -55,6 +55,18 @@ public class JdbcReviewDao implements ReviewDao {
             throw new DaoException("Unable to connect to server or database", e);
         }
         return review;
+
+//   This is the JSON body for create Review
+//        {
+//                 "user_id": 3,
+//                "brew_id": 1,
+//                "beer_id": 1,
+//                "review": "love this place",
+//                "rating": 5,
+//                "favorite": "true",
+//                "liked": "true"
+//        }
+
     }
 
     @Override
@@ -89,6 +101,22 @@ public class JdbcReviewDao implements ReviewDao {
         }
         return reviews;
     }
+    @Override
+    public List<Review> listReviews() {
+        List<Review> reviews = new ArrayList<>();
+        String sql = "SELECT user_id, brew_id, beer_id, review, rating, favorite, liked FROM public.reviews";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+            while (results.next()) {
+                Review review = mapRowToReview(results);
+                reviews.add(review);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        return reviews;
+    }
+
 
 
 

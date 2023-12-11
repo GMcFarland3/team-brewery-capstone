@@ -2,10 +2,7 @@
     <div>
         <h1>Leave a Review</h1>
         <form @submit.prevent="submitReview">
-            <div class="name">
-                <label for="name">Name:</label>
-                <input type="text" id="name" v-model="review.name" required>
-            </div>
+
             <div class="rating">
                 <label for="rating">Rating:</label>
                 <select id="rating" v-model="review.rating" required>
@@ -19,7 +16,7 @@
             </div>
             <div class="comment">
                 <label for="comment">Comment:</label>
-                <textarea id="comment" v-model="review.comment" required></textarea>
+                <textarea id="comment" v-model="review.review" required></textarea>
             </div>
             <div class="submit">
                 <button type="submit">Submit</button>
@@ -27,47 +24,101 @@
         </form>
         <h2>Reviews</h2>
         <ul class="review">
-            <li v-for="(review, index) in reviews" :key="index">
+            <li v-for="(review, index) in filteredReviews" :key="index">
                 <div>
-                    <strong>{{ review.name }}</strong>
+                    <strong>{{ $store.state.user.username }}</strong>
                     <div>
                         <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                     </div>
-                    <p>{{ review.comment }}</p>
-                    <button @click="likeReview(index)">Like</button>
-                    <span>{{ review.likes }} likes</span>
+                    <p>{{ review.review }}</p>
                 </div>
-
             </li>
         </ul>
     </div>
 </template>
+  
 <script>
+import brewService from '../services/BreweriesService'; // Import your API service
+
 export default {
     data() {
         return {
             review: {
-                name: '',
+                user_id: '',      // You can set this later when you have user data
+                brew_id: '',      // Will be populated with the brewery ID
+                beer_id: '',      // Will be populated with the selected beer ID
+                name: '',          // The user's name (if needed)
                 rating: '',
-                comment: '',
-                likes: 0
+                review: '',
             },
             reviews: []
         };
     },
+    props: {
+        user_id: {
+            type: String,
+            required: true
+        },
+        brew_id: {
+            type: String,
+            required: false
+        },
+        beer_id: {
+            type: String,
+            required: false
+        },
+    },
+
+
+    computed: {
+        filteredReviews() {
+            return this.reviews.filter(review => review.brew_id == this.brew_id);
+        }
+    },
+
+    created() {
+        brewService
+            .getReviews()
+            .then(response => {
+                if (response.status == 200) {
+                    this.reviews = response.data;
+                    this.$store.commit('SET_REVIEWS', response.data);
+
+                }
+            })
+            .catch(error => {
+                const response = error.response;
+                if (response.status === 401) {
+                    this.invalidCredentials = true;
+                }
+            });
+    },
+
     methods: {
         submitReview() {
-            this.reviews.push({ ...this.review });
-            this.review.name = '';
-            this.review.rating = '';
-            this.review.comment = '';
+            this.review.user_id = this.user_id; // Set the user ID
+            this.review.brew_id = this.brew_id; // Set the brewery ID
+            this.review.beer_id = this.beer_id; // Set the beer ID
+            brewService
+                .insertReview(this.review)
+                .then(response => {
+                    if (response.status === 201) {
+                        // Handle successful creation (e.g., update this.reviews)
+                        this.reviews.push(response.data); // Add the new review to the local reviews array
+                        console.log('Review submitted successfully:', response.data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting review:', error);
+                });
         },
-        likeReview(index) {
-            this.reviews[index].likes++;
-        }
     }
 };
 </script>
+  
+
+
+
 <style scoped>
 form {
     display: flex;

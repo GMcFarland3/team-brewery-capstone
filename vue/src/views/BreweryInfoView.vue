@@ -7,7 +7,8 @@
                 <BreweryInfo :brewery="brewery" />
 
                 <BeerList :beers="beers" />
-                <Review :reviews="reviews" @submitReview="submitReview" />
+                <Review :reviews="reviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" />
+
 
             </div>
 
@@ -29,14 +30,13 @@ export default {
         return {
             brewery: {},
             beers: [],
+            reviews: [] // Initialize the reviews array here
         }
     },
 
     created() {
         const brew_Id = this.$route.params.brew_Id;
         this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
-
-
 
 
         brewService
@@ -54,23 +54,9 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
-    },
 
-    methods: {
-        submitReview(review) {
-            brewService
-                .insertReview(review)
-                .then(response => {
-                    if (response.status === 200) {
-                        this.$store.commit('SET_REVIEWS', response.data);
-                        this.reviews = this.$store.state.reviews.filter(r => r.brewId == brew_Id);
-                        console.log('Reviews Data:', this.reviews);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error submitting review:', error);
-                });
-        }
+
+
     },
 
     components: {
@@ -80,7 +66,7 @@ export default {
         Review,
         FooterView
     },
-};
+}
 </script>
   
 
