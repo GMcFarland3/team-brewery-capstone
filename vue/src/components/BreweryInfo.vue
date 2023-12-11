@@ -9,31 +9,36 @@
                 <h1>{{ brewery.name }}</h1>
             </div>
             <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
-            <button class="AddBeer">Add Beer!</button>
-            <form @submit,prevent="submitBeer">
-                <div class="name">
-                    <label for="name">Beer name</label>
-                    <textarea id="beerName"></textarea>
-                </div>
-                <div class="type">
-                    <label for="type">Beer type</label>
-                    <textarea id="beerType"></textarea>
-                </div>
-                <div class="Description">
-                    <label for="Description">Description </label>
-                    <textarea id="Description"></textarea>
-                </div>
-                <div class="image">
-                    <label for="image">Beer image</label>
-                    <textarea id="beerImage"></textarea>
-                </div>
-                <div class="ABV">
-                    <label for="ABV">Beer abv</label>
-                    <textarea id="beerAbv"></textarea>
-                </div>
 
-            </form>
+            <div class="makeBeer">
+                <button class="AddBeer">Add Beer!</button>
+                <form @submit,prevent="submitBeer">
+                    <div class="name">
+                        <label for="name">Beer name</label>
+                        <textarea id="beerName" v-model="beer.name" required type="text"></textarea>
+                    </div>
+                    <div class="type">
+                        <label for="type">Beer type</label>
+                        <textarea id="beerType" v-model="beer.type" required type="text"></textarea>
+                    </div>
+                    <div class="Description">
+                        <label for="Description">Description </label>
+                        <textarea id="Description" v-model="beer.Description" required></textarea>
+                    </div>
+                    <div class="image">
+                        <label for="image">Beer image</label>
+                        <textarea id="beerImage" v-model="beer.image" required type="url"></textarea>
+                    </div>
+                    <div class="ABV">
+                        <label for="ABV">Beer abv</label>
+                        <textarea id="beerAbv" v-model="beer.ABV" required type="number"></textarea>
+                    </div>
+                    <div class="submit">
+                        <button type="submit">Submit</button>
+                    </div>
 
+                </form>
+            </div>
         </div>
 
         <div class="details">
@@ -54,15 +59,45 @@
 <script>
 import BreweriesService from '../services/BreweriesService';
 export default {
+    props: {
+        brew_id: {
+            type: Number,
+            required: true
+        }
+    },
     data() {
         return {
             brewery: {},
+            beer: {
+                beer_Id: '',
+                brew_Id: '',
+                name: '',
+                type: '',
+                abv: '',
+                description: '',
+                image: ''
+            },
         }
     },
 
     created() {
         const brew_Id = this.$route.params.brew_Id;
         this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
+        BreweriesService
+            .getBeers()
+            .then(response => {
+                if (response.status == 200) {
+                    this.reviews = response.data;
+                    this.$store.commit('SET_BEERS', response.data);
+
+                }
+            })
+            .catch(error => {
+                const response = error.response;
+                if (response.status === 401) {
+                    this.invalidCredentials = true;
+                }
+            });
 
     },
     methods: {
@@ -73,8 +108,8 @@ export default {
                 .insertBeer(this.beer)
                 .then(response => {
                     if (response.status === 201) {
-                        // Handle successful creation (e.g., update this.reviews)
-                        this.beers.push(response.data); // Add the new review to the local reviews array
+                        // Handle successful creation (e.g., update this.beer)
+                        this.beers.push(response.data); // Add the new ber to the local beers array
                         console.log('Beer submitted successfully:', response.data);
                     }
                 })
@@ -184,5 +219,13 @@ form {
 
     text-align: center;
 
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
 }
 </style>
