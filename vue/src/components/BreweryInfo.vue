@@ -23,7 +23,7 @@
                     </div>
                     <div class="Description">
                         <label for="Description">Description </label>
-                        <textarea id="Description" v-model="beer.Description" required></textarea>
+                        <textarea id="Description" v-model="beer.description" required></textarea>
                     </div>
                     <div class="image">
                         <label for="image">Beer image</label>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="ABV">
                         <label for="ABV">Beer abv</label>
-                        <textarea id="beerAbv" v-model="beer.ABV" required type="number"></textarea>
+                        <textarea id="beerAbv" v-model="beer.abv" required type="number"></textarea>
                     </div>
                     <div class="submit">
                         <button type="submit">Submit</button>
@@ -81,6 +81,7 @@ export default {
                 description: '',
                 image: ''
             },
+            beers: []
         }
     },
 
@@ -113,7 +114,7 @@ export default {
                 .then(response => {
                     if (response.status === 201) {
                         // Handle successful creation (e.g., update this.beer)
-                        this.beer.push(response.data); // Add the new ber to the local beers array
+                        this.beers.push(response.data); // Add the new ber to the local beers array
                         console.log('Beer submitted successfully:', response.data);
                     }
                 })
