@@ -33,7 +33,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public List<Review> getReviewsByUserId(int id) {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT user_id, brew_id, beer_id, review, rating, favorite, liked FROM public.reviews WHERE user_id = ?;";
+        String sql = "SELECT user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image FROM public.reviews WHERE user_id = ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
             while (results.next()) {
@@ -72,7 +72,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public List<Review> getReviewsByBrewId(int id) {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT user_id, brew_id, beer_id, review, rating, favorite, liked FROM public.reviews WHERE brew_id = ?;";
+        String sql = "SELECT user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image FROM public.reviews WHERE brew_id = ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
             while (results.next()) {
@@ -89,7 +89,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public List<Review> getReviewsByBeerId(int id) {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT user_id, brew_id, beer_id, review, rating, favorite, liked FROM public.reviews WHERE beer_id = ?;";
+        String sql = "SELECT user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image FROM public.reviews WHERE beer_id = ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
             while (results.next()) {
@@ -104,7 +104,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public List<Review> listReviews() {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT user_id, brew_id, beer_id, review, rating, favorite, liked FROM public.reviews";
+        String sql = "SELECT user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image FROM public.reviews";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
@@ -117,20 +117,17 @@ public class JdbcReviewDao implements ReviewDao {
         return reviews;
     }
 
-
-
-
-
     private Review mapRowToReview(SqlRowSet rs) {
         Review review = new Review();
         review.setUser_id(rs.getInt("user_id"));
         review.setBrew_id(rs.getInt("brew_id"));
         review.setBeer_id(rs.getInt("beer_id"));
+        review.setBeerName(rs.getString("beerName"));
         review.setReview(rs.getString("review"));
         review.setRating(rs.getInt("rating"));
         review.setFavorite(rs.getBoolean("favorite"));
         review.setFavorite(rs.getBoolean("liked"));
-
+        review.setImage(rs.getString("image"));
         return review;
     }
 }
