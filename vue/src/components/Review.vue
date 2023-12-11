@@ -24,7 +24,7 @@
                     <label for="comment">Comment => </label>
                     <textarea id="comment" v-model="review.review" required></textarea>
                 </div>
-                <div class="submit">
+                <div class="submit">git pull
                     <button type="submit">Submit</button>
                 </div>
             </form>
