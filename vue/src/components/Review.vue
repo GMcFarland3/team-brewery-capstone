@@ -25,7 +25,7 @@
                     <label for="comment">Comment => </label>
                     <textarea id="comment" v-model="review.review" required></textarea>
                 </div>
-                <div class="submit">git pull
+                <div class="submit">
                     <button type="submit">Submit</button>
                 </div>
             </form>
@@ -36,6 +36,7 @@
                 <li v-for="(review, index) in filteredReviews" :key="index">
                     <div>
                         <strong>{{ $store.state.user.username }}</strong>
+                        <strong> {{ }}</strong>
                         <div>
                             <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         </div>
