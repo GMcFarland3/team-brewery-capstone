@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BeerDao {
    List<Beer> listBeers();
+   Beer addBeer(Beer beer);
 }

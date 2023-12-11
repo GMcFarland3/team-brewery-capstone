@@ -101,5 +101,16 @@ public class BreweryController {
     public List<Review> listReviews(Principal principal) {
         return this.reviewDao.listReviews();
     }
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/beer", method = RequestMethod.POST)
+    public Beer addBeers(@Valid @RequestBody Beer beer) {
+        try {
+            return beerDao.addBeer(beer);
+        } catch (ResponseStatusException rse) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
+        }
+    }
+
 
 }
