@@ -16,6 +16,9 @@ export default {
 
     getReviews() {
         return axios.get('/reviews')
+    },
+    insertBeer(beer) {
+        return axios.post('/addBeer', beer)
     }
 
 }
