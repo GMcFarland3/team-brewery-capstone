@@ -2,7 +2,6 @@
     <section>
         <div class="picture">
             <img :src="brewery.image" alt="image broken"> <!-- Use the brewery's image source -->
-
         </div>
 
         <div class="history">
@@ -11,7 +10,6 @@
             </div>
             <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
         </div>
-
 
         <div class="details">
             <h3>Details</h3>

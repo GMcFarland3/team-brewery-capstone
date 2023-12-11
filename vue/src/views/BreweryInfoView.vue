@@ -2,16 +2,11 @@
     <div>
         <HeaderView />
         <section class="Brewery-Info">
-
             <div v-if="brewery">
                 <BreweryInfo :brewery="brewery" />
-
                 <BeerList :beers="beers" />
                 <Review :reviews="reviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" />
-
-
             </div>
-
         </section>
         <FooterView />
     </div>
@@ -54,9 +49,6 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
-
-
-
     },
 
     components: {
@@ -68,9 +60,6 @@ export default {
     },
 }
 </script>
-  
-
-
 
 
 <style scoped>
