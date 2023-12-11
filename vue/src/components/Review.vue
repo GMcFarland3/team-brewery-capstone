@@ -5,10 +5,12 @@
             <form @submit.prevent="submitReview">
                 <div class="beers">
                     <label for="beerList">Beers => </label>
-                    <select id="beerList" v-model="beer.beer_Id">
-                        <option v-for="beer in fBeers" :key="beer.beer_Id" value="beer.beer_Id">{{ beer.name }}</option>
+                    <select id="beerList" v-model="oneBeer">
+                        <option v-for="beer in filteredBeers" :key="beer.beerId" :value="beer">
+                            {{ beer.name }}</option>
                     </select>
                 </div>
+
                 <div class="rating">
                     <label for="rating">Rating => </label>
                     <select id="rating" v-model="review.rating" required>
@@ -24,6 +26,10 @@
                     <label for="comment">Comment => </label>
                     <textarea id="comment" v-model="review.review" required></textarea>
                 </div>
+                <div>
+                    <label for="image">Image => </label>
+                    <input type="src" id="image" v-model="photoUrl">
+                </div>
                 <div class="submit">
                     <button type="submit">Submit</button>
                 </div>
@@ -34,11 +40,19 @@
             <ul class="review">
                 <li v-for="(review, index) in filteredReviews" :key="index">
                     <div>
-                        <strong>{{ $store.state.user.username }}</strong>
+                        <div>
+                            <h1>{{ $store.state.user.username }}</h1>
+                        </div>
+                        <div>
+                            <h3>{{ review.beerName }}</h3>
+                        </div>
                         <div>
                             <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         </div>
                         <p>{{ review.review }}</p>
+                        <div class="reviewImage">
+                            <img :src="review.image" alt="pic not found">
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -56,21 +70,32 @@ export default {
                 user_id: '',      // You can set this later when you have user data
                 brew_id: '',      // Will be populated with the brewery ID
                 beer_id: '',      // Will be populated with the selected beer ID
-                name: '',          // The user's name (if needed)
+                beerName: '',          // The user's name (if needed)
                 rating: '',
                 review: '',
+                image: '',
             },
             reviews: [],
-            beer: {
-                beer_Id: '',
-                brew_Id: '',
+            beerList: {
+                beerId: '',
+                brewId: '',
                 name: '',
                 type: '',
                 abv: '',
                 description: '',
                 image: ''
             },
-            fBeers: []
+            beersList: [],
+            oneBeer: {
+                beerId: '',
+                brewId: '',
+                name: '',
+                type: '',
+                abv: '',
+                description: '',
+                image: ''
+            },
+            photoUrl: '',
         };
     },
     props: {
@@ -83,7 +108,7 @@ export default {
             required: false
         },
         beer_id: {
-            type: String,
+            type: Number,
             required: false
         },
     },
@@ -93,11 +118,13 @@ export default {
         filteredReviews() {
             return this.reviews.filter(review => review.brew_id == this.brew_id);
         },
-        // filteredBeers() {
-        //     return this.fBeers.filter(beer => beer.brew_Id == this.brew_id);
-        // }
+        filteredBeers() {
+            return this.beersList.filter(beerList => beerList.brewId == this.brew_id);
+        },
 
     },
+
+
 
     created() {
         brewService
@@ -106,7 +133,6 @@ export default {
                 if (response.status == 200) {
                     this.reviews = response.data;
                     this.$store.commit('SET_REVIEWS', response.data);
-
                 }
             })
             .catch(error => {
@@ -115,26 +141,29 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
-        this.fBeers = this.$store.state.beers;
+        this.beersList = this.$store.state.beers;
     },
 
     methods: {
         submitReview() {
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
-            this.review.beer_id = this.beer_id; // Set the beer ID
+            this.review.beer_id = this.oneBeer.beerId; // Set the beer ID
+            this.review.beerName = this.oneBeer.name; // Set the beer name
+            this.review.image = this.photoUrl; // Set the beer image
             brewService
                 .insertReview(this.review)
                 .then(response => {
                     if (response.status === 201) {
                         // Handle successful creation (e.g., update this.reviews)
                         this.reviews.push(response.data); // Add the new review to the local reviews array
-                        console.log('Review submitted successfully:', response.data);
+                        // console.log('Review submitted successfully:', response.data);
                     }
                 })
                 .catch(error => {
                     console.error('Error submitting review:', error);
                 });
+
         },
     }
 };
@@ -148,7 +177,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 600px;
+    width: 35rem;
+    height: 12rem;
     margin: auto;
     border-radius: 1rem;
     border: black solid 1px;
@@ -165,6 +195,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .allReviews {
@@ -187,6 +218,13 @@ h1 {
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
     padding: 20px;
+}
+
+img {
+    width: 15rem;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
 }
 
 li {
