@@ -5,8 +5,8 @@
             <form @submit.prevent="submitReview">
                 <div class="beers">
                     <label for="beerList">Beers => </label>
-                    <select id="beerList" v-model="beer.beer_Id">
-                        <option v-for="beer in fBeers" :key="beer.beer_Id" value="beer.beer_Id">{{ beer.name }}</option>
+                    <select id="beerList" v-model="beer.beerId">
+                        <option v-for="beer in fBeers" :key="beer.beerId" value="beer.beerId">{{ beer.name }}</option>
                     </select>
                 </div>
                 <div class="rating">
@@ -90,14 +90,19 @@ export default {
 
 
     computed: {
-        filteredReviews() {
-            return this.reviews.filter(review => review.brew_id == this.brew_id);
-        },
-        // filteredBeers() {
-        //     return this.fBeers.filter(beer => beer.brew_Id == this.brew_id);
-        // }
-
+    filteredReviews() {
+        return this.reviews.filter(review => review.brew_id == this.brew_id);
     },
+    filteredBeers() {
+        const reviewedBeerIds = this.filteredReviews.map(review => review.beer_id);
+        return this.fBeers.filter(beer => {
+            return (
+                beer.brewId == this.brew_id &&
+                !reviewedBeerIds.includes(beer.beerId)
+            );
+        });
+    }
+},
 
     created() {
         brewService
@@ -115,7 +120,7 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
-        this.fBeers = this.$store.state.beers;
+         this.fBeers = this.filteredBeers;
     },
 
     methods: {
