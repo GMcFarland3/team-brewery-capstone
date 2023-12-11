@@ -5,10 +5,12 @@ public class Review {
     private int user_id;
     private int brew_id;
     private int beer_id;
+    private String beerName;
     private String review;
     private int rating;
     private boolean favorite;
     private boolean liked;
+    private String image;
 
     public int getUser_id() {
         return user_id;
@@ -64,5 +66,21 @@ public class Review {
 
     public void setLiked(boolean liked) {
         this.liked = liked;
+    }
+
+    public String getBeerName() {
+        return beerName;
+    }
+
+    public void setBeerName(String beerName) {
+        this.beerName = beerName;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

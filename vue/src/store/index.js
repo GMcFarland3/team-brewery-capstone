@@ -39,10 +39,12 @@ export function createStore(currentToken, currentUser) {
           user_id: '',
           brew_id: '',
           beer_id: '',
+          beerName: '',
           review: '',
           rating: '',
           favorite: '',
           liked: '',
+          image: '',
         }
       ]
 

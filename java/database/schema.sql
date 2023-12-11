@@ -54,10 +54,12 @@ CREATE TABLE reviews (
     user_id int NOT NULL,
     brew_id int,
     beer_id int,
+    beerName varchar(30),
     review varchar(500),
     rating int,
     favorite boolean,
     liked boolean,
+    image varchar(500),
     CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 

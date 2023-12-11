@@ -15,8 +15,28 @@
 import MainView from "@/views/MainView.vue";
 import HeaderView from "@/views/HeaderView.vue";
 import FooterView from "@/views/FooterView.vue";
+import brewService from '../services/BreweriesService'; // Import your API service
+import BeerList from '../components/BeerList.vue';
 
 export default {
+  created() {
+
+    brewService
+      .getBeers()
+      .then(response => {
+        if (response.status == 200) {
+          this.$store.commit('SET_BEERS', response.data);
+          // this.beers = this.$store.state.beers.filter(b => b.brewId == brew_Id);
+        }
+      })
+      .catch(error => {
+        const response = error.response;
+        if (response.status === 401) {
+          this.invalidCredentials = true;
+        }
+      });
+  },
+
   components: {
     HeaderView,
     MainView,

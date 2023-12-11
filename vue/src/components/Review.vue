@@ -5,8 +5,9 @@
             <form @submit.prevent="submitReview">
                 <div class="beers">
                     <label for="beerList">Beers => </label>
-                    <select id="beerList" v-model="beer.beerId">
-                        <option v-for="beer in fBeers" :key="beer.beerId" value="beer.beerId">{{ beer.name }}</option>
+                    <select id="beerList" v-model="oneBeer">
+                        <option v-for="beerList in filteredBeers" :key="beerList.beerId" :value="{ id: beersList.beerId }">
+                            {{ beerList.name }}</option>
                     </select>
                 </div>
                 <div class="rating">
@@ -34,11 +35,19 @@
             <ul class="review">
                 <li v-for="(review, index) in filteredReviews" :key="index">
                     <div>
-                        <strong>{{ $store.state.user.username }}</strong>
+                        <div>
+                            <h1>{{ $store.state.user.username }}</h1>
+                        </div>
+                        <div>
+                            <h3>{{ review.beerName }}</h3>
+                        </div>
                         <div>
                             <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         </div>
                         <p>{{ review.review }}</p>
+                        <div class="reviewImage">
+                            <img :src="review.image" alt="pic not found">
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -56,21 +65,32 @@ export default {
                 user_id: '',      // You can set this later when you have user data
                 brew_id: '',      // Will be populated with the brewery ID
                 beer_id: '',      // Will be populated with the selected beer ID
-                name: '',          // The user's name (if needed)
+                beerName: '',          // The user's name (if needed)
                 rating: '',
                 review: '',
+                image: '',
             },
             reviews: [],
-            beer: {
-                beer_Id: '',
-                brew_Id: '',
+            beerList: {
+                beerId: '',
+                brewId: '',
                 name: '',
                 type: '',
                 abv: '',
                 description: '',
                 image: ''
             },
-            fBeers: []
+            beersList: [],
+            oneBeer: {
+                beerId: '',
+                brewId: '',
+                name: '',
+                type: '',
+                abv: '',
+                description: '',
+                image: ''
+            },
+            currentBeerId: null,
         };
     },
     props: {
@@ -83,26 +103,23 @@ export default {
             required: false
         },
         beer_id: {
-            type: String,
+            type: Number,
             required: false
         },
     },
 
 
     computed: {
-    filteredReviews() {
-        return this.reviews.filter(review => review.brew_id == this.brew_id);
+        filteredReviews() {
+            return this.reviews.filter(review => review.brew_id == this.brew_id);
+        },
+        filteredBeers() {
+            return this.beersList.filter(beerList => beerList.brewId == this.brew_id);
+        },
+
     },
-    filteredBeers() {
-        const reviewedBeerIds = this.filteredReviews.map(review => review.beer_id);
-        return this.fBeers.filter(beer => {
-            return (
-                beer.brewId == this.brew_id &&
-                !reviewedBeerIds.includes(beer.beerId)
-            );
-        });
-    }
-},
+
+
 
     created() {
         brewService
@@ -111,7 +128,6 @@ export default {
                 if (response.status == 200) {
                     this.reviews = response.data;
                     this.$store.commit('SET_REVIEWS', response.data);
-
                 }
             })
             .catch(error => {
@@ -120,27 +136,31 @@ export default {
                     this.invalidCredentials = true;
                 }
             });
-         this.fBeers = this.filteredBeers;
+        this.beersList = this.$store.state.beers;
     },
 
     methods: {
         submitReview() {
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
-            this.review.beer_id = this.beer_id; // Set the beer ID
+            this.review.beer_id = this.beerList.beerId;
             brewService
                 .insertReview(this.review)
                 .then(response => {
                     if (response.status === 201) {
                         // Handle successful creation (e.g., update this.reviews)
                         this.reviews.push(response.data); // Add the new review to the local reviews array
-                        console.log('Review submitted successfully:', response.data);
+                        // console.log('Review submitted successfully:', response.data);
                     }
                 })
                 .catch(error => {
                     console.error('Error submitting review:', error);
                 });
         },
+        // getBeerName(id) {
+        //     this.oneBeer = this.beersList.find(b => b.beerId == id);
+        //     return this.oneBeer.name;
+        // }
     }
 };
 </script>
@@ -153,7 +173,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 600px;
+    width: 35rem;
+    height: 12rem;
     margin: auto;
     border-radius: 1rem;
     border: black solid 1px;
@@ -170,6 +191,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .allReviews {
@@ -192,6 +214,13 @@ h1 {
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
     padding: 20px;
+}
+
+img {
+    width: 15rem;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
 }
 
 li {
