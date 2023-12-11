@@ -1,8 +1,8 @@
 <template>
     <div class="fadephoto">
       <transition name="fade" mode="out-in">
-        <router-link :to="'/breweryInfo/' + currentBrewery.brew_Id">
-          <img :key="currentBrewery.brew_Id" :src="currentBrewery.image" :alt="currentBrewery.name" class="fade-image" />
+        <router-link v-if="currentBrewery" :to="'/breweryInfo/' + currentBrewery.brew_id">
+          <img :key="currentBrewery.brew_id" :src="currentBrewery.image" :alt="currentBrewery.name" class="fade-image" />
         </router-link>
       </transition>
     </div>
