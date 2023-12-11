@@ -6,10 +6,11 @@
                 <div class="beers">
                     <label for="beerList">Beers => </label>
                     <select id="beerList" v-model="oneBeer">
-                        <option v-for="beerList in filteredBeers" :key="beerList.beerId" :value="{ id: beersList.beerId }">
-                            {{ beerList.name }}</option>
+                        <option v-for="beer in filteredBeers" :key="beer.beerId" :value="beer">
+                            {{ beer.name }}</option>
                     </select>
                 </div>
+
                 <div class="rating">
                     <label for="rating">Rating => </label>
                     <select id="rating" v-model="review.rating" required>
@@ -24,6 +25,10 @@
                 <div class="comment">
                     <label for="comment">Comment => </label>
                     <textarea id="comment" v-model="review.review" required></textarea>
+                </div>
+                <div>
+                    <label for="image">Image => </label>
+                    <input type="src" id="image" v-model="photoUrl">
                 </div>
                 <div class="submit">
                     <button type="submit">Submit</button>
@@ -90,7 +95,7 @@ export default {
                 description: '',
                 image: ''
             },
-            currentBeerId: null,
+            photoUrl: '',
         };
     },
     props: {
@@ -143,7 +148,9 @@ export default {
         submitReview() {
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
-            this.review.beer_id = this.beerList.beerId;
+            this.review.beer_id = this.oneBeer.beerId; // Set the beer ID
+            this.review.beerName = this.oneBeer.name; // Set the beer name
+            this.review.image = this.photoUrl; // Set the beer image
             brewService
                 .insertReview(this.review)
                 .then(response => {
@@ -156,11 +163,8 @@ export default {
                 .catch(error => {
                     console.error('Error submitting review:', error);
                 });
+
         },
-        // getBeerName(id) {
-        //     this.oneBeer = this.beersList.find(b => b.beerId == id);
-        //     return this.oneBeer.name;
-        // }
     }
 };
 </script>

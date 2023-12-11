@@ -46,15 +46,27 @@ public class JdbcReviewDao implements ReviewDao {
         return reviews;
     }
 
+//    @Override
+//    public Review createReview(Review review) {
+//        String sql = "INSERT INTO public.reviews(user_id, brew_id, beer_id, review, rating, favorite, liked) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING user_id;";
+//        try {
+//            int rowInserted = jdbcTemplate.queryForObject(sql, int.class, review.getUser_id(), review.getBrew_id(), review.getBeer_id(), review.getReview(), review.getRating(), review.isFavorite(), review.isLiked());
+//         } catch (CannotGetJdbcConnectionException e) {
+//            throw new DaoException("Unable to connect to server or database", e);
+//        }
+//        return review;
+
     @Override
     public Review createReview(Review review) {
-        String sql = "INSERT INTO public.reviews(user_id, brew_id, beer_id, review, rating, favorite, liked) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING user_id;";
+        String sql = "INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING user_id;";
         try {
-            int rowInserted = jdbcTemplate.queryForObject(sql, int.class, review.getUser_id(), review.getBrew_id(), review.getBeer_id(), review.getReview(), review.getRating(), review.isFavorite(), review.isLiked());
-         } catch (CannotGetJdbcConnectionException e) {
+            int rowInserted = jdbcTemplate.queryForObject(sql, int.class, review.getUser_id(), review.getBrew_id(), review.getBeer_id(), review.getBeerName(), review.getReview(), review.getRating(), review.isFavorite(), review.isLiked(), review.getImage());
+        } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         }
         return review;
+    }
+
 
 //   This is the JSON body for create Review
 //        {
@@ -66,8 +78,6 @@ public class JdbcReviewDao implements ReviewDao {
 //                "favorite": "true",
 //                "liked": "true"
 //        }
-
-    }
 
     @Override
     public List<Review> getReviewsByBrewId(int id) {
