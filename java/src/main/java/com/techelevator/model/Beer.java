@@ -1,6 +1,9 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Beer {
+    
     private int beer_id;
     private int brewId;
     private String name;

@@ -12,7 +12,7 @@
 
             <div class="makeBeer">
                 <button class="AddBeer">Add Beer!</button>
-                <form @submit,prevent="submitBeer">
+                <form @submit.prevent="submitBeer">
                     <div class="name">
                         <label for="name">Beer name</label>
                         <textarea id="beerName" v-model="beer.name" required type="text"></textarea>
@@ -63,14 +63,18 @@ export default {
         brew_id: {
             type: Number,
             required: true
+        },
+        brewery: {
+            type: Object,
+            required: true
         }
     },
     data() {
         return {
-            brewery: {},
+            // brewery: {},
             beer: {
                 beer_Id: '',
-                brew_Id: '',
+                brew_id: '',
                 name: '',
                 type: '',
                 abv: '',
@@ -81,8 +85,8 @@ export default {
     },
 
     created() {
-        const brew_Id = this.$route.params.brew_Id;
-        this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
+        // const brew_Id = this.$route.params.brew_Id;
+        // this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
         BreweriesService
             .getBeers()
             .then(response => {
@@ -102,14 +106,14 @@ export default {
     },
     methods: {
         submitBeer() {
-            this.beer.brew_id = this.brew_id;
+            this.beer.brewId = this.brewery.brew_id;
             // this.beer.beer_id = this.beer_id;
             BreweriesService
                 .insertBeer(this.beer)
                 .then(response => {
                     if (response.status === 201) {
                         // Handle successful creation (e.g., update this.beer)
-                        this.beers.push(response.data); // Add the new ber to the local beers array
+                        this.beer.push(response.data); // Add the new ber to the local beers array
                         console.log('Beer submitted successfully:', response.data);
                     }
                 })
