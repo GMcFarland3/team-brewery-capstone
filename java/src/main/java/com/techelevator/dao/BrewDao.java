@@ -13,4 +13,6 @@ public interface BrewDao {
 
     Brewery getBreweryById(int breweryId);
 
+    void updateBrewery(Brewery brewery, int id);
+
 }
