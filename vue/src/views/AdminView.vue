@@ -148,6 +148,22 @@ export default {
             selectedUserId: "", // Add selectedUserId data property
         };
     },
+
+    created: {
+        getAllUsers() {
+            // Make an API request to get all users
+            userService.getUsers()
+                .then((response) => {
+                    this.userList = response.data;
+                    this.$store.commit('SET_USERS', this.userList);
+                })
+                .catch((error) => {
+                    console.error("Error fetching users:", error);
+                });
+        }
+    },
+
+
     methods: {
         addBrewery() {
             brewService
@@ -162,17 +178,6 @@ export default {
                     if (response.status === 401) {
                         this.invalidCredentials = true;
                     }
-                });
-        },
-
-        getAllUsers() {
-            // Make an API request to get all users
-            userService.getUsers()
-                .then((response) => {
-                    this.userList = response.data;
-                })
-                .catch((error) => {
-                    console.error("Error fetching users:", error);
                 });
         },
 
