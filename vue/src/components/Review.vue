@@ -40,7 +40,7 @@
             <ul class="review">
                 <li v-for="(review, index) in filteredReviews" :key="index">
                     <div>
-                        <h1>{{ $store.state.user.username }}</h1>
+                        <h1>{{ review.name }}</h1>
                         <h3>{{ review.beerName }}</h3>
                         <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         <p>{{ review.review }}</p>
