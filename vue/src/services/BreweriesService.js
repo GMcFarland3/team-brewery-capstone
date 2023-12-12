@@ -19,6 +19,9 @@ export default {
     },
     insertBeer(beer) {
         return axios.post('/addBeer', beer)
+    },
+    addBrewery(brewery) {
+        return axios.post('/addBrewery', brewery)
     }
 
 }
