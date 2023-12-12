@@ -93,6 +93,16 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/addBrewery", method = RequestMethod.POST)
+    public Brewery addBrewery(@Valid @RequestBody Brewery brewery) {
+        try {
+            return brewDao.createBrewery(brewery);
+        } catch (ResponseStatusException rse) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
+        }
+    }
 
 //    @PreAuthorize("hasRole('USER')")
 //    @ResponseStatus(HttpStatus.OK)
