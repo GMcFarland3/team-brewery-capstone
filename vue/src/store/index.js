@@ -30,7 +30,8 @@ export function createStore(currentToken, currentUser) {
           type: '',
           abv: '',
           description: '',
-          image: ''
+          image: '',
+          status: ''
         }
       ],
 

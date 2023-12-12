@@ -19,7 +19,7 @@ public class JdbcBeerDao implements BeerDao{
     @Override
     public List<Beer> listBeers(){
         List<Beer> beers = new ArrayList<>();
-        String sql = "SELECT beer_id, brew_id, name, type, description, abv, image FROM beers;";
+        String sql = "SELECT beer_id, brew_id, name, type, description, abv, image, status FROM beers;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
@@ -33,16 +33,14 @@ public class JdbcBeerDao implements BeerDao{
     }
     @Override
     public Beer addBeer(Beer beer) {
-        String sql = "INSERT INTO public.beers(brew_id, name, type, description, abv, image)VALUES (?, ?, ?, ?, ?, ?) RETURNING beer_id;";
+        String sql = "INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING beer_id;";
         try {
-            int rowInserted = jdbcTemplate.queryForObject(sql, int.class,beer.getBrewId(),beer.getName(),beer.getType(),beer.getDescription(),beer.getAbv(),beer.getImage());
+            int rowInserted = jdbcTemplate.queryForObject(sql, int.class,beer.getBrewId(),beer.getName(),beer.getType(),beer.getDescription(),beer.getAbv(),beer.getImage(),beer.isStatus());
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         }
         return beer;
     }
-
-
 
     private Beer mapRowToBeer(SqlRowSet rs){
         Beer beer = new Beer();
@@ -53,6 +51,7 @@ public class JdbcBeerDao implements BeerDao{
         beer.setDescription(rs.getString("description"));
         beer.setAbv(rs.getString("abv"));
         beer.setImage(rs.getString("image"));
+        beer.setStatus(rs.getBoolean("status"));
         return beer;
     }
 

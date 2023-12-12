@@ -46,6 +46,7 @@ CREATE TABLE beers (
     description varchar(500),
     abv varchar(5),
     image varchar(500),
+    status boolean,
     CONSTRAINT PK_beer PRIMARY KEY (beer_id),
     CONSTRAINT FK_brew FOREIGN KEY (brew_id) REFERENCES breweries(brew_id)
 );

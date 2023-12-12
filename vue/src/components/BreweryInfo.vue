@@ -11,7 +11,6 @@
             <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
 
             <div class="makeBeer">
-                <button class="AddBeer">Add Beer!</button>
                 <form @submit.prevent="submitBeer">
                     <div class="name">
                         <label for="name">Beer name</label>
@@ -36,7 +35,6 @@
                     <div class="submit">
                         <button type="submit">Submit</button>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -79,15 +77,14 @@ export default {
                 type: '',
                 abv: '',
                 description: '',
-                image: ''
+                image: '',
+                status: ''
             },
             beers: []
         }
     },
 
     created() {
-        // const brew_Id = this.$route.params.brew_Id;
-        // this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
         BreweriesService
             .getBeers()
             .then(response => {
@@ -108,7 +105,6 @@ export default {
     methods: {
         submitBeer() {
             this.beer.brewId = this.brewery.brew_id;
-            // this.beer.beer_id = this.beer_id;
             BreweriesService
                 .insertBeer(this.beer)
                 .then(response => {
@@ -121,7 +117,6 @@ export default {
                 .catch(error => {
                     console.error('Error submitting beer:', error);
                 });
-
         }
     }
 }
@@ -131,8 +126,6 @@ export default {
 <style scoped>
 section {
     display: flex;
-
-
 }
 
 img {
@@ -142,29 +135,31 @@ img {
 }
 
 .history {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     width: 200rem;
     padding-left: 1.5rem;
     flex-grow: 2;
     padding-right: 1.5rem;
-
 }
 
 .details>ul {
+    font-family: Arial, Helvetica, sans-serif;
     list-style-type: none;
     font-size: 1.5rem;
     justify-content: center;
     margin-top: 1px;
-
 }
 
 ul li {
+    font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
     text-align: center;
 }
 
 .details {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -174,42 +169,40 @@ ul li {
     padding-right: 2rem;
     border: 2.5px solid rgb(199, 170, 2);
     margin: 15px 0px 15px 0px;
-
-
 }
 
 section.details {
     display: flex;
-
 }
 
 .info {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: xx-large;
-
 }
 
 .details>h3 {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: xx-large;
     text-decoration: underline;
     justify-content: center;
     align-items: center;
     margin: 25px 0px 15px 15px;
-
 }
 
 .AddBeer {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25%;
     text-align: center;
-
 }
 
 button {
+    font-family: Arial, Helvetica, sans-serif;
     justify-content: center;
     align-items: center;
     width: 25%;
@@ -218,19 +211,18 @@ button {
 }
 
 form {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
 }
 
 .submit {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
 }
 </style>

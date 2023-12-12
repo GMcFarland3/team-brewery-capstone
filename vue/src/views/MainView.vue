@@ -7,10 +7,19 @@
     <div class="about-box">
       <h2>About Us</h2>
       <p>
-        Welcome to BrewScout, a one-stop destination for beer enthusiasts and connoisseurs alike! Our website curates an extensive list of diverse breweries, each offering a unique selection of flavorful beers. Discover a multitude of beer varieties, from hoppy ales to rich stouts, and explore comprehensive information about each brewery's history, beer types, ABV (Alcohol By Volume), descriptions, and captivating images.
-        Immerse yourself in the world of craft beer by browsing through our collection of breweries and their signature beers. Not only can you delve into the detailed profiles of breweries and their delightful brews, but you can also engage with the community by leaving reviews based on your experiences. Share your thoughts, rate your favorite beers, and provide valuable insights for fellow beer aficionados to explore.
-        What sets us apart is the ability to enhance your reviews with photos, allowing you to visually capture the essence of your beer-tasting adventures. Share snapshots of your favorite brews, ambiance of the breweries, or moments of enjoyment with friends, adding a personal touch to your reviews.
-        Join us on this immersive journey into the world of beers, where exploration, appreciation, and community intertwine to celebrate the artistry and flavors of craft brewing.
+        Welcome to BrewScout, a one-stop destination for beer enthusiasts and connoisseurs alike! Our website curates an
+        extensive list of diverse breweries, each offering a unique selection of flavorful beers. Discover a multitude of
+        beer varieties, from hoppy ales to rich stouts, and explore comprehensive information about each brewery's
+        history, beer types, ABV (Alcohol By Volume), descriptions, and captivating images.
+        Immerse yourself in the world of craft beer by browsing through our collection of breweries and their signature
+        beers. Not only can you delve into the detailed profiles of breweries and their delightful brews, but you can also
+        engage with the community by leaving reviews based on your experiences. Share your thoughts, rate your favorite
+        beers, and provide valuable insights for fellow beer aficionados to explore.
+        What sets us apart is the ability to enhance your reviews with photos, allowing you to visually capture the
+        essence of your beer-tasting adventures. Share snapshots of your favorite brews, ambiance of the breweries, or
+        moments of enjoyment with friends, adding a personal touch to your reviews.
+        Join us on this immersive journey into the world of beers, where exploration, appreciation, and community
+        intertwine to celebrate the artistry and flavors of craft brewing.
       </p>
     </div>
   </div>
@@ -54,16 +63,19 @@ export default {
 }
 
 .featured-section {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-bottom: 30px;
 }
 
 h1 {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
 .about-box {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #F5F5F5;
   padding: 20px;
   border: 1px solid #ddd;

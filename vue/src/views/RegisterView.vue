@@ -95,12 +95,14 @@ export default {
 
 
 #login {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(113, 112, 112);
   height: 52rem;
   text-align: center;
 }
 
 .form-input-group {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-bottom: 1rem;
   color: gold;
@@ -109,6 +111,7 @@ export default {
 }
 
 label {
+  font-family: Arial, Helvetica, sans-serif;
   margin-right: 0.5rem;
 }
 
@@ -119,6 +122,7 @@ label {
 }
 
 p {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   text-decoration: none;
 }

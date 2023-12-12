@@ -75,12 +75,14 @@ export default {
 
 <style scoped>
 #home {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 2rem;
   text-decoration: none;
 }
 
 p {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   text-decoration: none;
 }
@@ -98,6 +100,7 @@ p {
 }
 
 input {
+  font-family: Arial, Helvetica, sans-serif;
   width: 9rem;
   height: 1rem;
   margin-bottom: 1rem;
@@ -106,10 +109,12 @@ input {
 }
 
 h1 {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
 }
 
 .form-input-group {
+  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 2rem;
   text-align: center;
   color: gold;
@@ -117,12 +122,14 @@ h1 {
 }
 
 label {
+  font-family: Arial, Helvetica, sans-serif;
   margin-right: 0.5rem;
   text-align: center;
 
 }
 
 #login {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(113, 112, 112);
   height: 52rem;
   text-align: center;
