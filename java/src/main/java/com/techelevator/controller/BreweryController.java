@@ -37,27 +37,6 @@ public class BreweryController {
 
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path = "/breweries", method = RequestMethod.GET)
-    public List<Brewery> listBreweries(Principal principal) {
-//        if (this.getLoggedInUserId(principal) != id) {
-//            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized.");
-//        }
-//        if (this.userDao.validateUserId(id)) {
-            return this.brewDao.listBreweries();
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid User Id.");
-//        }
-    }
-
-    @PreAuthorize("hasRole('USER')")
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path = "/breweries/beers", method = RequestMethod.GET)
-    public List<Beer> getBeers(Principal principal) {
-            return this.beerDao.listBeers();
-   }
-
-    @PreAuthorize("hasRole('USER')")
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/breweries/{id}", method = RequestMethod.GET)
     public Brewery getBreweryById(@PathVariable int id, Principal principal) {
         Brewery newBrewery = this.brewDao.getBreweryById(id);
@@ -101,6 +80,7 @@ public class BreweryController {
     public List<Review> listReviews(Principal principal) {
         return this.reviewDao.listReviews();
     }
+
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addBeer", method = RequestMethod.POST)
