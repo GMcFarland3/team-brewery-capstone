@@ -2,23 +2,26 @@ import axios from 'axios';
 
 export default {
 
+    // Open API calls for non-login users can view
     getBreweries() {
         return axios.get('/breweries')
     },
-
     getBeers() {
-        return axios.get('/breweries/beers')
+        return axios.get('/beers')
     },
-
-    insertReview(review) {
-        return axios.post('/review/user/:id', review)
-    },
-
     getReviews() {
         return axios.get('/reviews')
     },
+
+    // Must be login and have permissions 
+    insertReview(review) {
+        return axios.post('/addReview', review)
+    },
     insertBeer(beer) {
         return axios.post('/addBeer', beer)
+    },
+    addBrewery(brewery) {
+        return axios.post('/addBrewery', brewery)
     }
 
 }

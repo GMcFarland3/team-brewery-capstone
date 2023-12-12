@@ -68,17 +68,6 @@ public class JdbcReviewDao implements ReviewDao {
     }
 
 
-//   This is the JSON body for create Review
-//        {
-//                 "user_id": 3,
-//                "brew_id": 1,
-//                "beer_id": 1,
-//                "review": "love this place",
-//                "rating": 5,
-//                "favorite": "true",
-//                "liked": "true"
-//        }
-
     @Override
     public List<Review> getReviewsByBrewId(int id) {
         List<Review> reviews = new ArrayList<>();
@@ -114,7 +103,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public List<Review> listReviews() {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image FROM public.reviews";
+        String sql = "SELECT reviews.user_id, reviews.brew_id, reviews.beer_id, reviews.beerName, reviews.review, reviews.rating, reviews.favorite, reviews.liked, reviews.image, users.username FROM reviews INNER JOIN users ON reviews.user_id = users.user_id;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
@@ -138,6 +127,7 @@ public class JdbcReviewDao implements ReviewDao {
         review.setFavorite(rs.getBoolean("favorite"));
         review.setFavorite(rs.getBoolean("liked"));
         review.setImage(rs.getString("image"));
+        review.setName(rs.getString("username"));
         return review;
     }
 }
