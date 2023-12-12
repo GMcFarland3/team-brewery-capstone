@@ -76,12 +76,12 @@ public class BreweryController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
-    public List<Review> listReviews(Principal principal) {
-        return this.reviewDao.listReviews();
-    }
+//    @PreAuthorize("hasRole('USER')")
+//    @ResponseStatus(HttpStatus.OK)
+//    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
+//    public List<Review> listReviews(Principal principal) {
+//        return this.reviewDao.listReviews();
+//    }
 
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.CREATED)
@@ -128,7 +128,7 @@ public class BreweryController {
 ////            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid User Id.");
 ////        }
 //    }
-    
+
 
 //    @PreAuthorize("hasRole('USER')")
 //    @ResponseStatus(HttpStatus.OK)
