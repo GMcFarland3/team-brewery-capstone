@@ -173,9 +173,8 @@ form {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 35rem;
-    height: 12rem;
+    height: 18rem;
     margin: auto;
     border-radius: 1rem;
     border: black solid 1px;
@@ -192,10 +191,6 @@ h1 {
 
 .leaveReview {
     font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
 }
 
 .allReviews {
@@ -203,6 +198,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5rem;
 }
 
 .beers {
@@ -214,12 +210,12 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 600px;
     /* margin: 0 0 3rem 34rem; */
     border-radius: 1rem;
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
     padding: 20px;
+
 }
 
 img {
@@ -294,6 +290,8 @@ label {
     text-align: left;
     padding-left: 5px;
     width: 180px;
+    font-size: 1rem;
+
 }
 
 input {
