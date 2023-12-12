@@ -215,6 +215,7 @@ h1 {
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
     padding: 20px;
+
 }
 
 img {

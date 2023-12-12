@@ -1,39 +1,41 @@
 <template>
-    <section>
-        <div class="picture">
-            <img :src="brewery.image" alt="image broken"> <!-- Use the brewery's image source -->
+    <div>
+        <div class="makeBeer">
+            <h1>Add Beer!</h1>
+            <form @submit.prevent="submitBeer">
+                <div class="name">
+                    <label for="name">Beer name</label>
+                    <textarea id="beerName" v-model="beer.name" required type="text"></textarea>
+                </div>
+                <div class="type">
+                    <label for="type">Beer type</label>
+                    <textarea id="beerType" v-model="beer.type" required type="text"></textarea>
+                </div>
+                <div class="Description">
+                    <label for="Description">Description </label>
+                    <textarea id="Description" v-model="beer.description" required></textarea>
+                </div>
+                <div class="image">
+                    <label for="image">Beer image</label>
+                    <textarea id="beerImage" v-model="beer.image" required type="url"></textarea>
+                </div>
+                <div class="ABV">
+                    <label for="ABV">Beer abv</label>
+                    <textarea id="beerAbv" v-model="beer.abv" required type="number"></textarea>
+                </div>
+                <div class="submit">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
         </div>
-
-        <div class="history">
-            <div class="info">
-                <h1>{{ brewery.name }}</h1>
-            </div>
-            <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
-        </div>
-
-        <div class="details">
-            <h3>Details</h3>
-            <ul>
-                <li>Address: {{ brewery.address }}</li>
-                <li>City: {{ brewery.city }}</li>
-                <li>State: {{ brewery.state_abbr }}</li>
-                <li>Zip Code: {{ brewery.zip_code }}</li>
-                <li>Phone: {{ brewery.phone }}</li>
-                <li>Hours: {{ brewery.operation_hours }}</li>
-                <li>Website:<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
-            </ul>
-        </div>
-    </section>
+    </div>
 </template>
-  
+
 <script>
 import BreweriesService from '../services/BreweriesService';
 export default {
     props: {
-        brew_id: {
-            type: Number,
-            required: true
-        },
+
         brewery: {
             type: Object,
             required: true
@@ -141,6 +143,7 @@ ul li {
     padding-right: 2rem;
     border: 2.5px solid rgb(199, 170, 2);
     margin: 15px 0px 15px 0px;
+
 }
 
 section.details {
@@ -214,6 +217,7 @@ form {
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
     padding: 20px;
-
+    max-width: 1000px;
+    margin: 2rem 0px 2rem 25rem;
 }
 </style>
