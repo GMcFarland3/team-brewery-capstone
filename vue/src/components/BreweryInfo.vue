@@ -11,7 +11,7 @@
             <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
 
             <div class="makeBeer">
-                <button class="AddBeer">Add Beer!</button>
+                <h2 class="AddBeer">Add Beer!</h2>
                 <form @submit.prevent="submitBeer">
                     <div class="name">
                         <label for="name">Beer name</label>
@@ -229,8 +229,6 @@ form {
 .submit {
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    text-align: center;
+    align-items: flex-end;
 }
 </style>
