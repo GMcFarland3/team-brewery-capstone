@@ -42,6 +42,17 @@ public class JdbcBeerDao implements BeerDao{
         return beer;
     }
 
+    @Override
+    public void updateBeer(Beer beer,int id) {
+       String sql = "UPDATE public.beers SET brew_id=?, name=?, type=?, description=?, abv=?, image=?, status=? WHERE beer_id =?; ";
+        try {
+            int rowInserted = jdbcTemplate.update(sql,beer.getBrewId(),beer.getName(),beer.getType(),beer.getDescription(),beer.getAbv(),beer.getImage(),beer.isStatus(),id);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+
+    }
+
     private Beer mapRowToBeer(SqlRowSet rs){
         Beer beer = new Beer();
         beer.setBeerId(rs.getInt("beer_id"));
