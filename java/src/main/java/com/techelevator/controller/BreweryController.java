@@ -64,9 +64,10 @@ public class BreweryController {
         return this.reviewDao.getReviewsByBeerId(id);
     }
 
+
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/review/user/{id}", method = RequestMethod.POST)
+    @RequestMapping(path = "/addReview", method = RequestMethod.POST)
     public Review createReview(@Valid @RequestBody Review review) {
         try {
             return reviewDao.createReview(review);
@@ -74,6 +75,7 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
+
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/reviews", method = RequestMethod.GET)
@@ -92,5 +94,48 @@ public class BreweryController {
         }
     }
 
+//    @PreAuthorize("hasRole('USER')")
+//    @ResponseStatus(HttpStatus.OK)
+//    @RequestMapping(path = "/breweries", method = RequestMethod.GET)
+//    public List<Brewery> listBreweries(Principal principal) {
+////        if (this.getLoggedInUserId(principal) != id) {
+////            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized.");
+////        }
+////        if (this.userDao.validateUserId(id)) {
+//            return this.brewDao.listBreweries();
+////        } else {
+////            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid User Id.");
+////        }
+//    }
+
+
+//    @PreAuthorize("hasRole('USER')")
+//    @ResponseStatus(HttpStatus.OK)
+//    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.GET)
+//    public Brewery getBreweryById(@PathVariable int id, Principal principal) {
+//        Brewery newBrewery = this.brewDao.getBreweryById(id);
+//        return newBrewery;
+//    }
+//
+//    @PreAuthorize("hasRole('USER')")
+//    @ResponseStatus(HttpStatus.OK)
+//    @RequestMapping(path = "/reviews/user/{id}", method = RequestMethod.GET)
+//    public List<Review> getReviewsByUserId(@PathVariable int id, Principal principal) {
+//        return this.reviewDao.getReviewsByUserId(id);
+//    }
+//
+//    @PreAuthorize("hasRole('USER')")
+//    @ResponseStatus(HttpStatus.OK)
+//    @RequestMapping(path = "/reviews/brew/{id}", method = RequestMethod.GET)
+//    public List<Review> getReviewsByBrewId(@PathVariable int id, Principal principal) {
+//        return this.reviewDao.getReviewsByBrewId(id);
+//    }
+//
+//    @PreAuthorize("hasRole('USER')")
+//    @ResponseStatus(HttpStatus.OK)
+//    @RequestMapping(path = "/reviews/beer/{id}", method = RequestMethod.GET)
+//    public List<Review> getReviewsByBeerId(@PathVariable int id, Principal principal) {
+//        return this.reviewDao.getReviewsByBeerId(id);
+//    }
 
 }

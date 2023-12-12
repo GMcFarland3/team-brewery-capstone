@@ -46,6 +46,7 @@ export function createStore(currentToken, currentUser) {
           favorite: '',
           liked: '',
           image: '',
+          name: '',
         }
       ],
 

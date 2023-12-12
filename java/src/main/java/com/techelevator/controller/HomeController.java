@@ -6,6 +6,7 @@ import com.techelevator.dao.ReviewDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
+import com.techelevator.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -37,10 +38,18 @@ public class HomeController {
     }
 
 
+
+
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path = "/breweries/beers", method = RequestMethod.GET)
+    @RequestMapping(path = "/beers", method = RequestMethod.GET)
     public List<Beer> getBeers(Principal principal) {
         return this.beerDao.listBeers();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
+    public List<Review> listReviews(Principal principal) {
+        return this.reviewDao.listReviews();
     }
 
 }
