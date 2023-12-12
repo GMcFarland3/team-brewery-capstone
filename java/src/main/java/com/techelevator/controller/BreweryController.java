@@ -76,14 +76,7 @@ public class BreweryController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
-    public List<Review> listReviews(Principal principal) {
-        return this.reviewDao.listReviews();
-    }
-
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER', 'ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addBeer", method = RequestMethod.POST)
     public Beer addBeers(@Valid @RequestBody Beer beer) {
@@ -93,7 +86,7 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addBrewery", method = RequestMethod.POST)
     public Brewery addBrewery(@Valid @RequestBody Brewery brewery) {

@@ -37,9 +37,6 @@ public class HomeController {
         return this.brewDao.listBreweries();
     }
 
-
-
-
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/beers", method = RequestMethod.GET)
     public List<Beer> getBeers(Principal principal) {
