@@ -24,14 +24,14 @@
                 </div>
                 <div class="comment">
                     <label for="comment">Comment => </label>
-                    <textarea id="comment" v-model="review.review" required></textarea>
+                    <input type="src" id="comment" v-model="review.review" maxlength="500" required>
                 </div>
                 <div>
-                    <label for="image">Image => </label>
+                    <label for="image">Image URL => </label>
                     <input type="src" id="image" v-model="photoUrl">
                 </div>
                 <div class="submit">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Submit Review</button>
                 </div>
             </form>
         </div>
@@ -40,15 +40,9 @@
             <ul class="review">
                 <li v-for="(review, index) in filteredReviews" :key="index">
                     <div>
-                        <div>
-                            <h1>{{ $store.state.user.username }}</h1>
-                        </div>
-                        <div>
-                            <h3>{{ review.beerName }}</h3>
-                        </div>
-                        <div>
-                            <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
-                        </div>
+                        <h1>{{ $store.state.user.username }}</h1>
+                        <h3>{{ review.beerName }}</h3>
+                        <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         <p>{{ review.review }}</p>
                         <div class="reviewImage">
                             <img :src="review.image" alt="pic not found">
@@ -76,14 +70,15 @@ export default {
                 image: '',
             },
             reviews: [],
-            beerList: {
+            beer: {
                 beerId: '',
                 brewId: '',
                 name: '',
                 type: '',
                 abv: '',
                 description: '',
-                image: ''
+                image: '',
+                status: ''
             },
             beersList: [],
             oneBeer: {
@@ -93,7 +88,8 @@ export default {
                 type: '',
                 abv: '',
                 description: '',
-                image: ''
+                image: '',
+                status: ''
             },
             photoUrl: '',
         };
@@ -119,7 +115,7 @@ export default {
             return this.reviews.filter(review => review.brew_id == this.brew_id);
         },
         filteredBeers() {
-            return this.beersList.filter(beerList => beerList.brewId == this.brew_id);
+            return this.beersList.filter(beer => beer.brewId == this.brew_id);
         },
 
     },
@@ -174,6 +170,7 @@ export default {
 
 <style scoped>
 form {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -187,11 +184,14 @@ form {
 }
 
 h1 {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
     text-align: center;
+    margin: 10px 0px 10px 0px;
 }
 
 .leaveReview {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -199,6 +199,7 @@ h1 {
 }
 
 .allReviews {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,6 +210,7 @@ h1 {
 }
 
 .review {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -228,6 +230,7 @@ img {
 }
 
 li {
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     width: 32rem;
     /* Add space between each review */
@@ -245,36 +248,63 @@ ul {
 }
 
 .name {
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .rating {
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .comment {
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .submit {
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    margin-top: 30px;
 }
 
 button {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(199, 170, 3, 0.836);
     border: 1 solid black;
     color: white;
     padding: 9px 12px;
     display: inline-block;
-    font-size: 12px;
+    font-size: 1rem;
     border-radius: 2rem;
 }
 
 h2 {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     text-align: center;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    text-align: left;
+    padding-left: 5px;
+    width: 180px;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5px;
+    width: 400px;
+}
+
+select {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5px;
+    width: 400px;
 }
 </style>

@@ -26,7 +26,6 @@ export default {
       .then(response => {
         if (response.status == 200) {
           this.$store.commit('SET_BEERS', response.data);
-          // this.beers = this.$store.state.beers.filter(b => b.brewId == brew_Id);
         }
       })
       .catch(error => {

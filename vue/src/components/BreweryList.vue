@@ -19,6 +19,7 @@ export default {
   
 <style scoped>
 .brewery-card {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   display: inline-block;
@@ -30,6 +31,7 @@ export default {
 }
 
 .image-box {
+  font-family: Arial, Helvetica, sans-serif;
   width: 150px;
   /* Adjust the width as needed */
   height: 150px;
@@ -54,6 +56,7 @@ img {
 }
 
 .brewery-info {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 </style>

@@ -11,11 +11,11 @@ public class Beer {
     private String description;
     private String abv;
     private String image;
+    private boolean status;
 
     public int getBeerId() {
         return beer_id;
     }
-
     public void setBeerId(int beer_id) {
         this.beer_id = beer_id;
     }
@@ -23,7 +23,6 @@ public class Beer {
     public int getBrewId() {
         return brewId;
     }
-
     public void setBrewId(int brew_id) {
         this.brewId = brew_id;
     }
@@ -31,7 +30,6 @@ public class Beer {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -39,7 +37,6 @@ public class Beer {
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
@@ -47,7 +44,6 @@ public class Beer {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -55,7 +51,6 @@ public class Beer {
     public String getAbv() {
         return abv;
     }
-
     public void setAbv(String abv) {
         this.abv = abv;
     }
@@ -63,8 +58,14 @@ public class Beer {
     public String getImage() {
         return image;
     }
-
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

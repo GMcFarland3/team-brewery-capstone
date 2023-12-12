@@ -54,6 +54,7 @@ export default {
   
 <style scoped>
 h1 {
+  font-family: Arial, Helvetica, sans-serif;
   color: white;
   text-align: center;
   background-color: rgb(113, 112, 112);
@@ -61,6 +62,7 @@ h1 {
 }
 
 .list {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

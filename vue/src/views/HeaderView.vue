@@ -24,39 +24,30 @@
 </template>
 <style scoped>
 #banner {
-    height: 11rem;
+    height: 12rem;
     width: 12rem;
 }
 
-#home {
-    text-align: center;
-    font-size: 2rem;
-    text-decoration: none;
-}
-
 #BrewScout {
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    font-size: 2rem;
     justify-content: top;
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 5px 0px;
+    margin: 0px 0px 5px 0px;
 }
 
 h1 {
-    padding: 5px 0px 0px 0px;
-    margin: 5px 0px 0px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    font-size: 2.5rem;
 }
 
 p {
-    padding: 0px 0px 0px 40px;
-    margin: 0px 0px 0px 0px;
-    max-width: 95%;
-
-}
-
-.logo {
-    display: flex;
-    height: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 0px 5px 40px;
+    margin: 0px 0px 5px 0px;
+    font-size: 1.5rem;
 }
 
 section {
@@ -64,14 +55,16 @@ section {
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(199, 170, 2);
-    height: 11rem;
+    height: 12rem;
 }
 
 .nav {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     font-size: 2rem;
     padding-left: 4rem;
-    justify-content: flex-end;
+    justify-content: center;
+    /* justify-content: flex-end; */
     flex-direction: column;
     text-decoration: none;
     margin: 0px 0px 0px 0px;
@@ -80,9 +73,11 @@ section {
 
 /* Improved button styles and hover effect */
 .nav-link {
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     text-align: center;
     color: rgb(202, 200, 200);
+    font-size: 1.5rem;
     margin-right: 20px;
     transition: color 0.3s;
     border: 1px solid gray;

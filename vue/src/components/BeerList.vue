@@ -8,10 +8,11 @@
         <div class="beer-info">
           <h3>{{ beer.name }}</h3>
           <ul>
+            <li>{{ beer.description }}</li>
             <li>Type: {{ beer.type }}</li>
             <li>ABV: {{ beer.abv }}</li>
-            <li>Description: {{ beer.description }}</li>
-            <li>Average Rating: {{ displayAverageRating(beer.beer_id) }}</li>
+            <li>Average Rating: {{ displayAverageRating(beer.beerId) }}</li>
+            <li v-if="beer.status">** OUT OF STOCK **</li>
           </ul>
         </div>
       </div>
@@ -20,16 +21,52 @@
 </template>
 
 <script>
+
+import brewService from '../services/BreweriesService'; // Import your API service
+
 export default {
   props: ['beers'],
 
+  data() {
+    return {
+      review: {
+        user_id: '',      // You can set this later when you have user data
+        brew_id: '',      // Will be populated with the brewery ID
+        beer_id: '',      // Will be populated with the selected beer ID
+        beerName: '',          // The user's name (if needed)
+        rating: '',
+        review: '',
+        image: '',
+      },
+      reviews: [],
+      filteredReviews: [],
+    };
+  },
+
+  created() {
+    brewService
+      .getReviews()
+      .then(response => {
+        if (response.status == 200) {
+          this.reviews = response.data;
+          this.$store.commit('SET_REVIEWS', response.data);
+        }
+      })
+      .catch(error => {
+        const response = error.response;
+        if (response.status === 401) {
+          this.invalidCredentials = true;
+        }
+      });
+  },
+
   methods: {
     displayAverageRating(beerId) {
-      const filteredReviews = this.$store.state.reviews.filter(review => review.beer_id === beerId);
-      if (filteredReviews.length === 0) return 'No ratings yet';
+      this.filteredReviews = this.reviews.filter(review => review.beer_id == beerId);
+      if (this.filteredReviews.length == 0) return 'No ratings yet';
 
-      const totalRating = filteredReviews.reduce((acc, review) => acc + parseInt(review.rating), 0);
-      const averageRating = totalRating / filteredReviews.length;
+      const totalRating = this.filteredReviews.reduce((acc, review) => acc + parseInt(review.rating), 0);
+      const averageRating = totalRating / this.filteredReviews.length;
       return this.generateStarRating(averageRating);
     },
 
@@ -53,6 +90,7 @@ export default {
 
 <style scoped>
 .beers-list {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -62,6 +100,7 @@ export default {
 }
 
 .beer-card {
+  font-family: Arial, Helvetica, sans-serif;
   border: 1px solid #ccc;
   padding: 10px;
   width: 300px;
@@ -84,12 +123,14 @@ export default {
 }
 
 .beer-image-container {
+  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 10px;
   width: 100%;
   /* Ensure the image container takes full width */
 }
 
 .beer-image {
+  font-family: Arial, Helvetica, sans-serif;
   max-width: 100%;
   /* Limit the size of the images */
   height: auto;
@@ -109,12 +150,14 @@ export default {
 }
 
 .beer-info {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
 }
 
 /* Style the beer information */
 h3 {
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   /* Remove margin for h3 element */
   padding: 5px 0;
@@ -129,37 +172,25 @@ ul {
 }
 
 li {
+  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
   /* Add margin for spacing between info */
 }
 
 .buttons {
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   /* Remove margin for h3 element */
   padding: 5px 0;
   /* Add padding for spacing */
 }
 
-ul {
-  list-style: none;
-  /* Remove bullet points */
-  padding: 0;
-  /* Remove padding for ul element */
-}
-
-li {
-  margin-bottom: 5px;
-  /* Add margin for spacing between info */
-}
-
-.buttons {
-  margin-top: 10px;
-}
 
 /* Style the placeholder buttons */
 .like-button,
 .favorite-button,
 .reviews-button {
+  font-family: Arial, Helvetica, sans-serif;
   margin: 5px;
   padding: 8px 15px;
   background-color: #007bff;
@@ -176,6 +207,7 @@ li {
 .like-button:hover,
 .favorite-button:hover,
 .reviews-button:hover {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #0056b3;
   /* Darker color on hover */
 }
