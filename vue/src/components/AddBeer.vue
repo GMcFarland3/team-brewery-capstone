@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page">
         <div class="makeBeer">
             <h1>Add Beer</h1>
             <form @submit.prevent="submitBeer">
@@ -153,6 +153,17 @@ export default {
 </script>
 
 <style scoped>
+.page {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('../assets/img/homePage2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+}
+
 ul li {
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
@@ -204,57 +215,47 @@ button:active {
 }
 
 form {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 1rem 0 2rem 0rem;
-}
-
-
-.makeBeer {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 1rem 1rem 1rem 1rem;
-    border-radius: 1rem;
-    border: rgb(190, 197, 5) solid 1px;
-    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
-    background-color: rgb(201, 199, 186);
-    padding: 20px;
-    width: 90%;
-}
-
-.updateBrewery {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 1rem 1rem 1rem 1rem;
-    border-radius: 1rem;
-    border: rgb(190, 197, 5) solid 1px;
-    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
-    background-color: rgb(201, 199, 186);
-    padding: 20px;
-    width: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Adjusted width to occupy the entire space */
+  margin: 1rem auto 2rem; /* Center the forms horizontally */
 }
 
 label {
-    font-family: Arial, Helvetica, sans-serif;
-    display: inline-block;
-    text-align: left;
-    padding-left: 5px;
-    width: 40%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  text-align: left;
+  padding-left: 5px;
+  width: 40%;
+  margin-bottom: 0.5rem; /* Reduced spacing between labels */
 }
 
 input {
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 5px;
-    width: 80%;
-    height: 1.5rem;
-    margin-bottom: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 5px;
+  width: 60%; /* Adjusted input width */
+  height: 1.2rem; /* Reduced input height */
+  margin-bottom: 1rem; /* Adjusted spacing between inputs */
+}
+
+.makeBeer,
+.updateBrewery {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem auto; /* Center the forms horizontally */
+  border-radius: 1rem;
+  border: rgb(190, 197, 5) solid 1px;
+  box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
+  background-color: rgb(201, 199, 186);
+  padding: 20px;
+  width: 70%; /* Adjusted width for better spacing */
+}
+
+.updateBrewery {
+  height: auto; /* Removed fixed height */
 }
 </style>

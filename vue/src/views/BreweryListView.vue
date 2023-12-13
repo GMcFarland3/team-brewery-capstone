@@ -58,34 +58,45 @@ export default {
 }
 </script>
   
-
 <style scoped>
 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: gold;
   text-align: center;
-  background-color: rgb(113, 112, 112);
+  font-weight: bolder;
   margin: 0;
   padding: 20px 0;
+  background-image: url('../assets/img/homePage2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  font-size: 4rem; /* Increase the font size */
 }
 
+
 .list {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
-  padding: 20px;
+  /* Make the content take up at least the full viewport height */
+  
+  /* Adjust as needed to prevent the footer from overlapping content */
+  background-image: url('../assets/img/homePage2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 /* Style for brewery cards */
 .brewery-card {
-  width: 300px; /* Set the width of each card */
-  margin: 20px;
-  background-color: #fff;
+  background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -106,4 +117,6 @@ h1 {
   font-size: 1rem;
   color: #666;
 }
+
+/* Adjust the styling based on your design preferences */
 </style>

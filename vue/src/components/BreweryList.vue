@@ -2,7 +2,7 @@
   <router-link :to="'/breweryInfo/' + breweries.brew_id">
     <div class="brewery-card">
       <div class="image-box">
-        <img :src="breweries.image" />
+        <img :src="breweries.image" alt="Brewery Image" />
       </div>
       <div class="brewery-info">
         <h1>{{ breweries.name }}</h1>
@@ -10,14 +10,15 @@
     </div>
   </router-link>
 </template>
-  
+
 <script>
 export default {
   props: ['breweries'],
 };
 </script>
-  
+
 <style scoped>
+/* Styling for brewery cards */
 .brewery-card {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -27,37 +28,37 @@ export default {
   border: 1px solid rgb(199, 170, 2);
   padding: 10px;
   width: 200px;
-  /* Adjust the width as needed */
+  border-radius: 8px;
+  /* Box shadow for a slight lift effect */
+  box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.brewery-card:hover {
+  transform: translateY(-5px); /* Add a slight lift on hover */
 }
 
 .image-box {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 150px;
-  /* Adjust the width as needed */
+  width: 100%;
   height: 150px;
-  /* Adjust the height as needed */
   overflow: hidden;
-  margin: 0 auto;
-  /* Center the image horizontally */
-  display: flex;
-  /* Center the image vertically */
-  justify-content: center;
-  /* Center the image vertically */
-  align-items: center;
-  /* Center the image vertically */
+  border-radius: 5px;
 }
 
 img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  cursor: pointer;
-  align-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brewery-info {
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: gold;
 }
 </style>
-  

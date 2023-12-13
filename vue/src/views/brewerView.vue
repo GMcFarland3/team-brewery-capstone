@@ -1,11 +1,11 @@
 <template>
+    <div class="page">
     <header-view />
     <div>
-
         <AddBeer />
-
     </div>
     <footer-view />
+</div>
 </template>
 
 
@@ -24,4 +24,15 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.page {
+    font-family: Arial, Helvetica, sans-serif;
+  background-image: url('../assets/img/homePage2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+}
+</style>

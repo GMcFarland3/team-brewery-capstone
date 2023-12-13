@@ -51,7 +51,8 @@
 }
 
 .logo {
-  max-width: 350px;
+  max-width: 100px;
+  margin-bottom: 225px;
 }
 
 #banner {
@@ -63,7 +64,7 @@
 .brand {
   text-align: center;
   margin-bottom: 20px;
-  margin-left: 250px;
+  margin-left: 100px;
   color: rgb(166, 237, 42);
   text-shadow: black 2px 2px 2px;
 }
@@ -81,12 +82,12 @@ p {
 .nav {
   display: flex;
   gap: 10px;
-  margin-left: 250px;
+  margin-left: 100px;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #fff;
+  color: gold;
   padding: 10px 20px;
   border-radius: 25px;
   transition: background-color 0.3s, color 0.3s;

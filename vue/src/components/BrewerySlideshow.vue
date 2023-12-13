@@ -54,9 +54,9 @@ export default {
 
 .fade-image {
   animation: fadeAnimation 9s linear infinite; /* Apply fade animation */
-  width: 800px; /* Set a larger fixed width */
-  height: 600px; /* Set a larger fixed height */
-  object-fit: contain; /* Maintain aspect ratio and fit the entire image within the fixed width and height */
+  max-width: 100%; /* Use max-width instead of fixed width */
+  max-height: 100%; /* Use max-height instead of fixed height */
+  object-fit: contain; /* Maintain aspect ratio and fit the entire image within the container */
 }
 
 /* CSS Animation */

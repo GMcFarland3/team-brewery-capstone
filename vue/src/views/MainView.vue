@@ -105,6 +105,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  object-fit: contain;
   gap: 20px;
   position: relative; /* Set parent container to relative positioning */
   z-index: 1; /* Ensure the slideshow is above other elements */
