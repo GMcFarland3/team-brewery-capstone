@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page">
         <HeaderView />
         <section class="Brewery-Info">
             <div v-if="brewery">
@@ -64,6 +64,15 @@ export default {
 
 
 <style scoped>
+
+.page {
+    background-image: url('../assets/img/homePage2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
 FooterView {
     position: fixed;
     bottom: 0;
