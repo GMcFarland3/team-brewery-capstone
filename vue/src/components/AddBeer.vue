@@ -47,21 +47,7 @@ export default {
     },
 
     created() {
-        // BreweriesService
-        //     .getBeers()
-        //     .then(response => {
-        //         if (response.status == 200) {
-        //             this.reviews = response.data;
-        //             this.$store.commit('SET_BEERS', response.data);
 
-        //         }
-        //     })
-        //     .catch(error => {
-        //         const response = error.response;
-        //         if (response.status === 401) {
-        //             this.invalidCredentials = true;
-        //         }
-        //     });
     },
     methods: {
         submitBeer() {
