@@ -5,32 +5,22 @@
             <h3>Add Brewery</h3>
             <form @submit.prevent="addBrewery"> <!-- Call addBrewery on form submission -->
                 <div>
+                    <label for="breweryId">Brewery Id => </label>
+                    <input type="number" id="breweryId" v-model="brewery.brew_id" required>
+                </div>
+                <div>
+                    <label for="userId">User Id => </label>
+                    <input type="number" id="userId" v-model="brewery.user_id" required>
+                </div>
+                <div>
                     <label for="breweryName">Brewery Name => </label>
-                    <input type="text" id="breweryName" v-model="brewery.name" maxlength="60" required>
+                    <input type="text" id="breweryName" v-model="brewery.name" required>
                 </div>
                 <div class="submit">
                     <button type="submit">Add Brewery</button>
                 </div>
             </form>
             <div v-if="showMessage" class="completion-message">Brewery added successfully!</div>
-        </div>
-    </div>
-
-    <div class="updateBrewer">
-        <h3>Update Brewer</h3>
-        <form @submit.prevent="updateBrewer">
-            <div>
-                <label for="userId">User Id = ></label>
-                <input type="text" id="userId" required>
-            </div>
-        </form>
-    </div>
-
-    <div>
-        <form @submit.prevent="deleteBrewer"></form>
-        <div class="breweryName">
-            <label for="breweryName">brewery Name</label>
-            <input type="text" id="breweryName" maxlength="60" required>
         </div>
     </div>
 
@@ -41,13 +31,6 @@
         </ul>
     </div>
 
-    <div class="DelUsers">
-        <h3>Delete users</h3>
-        <label for="userId">User ID = > </label>
-        <input type="text" id="userId" v-model="userId" required>
-
-        <button @click="deleteUser">Delete User</button>
-    </div>
     <footer-view />
 </template>
 
@@ -75,10 +58,7 @@ export default {
                 operation_hours: '',
                 image: ''
             },
-            // breweries: [],
-            // invalidCredentials: false,
             userList: [],
-            // role: "",  // Add role data property for updating users
             selectedUserId: "", // Add selectedUserId data property
             showMessage: false, // Add a data property to control the completion message
         };
@@ -98,18 +78,6 @@ export default {
                     if (response.status === 401) {
                         this.invalidCredentials = true;
                     }
-                });
-        },
-
-        deleteUser() {
-            // Make an API request to delete the user
-            UserService
-                .deleteUser(this.userId)
-                .then((response) => {
-                    console.log("User deleted successfully");
-                })
-                .catch((error) => {
-                    console.error("Error deleting user:", error);
                 });
         },
 
