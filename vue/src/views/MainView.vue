@@ -81,17 +81,39 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url('../assets/img/homePage2.png');
+  /* Replace 'your-image.jpg' with the actual image file name */
+  background-size: cover;
+  /* Adjust to your needs, 'cover' makes the image cover the entire element */
+  background-repeat: no-repeat;
+  /* Prevent repeating the image */
+  background-position: center center;
+  /* Center the background image */
+  background-attachment: fixed;
+  /* Add this line for the parallax effect */
+  /* You can also set a background color as a fallback */
+  background-color: rgb(199, 170, 2);
 }
 
 .featured-section {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-bottom: 30px;
+  position: relative;
+  /* Ensure positioning context for z-index */
+  z-index: 2;
+  /* Set z-index to appear above other elements */
 }
 
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
@@ -110,5 +132,13 @@ h1 {
   position: relative;
   /* Ensure positioning context for z-index */
   z-index: 1;
-  /* Set z-index to appear above beer-slideshow */
-}</style>
+  /* Set z-index to appear below featured-section */
+}
+
+/* Add the following style for the slideshow container */
+.slideshow-container {
+  position: relative;
+  z-index: 3;
+  /* Set z-index higher than the "About Us" box */
+}
+</style>

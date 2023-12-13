@@ -1,10 +1,8 @@
 package com.techelevator.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Beer {
     
-    private int beer_id;
+    private int beerId;
     private int brewId;
     private String name;
     private String type;
@@ -14,10 +12,10 @@ public class Beer {
     private boolean status;
 
     public int getBeerId() {
-        return beer_id;
+        return beerId;
     }
     public void setBeerId(int beer_id) {
-        this.beer_id = beer_id;
+        this.beerId = beer_id;
     }
 
     public int getBrewId() {

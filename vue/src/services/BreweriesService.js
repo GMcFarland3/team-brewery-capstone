@@ -23,11 +23,13 @@ export default {
     addBrewery(brewery) {
         return axios.post('/addBrewery', brewery)
     },
-    updateBrewery(brewery, id) {
-        return axios.put('/admin/brewery/update/${brewery.brew_id}', brewery, id)
+    updateBeer(beers, id) {
+        return axios.put(`/beer/${beers.beer_id}`, id)
+
+
     },
-    updateBeer(beer, id) {
-        return axios.put('/beer/${beer.id}', beer, id)
+    updateBrewery(brewery, id) {
+        return axios.put(`/admin/brewery/update/${brewery.brew_id}`, brewery, id)
     }
 
 }

@@ -75,7 +75,7 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
-    
+
 //    @PreAuthorize("hasRole('USER')")
 //    @ResponseStatus(HttpStatus.OK)
 //    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
@@ -97,8 +97,9 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
-    @PreAuthorize("hasRole('ADMIN')")
-    @ResponseStatus(HttpStatus.CREATED)
+
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
 
     @RequestMapping(path = "/beer/{id}", method = RequestMethod.PUT)
     public void updateBeers(@Valid @RequestBody Beer beer,@PathVariable int id) {
@@ -109,6 +110,10 @@ public class BreweryController {
         }
 
     }
+
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.CREATED)
 
     @RequestMapping(path = "/addBrewery", method = RequestMethod.POST)
     public Brewery addBrewery(@Valid @RequestBody Brewery brewery) {
