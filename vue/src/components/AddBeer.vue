@@ -1,31 +1,19 @@
 <template>
     <div>
         <div class="makeBeer">
-            <h1>Add Beer!</h1>
+            <h1>Add Beer</h1>
             <form @submit.prevent="submitBeer">
-                <div class="name">
-                    <label for="name">Beer name</label>
-                    <textarea id="beerName" v-model="beer.name" required type="text"></textarea>
-                </div>
-                <div class="type">
-                    <label for="type">Beer type</label>
-                    <textarea id="beerType" v-model="beer.type" required type="text"></textarea>
-                </div>
-                <div class="Description">
-                    <label for="Description">Description </label>
-                    <textarea id="Description" v-model="beer.description" required></textarea>
-                </div>
-                <div class="image">
-                    <label for="image">Beer image</label>
-                    <textarea id="beerImage" v-model="beer.image" required type="url"></textarea>
-                </div>
-                <div class="ABV">
-                    <label for="ABV">Beer abv</label>
-                    <textarea id="beerAbv" v-model="beer.abv" required type="number"></textarea>
-                </div>
-                <div class="submit">
-                    <button type="submit">Submit</button>
-                </div>
+                <label for="name">/ Beer name \</label>
+                <input type="text" id="name" v-model="beer.name" maxlength="30" required>
+                <label for="type">/ Beer type \</label>
+                <input type="text" id="beerType" v-model="beer.type" maxlength="25" required>
+                <label for="Description">/ Description \</label>
+                <input type="text" id="Description" v-model="beer.description" maxlength="500" required>
+                <label for="ABV">/ Beer abv \</label>
+                <input type="text" id="beerAbv" v-model="beer.abv" maxlength="5" required>
+                <label for="image">/ Beer image \</label>
+                <input type="url" id="beerImage" v-model="beer.image" maxlength="500" required>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
@@ -59,22 +47,21 @@ export default {
     },
 
     created() {
-        BreweriesService
-            .getBeers()
-            .then(response => {
-                if (response.status == 200) {
-                    this.reviews = response.data;
-                    this.$store.commit('SET_BEERS', response.data);
+        // BreweriesService
+        //     .getBeers()
+        //     .then(response => {
+        //         if (response.status == 200) {
+        //             this.reviews = response.data;
+        //             this.$store.commit('SET_BEERS', response.data);
 
-                }
-            })
-            .catch(error => {
-                const response = error.response;
-                if (response.status === 401) {
-                    this.invalidCredentials = true;
-                }
-            });
-
+        //         }
+        //     })
+        //     .catch(error => {
+        //         const response = error.response;
+        //         if (response.status === 401) {
+        //             this.invalidCredentials = true;
+        //         }
+        //     });
     },
     methods: {
         submitBeer() {
@@ -98,34 +85,6 @@ export default {
 
 
 <style scoped>
-section {
-    display: flex;
-}
-
-img {
-    max-width: 400px;
-    max-height: 400px;
-    margin: 15px 0px 15px 0px;
-}
-
-.history {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    width: 200rem;
-    padding-left: 1.5rem;
-    flex-grow: 2;
-    padding-right: 1.5rem;
-}
-
-.details>ul {
-    font-family: Arial, Helvetica, sans-serif;
-    list-style-type: none;
-    font-size: 1.5rem;
-    justify-content: center;
-    margin-top: 1px;
-}
-
 ul li {
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
@@ -143,28 +102,6 @@ ul li {
     padding-right: 2rem;
     border: 2.5px solid rgb(199, 170, 2);
     margin: 15px 0px 15px 0px;
-
-}
-
-section.details {
-    display: flex;
-}
-
-.info {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: xx-large;
-}
-
-.details>h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: xx-large;
-    text-decoration: underline;
-    justify-content: center;
-    align-items: center;
-    margin: 25px 0px 15px 15px;
 }
 
 .AddBeer {
@@ -178,46 +115,52 @@ section.details {
 
 button {
     font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    align-items: center;
-
-
-
+    text-decoration: none;
+    text-align: center;
+    /* color: rgb(202, 200, 200); */
+    font-size: 1.5rem;
+    margin-right: 20px;
+    border: 1px solid gray;
+    padding: 8px 15px;
+    border-radius: 5px;
 }
 
 form {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
-
-
+    flex-direction: column;
+    width: 80%;
     margin: 1rem 0 2rem 0rem;
 }
 
-
-.submit {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    text-align: center;
-
-
-
-
-
-
-}
 
 .makeBeer {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-
-    /* margin: 0 0 3rem 34rem; */
+    margin: 1rem 1rem 1rem 1rem;
     border-radius: 1rem;
     border: black solid 1px;
     box-shadow: gray 5px 5px 5px 10px;
     padding: 20px;
-    max-width: 1000px;
-    margin: 2rem 0px 2rem 25rem;
+    width: 90%;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    text-align: left;
+    padding-left: 5px;
+    width: 40%;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5px;
+    width: 80%;
+    height: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 </style>
