@@ -3,6 +3,8 @@
         <div class="makeBeer">
             <h1>Add Beer</h1>
             <form @submit.prevent="submitBeer">
+                <label for="brewId">Brew id</label>
+                <input type="number" id="brewId" v-model="beer.brewId" required>
                 <label for="name">/ Beer name \</label>
                 <input type="text" id="name" v-model="beer.name" maxlength="30" required>
                 <label for="type">/ Beer type \</label>
@@ -102,8 +104,8 @@ export default {
 
 
             beer: {
-                beer_Id: '',
-                brew_id: '',
+                beer_Id: 0,
+                brewId: 0,
                 name: '',
                 type: '',
                 abv: '',
