@@ -2,7 +2,7 @@
     <div class="page">
         <header-view />
         <div>
-            <AddBeer />
+            <AddBeer :brewery="brewery" />
         </div>
         <footer-view />
     </div>
