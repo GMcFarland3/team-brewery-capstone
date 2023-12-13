@@ -15,11 +15,12 @@
           <router-link v-bind:to="{ name: 'brewer' }" class="nav-link">Brewer</router-link>
         </div>
       </div>
-      <div class="logo">
+      <router-link v-bind:to="{ name: 'home' }" class="logo">
         <img id="banner" src="../assets/img/BrewScout.png" alt="BrewScout Logo">
-      </div>
+      </router-link>
     </header>
   </template>
+  
   
   <style scoped>
   .header {
