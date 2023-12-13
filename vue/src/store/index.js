@@ -47,7 +47,21 @@ export function createStore(currentToken, currentUser) {
           liked: '',
           image: '',
         }
+      ],
+
+      users: [
+        {
+          user_Id: '',
+          first_name: '',
+          last_name: '',
+          email: '',
+          password: '',
+          image: '',
+          role: '',
+          status: ''
+        }
       ]
+
 
 
     },
@@ -76,6 +90,9 @@ export function createStore(currentToken, currentUser) {
       },
       SET_REVIEWS(state, reviews) {
         state.reviews = reviews;
+      },
+      SET_USERS(state, users) {
+        state.users = users;
       }
     },
 
