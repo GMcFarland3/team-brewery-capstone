@@ -21,7 +21,6 @@ import BeerList from '../components/BeerList.vue';
 import brewService from '../services/BreweriesService';
 import Review from '../components/Review.vue';
 
-
 export default {
     data() {
         return {
