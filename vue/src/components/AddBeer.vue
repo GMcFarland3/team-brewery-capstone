@@ -13,66 +13,68 @@
                 <input type="text" id="beerAbv" v-model="beer.abv" maxlength="5" required>
                 <label for="image">/ Beer image \</label>
                 <input type="url" id="beerImage" v-model="beer.image" maxlength="500" required>
-                <button type="submit">Submit</button>
+                <button type="submit">Submit Add Beer</button>
             </form>
         </div>
-
         <div class="updateBrewery">
             <h1>updateBrewery</h1>
             <form @submit.prevent="updateBrewery">
                 <div class="breweryId">
-                    <label for="updatebrewery">Brewery Id</label>
-                    <textarea id="updatebrewery" v-model="brewery.brew_id" type="number"></textarea>
+                    <label for="updateBreweryId">Brewery Id</label>
+                    <input id="updateBreweryId" v-model="brewery.brew_id" type="number" required>
                 </div>
                 <div class="breweryName">
-                    <label for="updatebrewery">Brewery name</label>
-                    <textarea id="updatebrewery" v-model="brewery.name" type="text"></textarea>
+                    <label for="updateBreweryName">Brewery name</label>
+                    <input id="updateBreweryName" v-model="brewery.name" type="text" required>
                 </div>
                 <div class="breweryaddress">
-                    <label for="updatebrewery">Brewery address</label>
-                    <textarea id="updatebrewery" v-model="brewery.address" type="text"></textarea>
+                    <label for="updateBreweryAddress">Brewery address</label>
+                    <input id="updateBreweryAddress" v-model="brewery.address" type="text" required>
                 </div>
                 <div class="breweryaddress2">
-                    <label for="updatebrewery">Brewery address2</label>
-                    <textarea id="updatebrewery" v-model="brewery.address2" type="text"></textarea>
+                    <label for="updateBreweryAddress2">Brewery address2</label>
+                    <input id="updateBreweryAddress2" v-model="brewery.address2" type="text" required>
                 </div>
                 <div class="brewerycity">
-                    <label for="updatebrewery">Brewery city</label>
-                    <textarea id="updatebrewery" v-model="brewery.city" type="text"></textarea>
+                    <label for="updateBreweryCity">Brewery city</label>
+                    <input id="updateBreweryCity" v-model="brewery.city" type="text" required>
                 </div>
                 <div class="breweryStateAbbr">
-                    <label for="updatebrewery">Brewery StateAbbr</label>
-                    <textarea id="updatebrewery" v-model="brewery.state_abbr" type="text"></textarea>
+                    <label for="updateBreweryStateAbbr">Brewery StateAbbr</label>
+                    <input id="updateBreweryStateAbbr" v-model="brewery.state_abbr" type="text" required>
                 </div>
                 <div class="zipCode">
-                    <label for="updatebrewery">Brewery zipCode</label>
-                    <textarea id="updatebrewery" v-model="brewery.zip_code" type="text"></textarea>
+                    <label for="updateBreweryZipCode">Brewery zipCode</label>
+                    <input id="updateBreweryZipCode" v-model="brewery.zip_code" type="text" required>
                 </div>
 
                 <div class="Phone">
-                    <label for="updatebrewery">Phone</label>
-                    <textarea id="updatebrewery" v-model="brewery.phone" type="text"></textarea>
+                    <label for="updateBreweryPhone">Phone</label>
+                    <input id="updateBreweryPhone" v-model="brewery.phone" type="text" required>
                 </div>
 
                 <div class="website">
-                    <label for="updatebrewery">Website</label>
-                    <textarea id="updatebrewery" v-model="brewery.website" type="text"></textarea>
+                    <label for="updateBreweryWebsite">Website</label>
+                    <input id="updateBreweryWebsite" v-model="brewery.website" type="text" required>
                 </div>
 
                 <div class="history">
-                    <label for="updatebrewery">History</label>
-                    <textarea id="updatebrewery" v-model="brewery.history" type="text"></textarea>
+                    <label for="updateBreweryHistory">History</label>
+                    <input id="updateBreweryHistory" v-model="brewery.history" type="text" required>
                 </div>
 
                 <div class="operationhours">
-                    <label for="updatebrewery">Operation Hours</label>
-                    <textarea id="updatebrewery" v-model="brewery.operation_hours" type="text"></textarea>
+                    <label for="updateBreweryOperationHours">Operation Hours</label>
+                    <input id="updateBreweryOperationHours" v-model="brewery.operation_hours" type="text" required>
                 </div>
-                <button type="submit"> submit brewery update</button>
-
+                <div class="breweryImg">
+                    <label for="updateBreweryImage">Brewery Image</label>
+                    <input id="updateBreweryImage" v-model="brewery.image" type="url">
+                </div>
+                <button type="submit">Submit Brewery Update</button>
             </form>
-
         </div>
+
     </div>
 </template>
 
@@ -164,7 +166,7 @@ ul li {
     flex-direction: column;
     align-items: center;
     align-content: flex-end;
-    background-color: whitesmoke;
+    background-color: rgb(149, 147, 147);
     padding-right: 2rem;
     border: 2.5px solid rgb(199, 170, 2);
     margin: 15px 0px 15px 0px;
@@ -181,14 +183,24 @@ ul li {
 
 button {
     font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
     text-align: center;
-    /* color: rgb(202, 200, 200); */
     font-size: 1.5rem;
-    margin-right: 20px;
-    border: 1px solid gray;
-    padding: 8px 15px;
-    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #050505;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: rgb(159, 159, 5);
+}
+
+button:hover {
+    background-color: #333;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.9);
 }
 
 form {
@@ -208,8 +220,24 @@ form {
     align-items: center;
     margin: 1rem 1rem 1rem 1rem;
     border-radius: 1rem;
-    border: black solid 1px;
-    box-shadow: gray 5px 5px 5px 10px;
+    border: rgb(190, 197, 5) solid 1px;
+    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
+    background-color: rgb(201, 199, 186);
+    padding: 20px;
+    width: 90%;
+}
+
+.updateBrewery {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem 1rem 1rem 1rem;
+    border-radius: 1rem;
+    border: rgb(190, 197, 5) solid 1px;
+    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
+    background-color: rgb(201, 199, 186);
     padding: 20px;
     width: 90%;
 }

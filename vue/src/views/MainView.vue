@@ -75,6 +75,7 @@ export default {
 };
 </script>
 
+
 <style scoped>
 .home-container {
   padding: 20px;
@@ -87,6 +88,10 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-bottom: 30px;
+  position: relative;
+  /* Ensure positioning context for z-index */
+  z-index: 2;
+  /* Set z-index to appear above other elements */
 }
 
 h1 {
@@ -110,5 +115,6 @@ h1 {
   position: relative;
   /* Ensure positioning context for z-index */
   z-index: 1;
-  /* Set z-index to appear above beer-slideshow */
-}</style>
+  /* Set z-index to appear below featured-section */
+}
+</style>

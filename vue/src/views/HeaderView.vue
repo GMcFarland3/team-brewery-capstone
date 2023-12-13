@@ -52,21 +52,23 @@
   .brand {
     text-align: center;
     margin-bottom: 20px;
+    margin-left: 250px;
   }
   
   h1 {
     margin-bottom: 5px;
-    font-size: 3rem;
+    font-size: 6rem;
   }
   
   p {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
   
   .nav {
     display: flex;
     gap: 10px;
+    margin-left: 250px;
   }
   
   .nav-link {
