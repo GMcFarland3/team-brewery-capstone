@@ -4,6 +4,9 @@
       <h1>Featured Breweries</h1>
       <BrewerySlideshow :breweries="sixRandom" />
     </div>
+    <div class="beer-section">
+      <BeerSlideshow :beers="featuredBeers" />
+    </div>
     <div class="about-box">
       <h2>About Us</h2>
       <p>
@@ -27,12 +30,15 @@
 
 <script>
 import BrewerySlideshow from '../components/BrewerySlideshow.vue';
+import BeerSlideshow from '../components/BeerSlideshow.vue';
 import brewService from "../services/BreweriesService";
+
 
 export default {
   data() {
     return {
       sixRandom: [],
+      featuredBeers: [],
     };
   },
   created() {
@@ -50,9 +56,21 @@ export default {
           this.invalidCredentials = true;
         }
       });
+
+    brewService
+      .getBeers()
+      .then(response => {
+        if (response.status == 200) {
+          this.featuredBeers = response.data;
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching featured beers:', error);
+      });
   },
   components: {
     BrewerySlideshow,
+    BeerSlideshow,
   },
 };
 </script>
@@ -60,6 +78,9 @@ export default {
 <style scoped>
 .home-container {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .featured-section {
@@ -74,13 +95,18 @@ h1 {
   margin-bottom: 20px;
 }
 
+.beer-section {
+  margin-bottom: 20px; /* Add margin to separate sections */
+}
+
 .about-box {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #F5F5F5;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-top: 20px;
   line-height: 1.6;
+  position: relative; /* Ensure positioning context for z-index */
+  z-index: 1; /* Set z-index to appear above beer-slideshow */
 }
 </style>
