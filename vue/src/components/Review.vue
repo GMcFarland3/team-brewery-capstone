@@ -109,7 +109,6 @@ export default {
         },
     },
 
-
     computed: {
         filteredReviews() {
             return this.reviews.filter(review => review.brew_id == this.brew_id);
@@ -119,8 +118,6 @@ export default {
         },
 
     },
-
-
 
     created() {
         brewService
@@ -181,10 +178,10 @@ form {
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 3rem;
-  text-align: center;
-  margin: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin: 10px 0;
 }
 
 .leaveReview {
@@ -200,7 +197,7 @@ h1 {
 }
 
 .beers {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .review {
@@ -217,69 +214,69 @@ h1 {
 }
 
 img {
-  width: 15rem;
-  height: 15rem;
-  align-items: center;
-  justify-content: center;
+    width: 15rem;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
 }
 
 li {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 20px;
-  width: 32rem;
-  /* Add space between each review */
-  padding: 2px;
-  /* Add padding to create individual areas for comments */
-  border: 2px solid #0A0A0A;
-  text-align: center;
-  background-color: rgb(214, 213, 213);
-  /* Add a border to separate each comment area */
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    width: 32rem;
+    /* Add space between each review */
+    padding: 2px;
+    /* Add padding to create individual areas for comments */
+    border: 2px solid #0A0A0A;
+    text-align: center;
+    background-color: rgb(214, 213, 213);
+    /* Add a border to separate each comment area */
 }
 
 ul {
-  list-style-type: none;
-  /* Remove the bullets */
+    list-style-type: none;
+    /* Remove the bullets */
 }
 
 .name {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 20px;
-  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .rating {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 20px;
-  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .comment {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 20px;
-  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .submit {
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 30px;
 }
 
 button {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgba(199, 170, 3, 0.836);
-  border: 1 solid black;
-  color: white;
-  padding: 9px 12px;
-  display: inline-block;
-  font-size: 1rem;
-  border-radius: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(199, 170, 3, 0.836);
+    border: 1 solid black;
+    color: white;
+    padding: 9px 12px;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 2rem;
 }
 
 h2 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2rem;
-  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    text-align: center;
 }
 
 /* Update label and input width and padding */
@@ -301,7 +298,7 @@ input {
 
 input,
 select {
-  width: 250px; /* Adjust width of input boxes */
+    width: 250px;
+    /* Adjust width of input boxes */
 }
-
 </style>

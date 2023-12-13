@@ -62,7 +62,7 @@ const routes = [
   },
 
   {
-    path: '/brewAdmin',
+    path: '/brewAdmin/:brew_Id',
     name: 'brewAdmin',
     component: BrewAdminView,
     meta: {

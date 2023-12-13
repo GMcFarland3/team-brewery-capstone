@@ -23,8 +23,8 @@
                 <li>Website:<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
             </ul>
             <div>
-                <router-link v-if="this.showAdmin" v-bind:to="{ name: 'brewAdmin' }" class="nav-link">Brewer's
-                    Admin</router-link>
+                <!-- <router-link v-if="this.showAdmin" :to="'/brewAdmin/' + breweries.brew_id" class="nav-link">Brewer Admin</router-link> -->
+                <router-link v-if="this.showAdmin" :to="{ name: 'brewAdmin' }" class="nav-link">Brewer Admin</router-link>
             </div>
         </div>
     </section>
@@ -58,6 +58,7 @@ export default {
             },
             beers: [],
             showAdmin: false,
+
         }
     },
 
@@ -65,7 +66,7 @@ export default {
         if (this.$store.state.user.id == this.brewery.user_id) {
             this.showAdmin = true;
         }
-
+        this.$store.commit('SET_BREWERSID', this.brewery.brew_id);
     },
 }
 </script>
