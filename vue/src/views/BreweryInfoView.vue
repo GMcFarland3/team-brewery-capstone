@@ -5,6 +5,7 @@
             <div v-if="brewery">
                 <BreweryInfo :brewery="brewery" />
                 <AddBeer :brewery="brewery" />
+                <UpdateBeer :beer="beer" />
                 <BeerList :beers="beers" />
                 <Review :reviews="reviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" />
             </div>
@@ -21,6 +22,7 @@ import BeerList from '../components/BeerList.vue';
 import brewService from '../services/BreweriesService';
 import Review from '../components/Review.vue';
 import AddBeer from '../components/AddBeer.vue';
+import UpdateBeer from '../components/UpdateBeer.vue';
 
 export default {
     data() {
@@ -57,6 +59,7 @@ export default {
         HeaderView,
         BreweryInfo,
         AddBeer,
+        UpdateBeer,
         BeerList,
         Review,
         FooterView

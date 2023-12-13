@@ -94,7 +94,7 @@ public class BreweryController {
         }
     }
     @PreAuthorize("hasRole('USER')")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
 
     @RequestMapping(path = "/beer/{id}", method = RequestMethod.PUT)
     public void updateBeers(@Valid @RequestBody Beer beer,@PathVariable int id) {

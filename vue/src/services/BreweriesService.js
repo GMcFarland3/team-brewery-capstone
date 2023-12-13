@@ -22,6 +22,9 @@ export default {
     },
     addBrewery(brewery) {
         return axios.post('/addBrewery', brewery)
+    },
+    updateBeer(beer_id) {
+        return axios.put('/beer/:id', beer_id)
     }
 
 }
