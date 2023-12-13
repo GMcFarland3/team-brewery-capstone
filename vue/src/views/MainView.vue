@@ -96,7 +96,8 @@ h1 {
 }
 
 .beer-section {
-  margin-bottom: 20px; /* Add margin to separate sections */
+  margin-bottom: 20px;
+  /* Add margin to separate sections */
 }
 
 .about-box {
@@ -106,7 +107,8 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 5px;
   line-height: 1.6;
-  position: relative; /* Ensure positioning context for z-index */
-  z-index: 1; /* Set z-index to appear above beer-slideshow */
-}
-</style>
+  position: relative;
+  /* Ensure positioning context for z-index */
+  z-index: 1;
+  /* Set z-index to appear above beer-slideshow */
+}</style>
