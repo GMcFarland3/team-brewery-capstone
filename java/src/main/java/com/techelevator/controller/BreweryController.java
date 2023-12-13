@@ -89,9 +89,7 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
-
     @PreAuthorize("hasRole('ADMIN')")
-
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addBrewery", method = RequestMethod.POST)
     public Brewery addBrewery(@Valid @RequestBody Brewery brewery) {

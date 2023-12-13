@@ -1,101 +1,90 @@
 <template>
-    <section>
-        <div class="logo">
-            <img id="banner" src="../assets/img/BrewScout.png" alt="">
-        </div>
-        <div id="BrewScout">
-            <h1>BrewScout</h1>
-            <p> Your go-to companion for exploring and enjoying local breweries and their delightful array of beers. With
-                BrewScout, you can seamlessly navigate the world of craft brewing, uncover hidden gems in your area, and
-                connect with fellow enthusiasts.</p>
+    <header class="header">
+      <div class="content">
+        <div class="brand">
+          <h1>BrewScout</h1>
+          <p>Your go-to companion for exploring and enjoying local breweries and their delightful array of beers.</p>
         </div>
         <div class="nav">
-            <router-link v-bind:to="{ name: 'home' }" class="nav-link">Home</router-link>
-
-            <router-link v-bind:to="{ name: 'breweries' }" class="nav-link">Breweries</router-link>
-            <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''" class="nav-link">Login</router-link>
-            <router-link v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''"
-                class="nav-link">Register</router-link>
-            <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
-                class="nav-link">Logout</router-link>
-            <router-link v-bind:to="{ name: 'admin' }" class="nav-link">Admin</router-link>
-
-
-            <router-link v-bind:to="{ name: 'brewer' }" class="nav-link">brewer</router-link>
-
+          <router-link v-bind:to="{ name: 'home' }" class="nav-link">Home</router-link>
+          <router-link v-bind:to="{ name: 'breweries' }" class="nav-link">Breweries</router-link>
+          <router-link v-bind:to="{ name: 'login' }" v-if="!$store.state.token" class="nav-link">Login</router-link>
+          <router-link v-bind:to="{ name: 'register' }" v-if="!$store.state.token" class="nav-link">Register</router-link>
+          <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token" class="nav-link">Logout</router-link>
+          <router-link v-bind:to="{ name: 'admin' }" class="nav-link">Admin</router-link>
+          <router-link v-bind:to="{ name: 'brewer' }" class="nav-link">Brewer</router-link>
         </div>
-    </section>
-</template>
-<style scoped>
-#banner {
-    height: 12rem;
-    width: 12rem;
-}
-
-#BrewScout {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    justify-content: top;
-    padding: 0px 0px 5px 0px;
-    margin: 0px 0px 5px 0px;
-}
-
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-    font-size: 2.5rem;
-}
-
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0px 0px 5px 40px;
-    margin: 0px 0px 5px 0px;
-    font-size: 1.5rem;
-}
-
-section {
+      </div>
+      <router-link v-bind:to="{ name: 'home' }" class="logo">
+        <img id="banner" src="../assets/img/BrewScout.png" alt="BrewScout Logo">
+      </router-link>
+    </header>
+  </template>
+  
+  
+  <style scoped>
+  .header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     background-color: rgb(199, 170, 2);
-    height: 12rem;
-}
-
-.nav {
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+  }
+  
+  .content {
     display: flex;
-    font-size: 2rem;
-    padding-left: 4rem;
-    justify-content: center;
-    /* justify-content: flex-end; */
     flex-direction: column;
-    text-decoration: none;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-}
-
-/* Improved button styles and hover effect */
-.nav-link {
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
     text-align: center;
-    color: rgb(202, 200, 200);
-    font-size: 1.5rem;
-    margin-right: 20px;
-    transition: color 0.3s;
-    border: 1px solid gray;
-    padding: 8px 15px;
-    max-height: 25px;
-    border-radius: 5px;
+  }
+  
+  .logo {
+    max-width: 200px;
+  }
+  
+  #banner {
+    width: 100%;
+    height: auto;
+  }
+  
+  .brand {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 5px;
+    font-size: 3rem;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
     background-color: rgb(59, 59, 59);
-}
-
-/* Hover effect */
-.nav-link:hover {
-    color: #FFCC00;
-    background-color: gray;
-    /* Change text color on hover */
-    /* Add additional styling for the hover effect, e.g., background color change */
-}
-</style>
+  }
+  
+  .nav-link:hover {
+    background-color: #333;
+    transform: scale(1.1);
+  }
+  
+  .nav-link:active {
+    transform: scale(0.9);
+  }
+  </style>
+  
