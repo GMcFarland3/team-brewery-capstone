@@ -1,14 +1,15 @@
 <template>
   <div class="home-container">
-    <div class="featured-section">
-      <h1>Featured Breweries</h1>
-      <BrewerySlideshow :breweries="sixRandom" />
-    </div>
-    <div class="beer-section">
-      <BeerSlideshow :beers="featuredBeers" />
+    <div class="slideshow-container">
+      <div class="featured-section">
+        <h1>Featured Breweries</h1>
+        <BrewerySlideshow :breweries="sixRandom" />
+      </div>
+      <div class="beer-section">
+        <BeerSlideshow :beers="featuredBeers" />
+      </div>
     </div>
     <div class="about-box">
-      <h2>About Us</h2>
       <p>
         Welcome to BrewScout, a one-stop destination for beer enthusiasts and connoisseurs alike! Our website curates an
         extensive list of diverse breweries, each offering a unique selection of flavorful beers. Discover a multitude of
@@ -32,7 +33,6 @@
 import BrewerySlideshow from '../components/BrewerySlideshow.vue';
 import BeerSlideshow from '../components/BeerSlideshow.vue';
 import brewService from "../services/BreweriesService";
-
 
 export default {
   data() {
@@ -82,44 +82,46 @@ export default {
   flex-direction: column;
   align-items: center;
   background-image: url('../assets/img/homePage2.png');
-  /* Replace 'your-image.jpg' with the actual image file name */
   background-size: cover;
-  /* Adjust to your needs, 'cover' makes the image cover the entire element */
   background-repeat: no-repeat;
-  /* Prevent repeating the image */
   background-position: center center;
-  /* Center the background image */
   background-attachment: fixed;
-  /* Add this line for the parallax effect */
-  /* You can also set a background color as a fallback */
   background-color: rgb(199, 170, 2);
 }
 
-.featured-section {
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-bottom: 30px;
-  position: relative;
-  /* Ensure positioning context for z-index */
-  z-index: 2;
-  /* Set z-index to appear above other elements */
+.featured-section,
+.beer-section {
+  width: calc(50% - 10px);
 }
 
-h1 {
+.featured-section h1,
+.beer-section h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-p {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+.slideshow-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  position: relative; /* Set parent container to relative positioning */
+  z-index: 1; /* Ensure the slideshow is above other elements */
+  height: 600px; /* Adjust the height of the slideshow area */
+  margin-bottom: 50px;
 }
 
+.featured-section,
 .beer-section {
-  margin-bottom: 20px;
-  /* Add margin to separate sections */
+  width: calc(50% - 10px);
+  z-index: 2; /* Ensure the slideshows are above the "About Us" box */
+  height: 100%; /* Fill the entire height of the slideshow area */
+  margin-bottom: 50px;
+}
+
+.featured-section {
+  margin-bottom: 50px;
 }
 
 .about-box {
@@ -130,15 +132,6 @@ p {
   border-radius: 5px;
   line-height: 1.6;
   position: relative;
-  /* Ensure positioning context for z-index */
   z-index: 1;
-  /* Set z-index to appear below featured-section */
-}
-
-/* Add the following style for the slideshow container */
-.slideshow-container {
-  position: relative;
-  z-index: 3;
-  /* Set z-index higher than the "About Us" box */
 }
 </style>
