@@ -28,22 +28,89 @@
                 </div>
             </form>
         </div>
+
+        <div class="updateBrewery">
+            <h1>updateBrewery</h1>
+            <form @submit.prevent="submitUpdated">
+                <div class="breweryName">
+                    <label for="updatebrewery">Brewery name</label>
+                    <textarea id="updatebrewery" v-model="brewery.name" required type="text"></textarea>
+                </div>
+                <div class="breweryaddress">
+                    <label for="updatebrewery">Brewery address</label>
+                    <textarea id="updatebrewery" v-model="brewery.address" required type="text"></textarea>
+                </div>
+                <div class="breweryaddress2">
+                    <label for="updatebrewery">Brewery address2</label>
+                    <textarea id="updatebrewery" v-model="brewery.address2" required type="text"></textarea>
+                </div>
+                <div class="brewerycity">
+                    <label for="updatebrewery">Brewery city</label>
+                    <textarea id="updatebrewery" v-model="brewery.city" required type="text"></textarea>
+                </div>
+                <div class="breweryStateAbbr">
+                    <label for="updatebrewery">Brewery StateAbbr</label>
+                    <textarea id="updatebrewery" v-model="brewery.state_abbr" required type="text"></textarea>
+                </div>
+                <div class="zipCode">
+                    <label for="updatebrewery">Brewery zipCode</label>
+                    <textarea id="updatebrewery" v-model="brewery.zipCode" required type="text"></textarea>
+                </div>
+
+                <div class="Phone">
+                    <label for="updatebrewery">Phone</label>
+                    <textarea id="updatebrewery" v-model="brewery.phone" required type="text"></textarea>
+                </div>
+
+                <div class="website">
+                    <label for="updatebrewery">Website</label>
+                    <textarea id="updatebrewery" v-model="brewery.website" required type="text"></textarea>
+                </div>
+
+                <div class="history">
+                    <label for="updatebrewery">History</label>
+                    <textarea id="updatebrewery" v-model="brewery.history" required type="text"></textarea>
+                </div>
+
+                <div class="operationhours">
+                    <label for="updatebrewery">Operation Hours</label>
+                    <textarea id="updatebrewery" v-model="brewery.operationHours" required type="text"></textarea>
+                </div>
+                <div class="img">
+                    <label for="updatebrewery">Image</label>
+                    <src id="updatebrewery" v-model="brewery.image" required type="src"></src>
+                </div>
+                <button type="submit"> submit brewery update</button>
+
+            </form>
+
+        </div>
     </div>
 </template>
 
 <script>
 import BreweriesService from '../services/BreweriesService';
 export default {
-    props: {
 
-        brewery: {
-            type: Object,
-            required: true
-        }
-    },
     data() {
         return {
-            // brewery: {},
+            brewery: {
+                brew_id: '',
+                user_id: '',
+                name: '',
+                address: '',
+                address2: '',
+                city: '',
+                state_abbr: '',
+                zip_code: '',
+                phone: '',
+                website: '',
+                history: '',
+                operation_hours: '',
+                image: ''
+            },
+
+
             beer: {
                 beer_Id: '',
                 brew_id: '',
@@ -78,7 +145,7 @@ export default {
     },
     methods: {
         submitBeer() {
-            this.beer.brewId = this.brewery.brew_id;
+            this.brewery.brew_id;
             BreweriesService
                 .insertBeer(this.beer)
                 .then(response => {
@@ -91,133 +158,54 @@ export default {
                 .catch(error => {
                     console.error('Error submitting beer:', error);
                 });
+        },
+
+        updateBrewery() {
+            this.brewery.brew_id;
+            BreweriesService
+                .updateBrewery(this.brewery)
+                .then(response => {
+                    if (response.status === 201) {
+                        // Handle successful creation (e.g., update this.beer)
+                        this.breweries.push(response.data); // Add the new ber to the local beers array
+                        console.log('Brewery updated successfully:', response.data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error updating brewery:', error);
+                });
         }
     }
 }
 </script>
 
-
 <style scoped>
-section {
+.form-container {
     display: flex;
+    justify-content: space-between;
 }
 
-img {
-    max-width: 400px;
-    max-height: 400px;
-    margin: 15px 0px 15px 0px;
-}
-
-.history {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    width: 200rem;
-    padding-left: 1.5rem;
-    flex-grow: 2;
-    padding-right: 1.5rem;
-}
-
-.details>ul {
-    font-family: Arial, Helvetica, sans-serif;
-    list-style-type: none;
-    font-size: 1.5rem;
-    justify-content: center;
-    margin-top: 1px;
-}
-
-ul li {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.details {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
+.makeBeer,
+.updateBrewery {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: flex-end;
-    background-color: whitesmoke;
-    padding-right: 2rem;
-    border: 2.5px solid rgb(199, 170, 2);
-    margin: 15px 0px 15px 0px;
-
-}
-
-section.details {
-    display: flex;
-}
-
-.info {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: xx-large;
-}
-
-.details>h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: xx-large;
-    text-decoration: underline;
-    justify-content: center;
-    align-items: center;
-    margin: 25px 0px 15px 15px;
-}
-
-.AddBeer {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    text-align: center;
-}
-
-button {
-    font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    align-items: center;
-
-
-
-}
-
-form {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-
-
-    margin: 1rem 0 2rem 0rem;
-}
-
-
-.submit {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    text-align: center;
-
-
-
-
-
-
-}
-
-.makeBeer {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    /* margin: 0 0 3rem 34rem; */
-    border-radius: 1rem;
-    border: black solid 1px;
-    box-shadow: gray 5px 5px 5px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
     padding: 20px;
-    max-width: 1000px;
-    margin: 2rem 0px 2rem 25rem;
+    background-color: #f2f2f2;
+    margin: 0 10px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 </style>

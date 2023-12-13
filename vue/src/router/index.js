@@ -9,6 +9,7 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import AdminView from '../views/AdminView.vue';
 import BreweryInfoView from '../views/BreweryInfoView.vue';
+import brewerView from '../views/brewerView.vue';
 
 // Define routes
 const routes = [
@@ -19,6 +20,16 @@ const routes = [
     meta: {
       requiresAuth: false
     }
+  },
+
+  {
+    path: '/brewer',
+    name: 'brewer',
+    component: brewerView,
+    meta: {
+      requiresAuth: false
+    }
+
   },
 
   {
