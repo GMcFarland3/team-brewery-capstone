@@ -21,55 +21,55 @@
             <form @submit.prevent="updateBrewery">
                 <div class="breweryId">
                     <label for="updateBreweryId">Brewery Id</label>
-                    <input id="updateBreweryId" v-model="brewery.brew_id" type="number" required>
+                    <input id="updateBreweryId" v-model="updateBrew.brew_id" type="number" required>
                 </div>
                 <div class="breweryName">
                     <label for="updateBreweryName">Brewery name</label>
-                    <input id="updateBreweryName" v-model="brewery.name" type="text" required>
+                    <input id="updateBreweryName" v-model="updateBrew.name" type="text" required>
                 </div>
                 <div class="breweryaddress">
                     <label for="updateBreweryAddress">Brewery address</label>
-                    <input id="updateBreweryAddress" v-model="brewery.address" type="text" required>
+                    <input id="updateBreweryAddress" v-model="updateBrew.address" type="text" required>
                 </div>
                 <div class="breweryaddress2">
                     <label for="updateBreweryAddress2">Brewery address2</label>
-                    <input id="updateBreweryAddress2" v-model="brewery.address2" type="text" required>
+                    <input id="updateBreweryAddress2" v-model="updateBrew.address2" type="text" required>
                 </div>
                 <div class="brewerycity">
                     <label for="updateBreweryCity">Brewery city</label>
-                    <input id="updateBreweryCity" v-model="brewery.city" type="text" required>
+                    <input id="updateBreweryCity" v-model="updateBrew.city" type="text" required>
                 </div>
                 <div class="breweryStateAbbr">
                     <label for="updateBreweryStateAbbr">Brewery StateAbbr</label>
-                    <input id="updateBreweryStateAbbr" v-model="brewery.state_abbr" type="text" required>
+                    <input id="updateBreweryStateAbbr" v-model="updateBrew.state_abbr" type="text" required>
                 </div>
                 <div class="zipCode">
                     <label for="updateBreweryZipCode">Brewery zipCode</label>
-                    <input id="updateBreweryZipCode" v-model="brewery.zip_code" type="text" required>
+                    <input id="updateBreweryZipCode" v-model="updateBrew.zip_code" type="text" required>
                 </div>
 
                 <div class="Phone">
                     <label for="updateBreweryPhone">Phone</label>
-                    <input id="updateBreweryPhone" v-model="brewery.phone" type="text" required>
+                    <input id="updateBreweryPhone" v-model="updateBrew.phone" type="text" required>
                 </div>
 
                 <div class="website">
                     <label for="updateBreweryWebsite">Website</label>
-                    <input id="updateBreweryWebsite" v-model="brewery.website" type="text" required>
+                    <input id="updateBreweryWebsite" v-model="updateBrew.website" type="text" required>
                 </div>
 
                 <div class="history">
                     <label for="updateBreweryHistory">History</label>
-                    <input id="updateBreweryHistory" v-model="brewery.history" type="text" required>
+                    <input id="updateBreweryHistory" v-model="updateBrew.history" type="text" required>
                 </div>
 
                 <div class="operationhours">
                     <label for="updateBreweryOperationHours">Operation Hours</label>
-                    <input id="updateBreweryOperationHours" v-model="brewery.operation_hours" type="text" required>
+                    <input id="updateBreweryOperationHours" v-model="updateBrew.operation_hours" type="text" required>
                 </div>
                 <div class="breweryImg">
                     <label for="updateBreweryImage">Brewery Image</label>
-                    <input id="updateBreweryImage" v-model="brewery.image" type="url">
+                    <input id="updateBreweryImage" v-model="updateBrew.image" type="url">
                 </div>
                 <button type="submit">Submit Brewery Update</button>
             </form>
@@ -81,10 +81,11 @@
 <script>
 import BreweriesService from '../services/BreweriesService';
 export default {
+    props: ['brewery'],
 
     data() {
         return {
-            brewery: {
+            updateBrew: {
                 brew_id: 0,
                 user_id: 0,
                 name: '',
@@ -100,7 +101,6 @@ export default {
                 image: ''
             },
 
-
             beer: {
                 beer_Id: '',
                 brew_id: '',
@@ -115,9 +115,10 @@ export default {
         }
     },
 
-    created() {
-
+    CREATED() {
+        this.updateBrew.brew_id = this.brewery.brew_id;
     },
+
     methods: {
         submitBeer() {
             BreweriesService
@@ -136,11 +137,11 @@ export default {
 
         updateBrewery() {
             BreweriesService
-                .updateBrewery(this.brewery)
+                .updateBrewery(this.updateBrew)
                 .then(response => {
                     if (response.status === 201) {
                         // Handle successful creation (e.g., update this.beer)
-                        this.brewery.push(response.data); // Add the new ber to the local beers array
+                        this.updateBrew.push(response.data); // Add the new ber to the local beers array
                         console.log('Brewery updated successfully:', response.data);
                     }
                 })
@@ -150,6 +151,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style scoped>

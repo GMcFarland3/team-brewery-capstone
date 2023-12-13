@@ -6,6 +6,7 @@ export function createStore(currentToken, currentUser) {
     state: {
       token: currentToken || '',
       user: currentUser || {},
+      brewersID: 0,
       breweries: [{
         brew_Id: '',
         userId: '',
@@ -63,8 +64,6 @@ export function createStore(currentToken, currentUser) {
         }
       ]
 
-
-
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -82,6 +81,7 @@ export function createStore(currentToken, currentUser) {
         state.token = '';
         state.user = {};
         axios.defaults.headers.common = {};
+        state.brewersID = 0;
       },
       SET_BREWERIES(state, breweries) {
         state.breweries = breweries;
@@ -94,6 +94,9 @@ export function createStore(currentToken, currentUser) {
       },
       SET_USERS(state, users) {
         state.users = users;
+      },
+      SET_BREWERSID(state, id) {
+        state.brewersID = id;
       }
     },
 

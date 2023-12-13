@@ -4,7 +4,6 @@
         <section class="Brewery-Info">
             <div v-if="brewery">
                 <BreweryInfo :brewery="brewery" :brew_id="brewery.brew_id" />
-                <!-- <AddBeer :brewery="brewery" /> -->
                 <BeerList :beers="beers" />
                 <Review :reviews="reviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" />
             </div>
@@ -34,7 +33,6 @@ export default {
     created() {
         const brew_Id = this.$route.params.brew_Id;
         this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
-
 
         brewService
             .getBeers()
