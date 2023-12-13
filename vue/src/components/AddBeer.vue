@@ -19,7 +19,7 @@
             </form>
         </div>
         <div class="updateBrewery">
-            <h1>updateBrewery</h1>
+            <h1>Update Brewery</h1>
             <form @submit.prevent="updateBrewery">
                 <div class="breweryId">
                     <label for="updateBreweryId">Brewery Id</label>
