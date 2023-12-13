@@ -76,6 +76,9 @@ public class BreweryController {
         }
     }
 
+
+
+
     @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addBeer", method = RequestMethod.POST)
@@ -86,8 +89,12 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, rse.getMessage());
         }
     }
+<<<<<<< HEAD
 
     @PreAuthorize("hasRole('USER')")
+=======
+    @PreAuthorize("hasRole('ADMIN')")
+>>>>>>> griffin
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addBrewery", method = RequestMethod.POST)
     public Brewery addBrewery(@Valid @RequestBody Brewery brewery) {

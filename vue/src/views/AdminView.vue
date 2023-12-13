@@ -91,11 +91,6 @@ export default {
         };
     },
 
-
-
-
-
-
     methods: {
         addBrewery() {
             brewService
@@ -145,7 +140,6 @@ export default {
                 console.error("Error fetching users:", error);
             });
     },
-
 
 };
 

@@ -9,7 +9,11 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import AdminView from '../views/AdminView.vue';
 import BreweryInfoView from '../views/BreweryInfoView.vue';
+<<<<<<< HEAD
 import brewerView from '../views/brewerView.vue';
+=======
+import BrewAdminView from '../views/brewerView.vue';
+>>>>>>> griffin
 
 // Define routes
 const routes = [
@@ -56,6 +60,15 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: AdminView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+
+  {
+    path: '/brewAdmin',
+    name: 'brewAdmin',
+    component: BrewAdminView,
     meta: {
       requiresAuth: false
     }

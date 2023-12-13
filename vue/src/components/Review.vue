@@ -166,8 +166,6 @@ export default {
 </script>
   
 
-
-
 <style scoped>
 form {
     font-family: Arial, Helvetica, sans-serif;
