@@ -1,9 +1,9 @@
 <template>
     <header-view />
     <div>
-        <HeaderView />
+
         <AddBeer />
-        <FooterView />
+
     </div>
     <footer-view />
 </template>
