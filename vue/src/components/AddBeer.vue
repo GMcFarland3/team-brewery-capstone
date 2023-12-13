@@ -22,20 +22,20 @@
             <h1>Update Beer</h1>
             <form @submit.prevent="updateBeer">
                 <label for="beerId">Beer id</label>
-                <input type="number" id="beerId" v-model="beers.beer_Id" required>
+                <input type="number" id="beerId" v-model="upBeers.beer_Id" required>
                 <label for="brewId">Brew id</label>
-                <input type="number" id="brewId" v-model="beers.brewId" required>
+                <input type="number" id="brewId" v-model="upBeers.brewId" required>
                 <label for="name">/ Beer name \</label>
-                <input type="text" id="name" v-model="beers.name" maxlength="30" required>
+                <input type="text" id="name" v-model="upBeers.name" maxlength="30" required>
                 <label for="type">/ Beer type \</label>
-                <input type="text" id="beerType" v-model="beers.type" maxlength="25" required>
+                <input type="text" id="beerType" v-model="upBeers.type" maxlength="25" required>
                 <label for="Description">/ Description \</label>
-                <input type="text" id="Description" v-model="beers.description" maxlength="500" required>
+                <input type="text" id="Description" v-model="upBeers.description" maxlength="500" required>
                 <label for="ABV">/ Beer abv \</label>
-                <input type="text" id="beerAbv" v-model="beers.abv" maxlength="5" required>
+                <input type="text" id="beerAbv" v-model="upBeers.abv" maxlength="5" required>
                 <label for="image">/ Beer image \</label>
-                <input type="url" id="beerImage" v-model="beers.image" maxlength="500" required>
-                <button type="submit">Submit Add Beer</button>
+                <input type="url" id="beerImage" v-model="upBeers.image" maxlength="500" required>
+                <button type="submit">Submit Update Beer</button>
             </form>
         </div>
         <div class="updateBrewery">
@@ -133,8 +133,8 @@ export default {
                 image: '',
                 status: ''
             },
-            beers: {
-                beerId: 0,
+            upBeers: {
+                beer_Id: 0,
                 brewId: 0,
                 name: '',
                 type: '',
@@ -180,11 +180,11 @@ export default {
                 });
         }, updateBeer() {
             BreweriesService
-                .updateBrewery(this.beers)
+                .updateBeer(this.upBeers)
                 .then(response => {
                     if (response.status === 201) {
                         // Handle successful creation (e.g., update this.beer)
-                        this.beers.push(response.data); // Add the new ber to the local beers array
+                        this.upBeers.push(response.data); // Add the new ber to the local beers array
                         console.log('Brewery updated successfully:', response.data);
                     }
                 })

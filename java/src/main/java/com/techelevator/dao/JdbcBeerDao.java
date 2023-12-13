@@ -55,7 +55,7 @@ public class JdbcBeerDao implements BeerDao{
 
     private Beer mapRowToBeer(SqlRowSet rs){
         Beer beer = new Beer();
-        beer.setBeerId(rs.getInt("beer_id"));
+        beer.setBeer_Id(rs.getInt("beer_id"));
         beer.setBrewId(rs.getInt("brew_id"));
         beer.setName(rs.getString("name"));
         beer.setType(rs.getString("type"));
