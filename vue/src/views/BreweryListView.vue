@@ -4,7 +4,13 @@
     <h1>Breweries</h1>
     <div class="list">
       <section class="breweries-list">
-        <BreweryList class="breweries" :breweries="breweries" v-for="breweries in breweries" :key="breweries.brew_Id" />
+        <!-- Using v-for directly on the BreweryList component -->
+        <BreweryList 
+          class="breweries" 
+          :breweries="breweries" 
+          :key="breweries.brew_Id" 
+          v-for="breweries in breweries"
+        />
       </section>
     </div>
     <FooterView />
@@ -55,11 +61,19 @@ export default {
 <style scoped>
 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: gold;
   text-align: center;
-  background-color: rgb(113, 112, 112);
-  margin: 0px 0px 0px 0px;
+  font-weight: bolder;
+  margin: 0;
+  padding: 20px 0;
+  background-image: url('../assets/img/homePage2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  font-size: 4rem; /* Increase the font size */
 }
+
 
 .list {
   font-family: Arial, Helvetica, sans-serif;
@@ -67,8 +81,42 @@ h1 {
   flex-direction: column;
   min-height: 100vh;
   /* Make the content take up at least the full viewport height */
-  margin-bottom: 60px;
-  /* Adjust as needed to prevent the footer from overlapping content */
-}
-</style>
   
+  /* Adjust as needed to prevent the footer from overlapping content */
+  background-image: url('../assets/img/homePage2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/* Style for brewery cards */
+.brewery-card {
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brewery-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.brewery-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.brewery-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Adjust the styling based on your design preferences */
+</style>
