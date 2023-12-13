@@ -98,126 +98,32 @@ export default {
 
 
 <style scoped>
-section {
+.form-container {
     display: flex;
+    justify-content: space-between;
 }
 
-img {
-    max-width: 400px;
-    max-height: 400px;
-    margin: 15px 0px 15px 0px;
-}
-
-.history {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    width: 200rem;
-    padding-left: 1.5rem;
-    flex-grow: 2;
-    padding-right: 1.5rem;
-}
-
-.details>ul {
-    font-family: Arial, Helvetica, sans-serif;
-    list-style-type: none;
-    font-size: 1.5rem;
-    justify-content: center;
-    margin-top: 1px;
-}
-
-ul li {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.details {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
+.makeBeer,
+.updateBrewery {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: flex-end;
-    background-color: whitesmoke;
-    padding-right: 2rem;
-    border: 2.5px solid rgb(199, 170, 2);
-    margin: 15px 0px 15px 0px;
-
-}
-
-section.details {
-    display: flex;
-}
-
-.info {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: xx-large;
-}
-
-.details>h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: xx-large;
-    text-decoration: underline;
-    justify-content: center;
-    align-items: center;
-    margin: 25px 0px 15px 15px;
-}
-
-.AddBeer {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    text-align: center;
-}
-
-button {
-    font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    align-items: center;
-
-
-
-}
-
-form {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-
-
-    margin: 1rem 0 2rem 0rem;
-}
-
-
-.submit {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    text-align: center;
-
-
-
-
-
-
-}
-
-.makeBeer {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    /* margin: 0 0 3rem 34rem; */
-    border-radius: 1rem;
-    border: black solid 1px;
-    box-shadow: gray 5px 5px 5px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
     padding: 20px;
-    max-width: 1000px;
-    margin: 2rem 0px 2rem 25rem;
+    background-color: #f2f2f2;
+    margin: 0 10px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 </style>
