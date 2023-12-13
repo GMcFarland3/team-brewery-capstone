@@ -9,34 +9,6 @@
                 <h1>{{ brewery.name }}</h1>
             </div>
             <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
-
-            <div class="makeBeer">
-                <form @submit.prevent="submitBeer">
-                    <div class="name">
-                        <label for="name">Beer name</label>
-                        <textarea id="beerName" v-model="beer.name" required type="text"></textarea>
-                    </div>
-                    <div class="type">
-                        <label for="type">Beer type</label>
-                        <textarea id="beerType" v-model="beer.type" required type="text"></textarea>
-                    </div>
-                    <div class="Description">
-                        <label for="Description">Description </label>
-                        <textarea id="Description" v-model="beer.description" required></textarea>
-                    </div>
-                    <div class="image">
-                        <label for="image">Beer image</label>
-                        <textarea id="beerImage" v-model="beer.image" required type="url"></textarea>
-                    </div>
-                    <div class="ABV">
-                        <label for="ABV">Beer abv</label>
-                        <textarea id="beerAbv" v-model="beer.abv" required type="number"></textarea>
-                    </div>
-                    <div class="submit">
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
-            </div>
         </div>
 
         <div class="details">
@@ -50,6 +22,10 @@
                 <li>Hours: {{ brewery.operation_hours }}</li>
                 <li>Website:<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
             </ul>
+            <div>
+                <router-link v-if="this.showAdmin" v-bind:to="{ name: 'brewAdmin' }" class="nav-link">Brewer's
+                    Admin</router-link>
+            </div>
         </div>
     </section>
 </template>
@@ -80,45 +56,17 @@ export default {
                 image: '',
                 status: ''
             },
-            beers: []
+            beers: [],
+            showAdmin: false,
         }
     },
 
     created() {
-        BreweriesService
-            .getBeers()
-            .then(response => {
-                if (response.status == 200) {
-                    this.reviews = response.data;
-                    this.$store.commit('SET_BEERS', response.data);
-
-                }
-            })
-            .catch(error => {
-                const response = error.response;
-                if (response.status === 401) {
-                    this.invalidCredentials = true;
-                }
-            });
+        if (this.$store.state.user.id == this.brewery.user_id) {
+            this.showAdmin = true;
+        }
 
     },
-    methods: {
-        submitBeer() {
-            this.beer.brewId = this.brewery.brew_id;
-            BreweriesService
-                .insertBeer(this.beer)
-                .then(response => {
-                    if (response.status === 201) {
-                        // Handle successful creation (e.g., update this.beer)
-                        this.beers.push(response.data); // Add the new ber to the local beers array
-                        console.log('Beer submitted successfully:', response.data);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error submitting beer:', error);
-                });
-        }
-    }
 }
 </script>
 
@@ -144,7 +92,7 @@ img {
     padding-right: 1.5rem;
 }
 
-.details>ul {
+ul {
     font-family: Arial, Helvetica, sans-serif;
     list-style-type: none;
     font-size: 1.5rem;
@@ -152,7 +100,7 @@ img {
     margin-top: 1px;
 }
 
-ul li {
+li {
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
     text-align: center;
@@ -169,10 +117,6 @@ ul li {
     padding-right: 2rem;
     border: 2.5px solid rgb(199, 170, 2);
     margin: 15px 0px 15px 0px;
-}
-
-section.details {
-    display: flex;
 }
 
 .info {
@@ -205,24 +149,59 @@ button {
     font-family: Arial, Helvetica, sans-serif;
     justify-content: center;
     align-items: center;
-    width: 25%;
-    text-align: center;
-    margin-left: 18rem;
 }
 
 form {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    margin: 1rem 0 2rem 0rem;
 }
 
-.submit {
+
+.makeBeer {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    border-radius: 1rem;
+    border: black solid 1px;
+    box-shadow: gray 5px 5px 5px 10px;
+    padding: 20px;
+
+}
+
+.nav {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    font-size: 2rem;
+    padding-left: 4rem;
+    justify-content: center;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+    text-decoration: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+/* Improved button styles and hover effect */
+.nav-link {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
     text-align: center;
+    color: rgb(202, 200, 200);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    border: 1px solid gray;
+    padding: 0px 2px 0px 4px;
+    border-radius: 5px;
+    background-color: rgb(59, 59, 59);
+    margin: 0px 0px 0px 0px;
+}
+
+.nav-link:hover {
+    color: #FFCC00;
+    background-color: gray;
+    /* Change text color on hover */
+    /* Add additional styling for the hover effect, e.g., background color change */
 }
 </style>

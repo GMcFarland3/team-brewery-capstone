@@ -11,7 +11,7 @@
         </div>
         <div class="nav">
             <router-link v-bind:to="{ name: 'home' }" class="nav-link">Home</router-link>
-            <!-- Add the same class and hover effect for other links -->
+
             <router-link v-bind:to="{ name: 'breweries' }" class="nav-link">Breweries</router-link>
             <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''" class="nav-link">Login</router-link>
             <router-link v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''"
@@ -19,6 +19,10 @@
             <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
                 class="nav-link">Logout</router-link>
             <router-link v-bind:to="{ name: 'admin' }" class="nav-link">Admin</router-link>
+
+
+            <router-link v-bind:to="{ name: 'brewer' }" class="nav-link">brewer</router-link>
+
         </div>
     </section>
 </template>

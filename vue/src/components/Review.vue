@@ -40,7 +40,7 @@
             <ul class="review">
                 <li v-for="(review, index) in filteredReviews" :key="index">
                     <div>
-                        <h1>{{ $store.state.user.username }}</h1>
+                        <h1>{{ review.name }}</h1>
                         <h3>{{ review.beerName }}</h3>
                         <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         <p>{{ review.review }}</p>
@@ -166,35 +166,18 @@ export default {
 </script>
   
 
-
-
 <style scoped>
 form {
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 35rem;
-  height: auto;
-  margin: auto;
-  border-radius: 1rem;
-  border: 1px solid black;
-  box-shadow: 5px 5px 5px 10px gray;
-  padding: 20px;
-}
-
-/* Center align input boxes */
-label,
-input,
-select {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px; /* Adjust spacing between input boxes */
-}
-
-label {
-  text-align: right;
-  padding-right: 10px; /* Add right padding to create space between label and input */
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+    height: 18rem;
+    margin: auto;
+    border-radius: 1rem;
+    border: black solid 1px;
+    box-shadow: gray 5px 5px 5px 10px;
+    padding: 20px;
 }
 
 h1 {
@@ -205,17 +188,15 @@ h1 {
 }
 
 .leaveReview {
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .allReviews {
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
 }
 
 .beers {
@@ -223,16 +204,16 @@ h1 {
 }
 
 .review {
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 600px;
-  /* margin: 0 0 3rem 34rem; */
-  border-radius: 1rem;
-  border: black solid 1px;
-  box-shadow: gray 5px 5px 5px 10px;
-  padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 0 0 3rem 34rem; */
+    border-radius: 1rem;
+    border: black solid 1px;
+    box-shadow: gray 5px 5px 5px 10px;
+    padding: 20px;
+
 }
 
 img {
@@ -303,9 +284,19 @@ h2 {
 
 /* Update label and input width and padding */
 label {
-  text-align: right;
-  padding-right: 10px; /* Add right padding to create space between label and input */
-  width: 160px; /* Adjust width of labels */
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    text-align: left;
+    padding-left: 5px;
+    width: 180px;
+    font-size: 1rem;
+
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5px;
+    width: 400px;
 }
 
 input,

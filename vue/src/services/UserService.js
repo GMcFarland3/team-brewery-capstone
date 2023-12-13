@@ -14,4 +14,5 @@ export default {
         return axios.delete('/user/:id', id)
     },
 
+
 }

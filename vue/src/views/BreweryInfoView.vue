@@ -3,7 +3,8 @@
         <HeaderView />
         <section class="Brewery-Info">
             <div v-if="brewery">
-                <BreweryInfo :brewery="brewery" />
+                <BreweryInfo :brewery="brewery" :brew_id="brewery.brew_id" />
+                <!-- <AddBeer :brewery="brewery" /> -->
                 <BeerList :beers="beers" />
                 <Review :reviews="reviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" />
             </div>
@@ -19,6 +20,7 @@ import BreweryInfo from '../components/BreweryInfo.vue';
 import BeerList from '../components/BeerList.vue';
 import brewService from '../services/BreweriesService';
 import Review from '../components/Review.vue';
+
 
 export default {
     data() {

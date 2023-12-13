@@ -2,23 +2,13 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Brewery;
-import com.techelevator.model.User;
-import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class JdbcBrewDao implements BrewDao {
@@ -45,6 +35,19 @@ public class JdbcBrewDao implements BrewDao {
     }
 
     @Override
+    public Brewery createBrewery(Brewery brewery) {
+        String sql = "INSERT INTO breweries(\n" +
+                "\tuser_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image)\n" +
+                "\tVALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING brew_id;";
+        try {
+            int rowInserted = jdbcTemplate.queryForObject(sql, int.class, brewery.getUser_id(), brewery.getName(), brewery.getAddress(), brewery.getAddress2(), brewery.getCity(), brewery.getState_abbr(), brewery.getZip_code(), brewery.getPhone(), brewery.getWebsite(), brewery.getOperation_hours(), brewery.getHistory(), brewery.getImage());
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        return brewery;
+    }
+
+    @Override
     public Brewery getBreweryById(int breweryId) {
         Brewery brewery = null;
         final String sql = "SELECT brew_id, user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image FROM breweries WHERE brew_id = ?;";
@@ -59,6 +62,15 @@ public class JdbcBrewDao implements BrewDao {
         return brewery;
     }
 
+    @Override
+    public void updateBrewery(Brewery brewery, int id) {
+        String sql = "UPDATE breweries SET name=?, address=?, address2=?, city=?, state_abbr=?, zip_code=?, phone=?, website=?, operation_hours=?, history=?, image=? WHERE brew_id=?;";
+        try {
+            int rowUpdated = jdbcTemplate.update(sql, brewery.getName(), brewery.getAddress(), brewery.getAddress2(), brewery.getCity(), brewery.getState_abbr(), brewery.getZip_code(), brewery.getPhone(), brewery.getWebsite(), brewery.getOperation_hours(), brewery.getHistory(), brewery.getImage(), id);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+    }
 
     private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brew = new Brewery();
