@@ -62,6 +62,15 @@ public class JdbcBrewDao implements BrewDao {
         return brewery;
     }
 
+    @Override
+    public void updateBrewery(Brewery brewery, int id) {
+        String sql = "UPDATE breweries SET name=?, address=?, address2=?, city=?, state_abbr=?, zip_code=?, phone=?, website=?, operation_hours=?, history=?, image=? WHERE brew_id=?;";
+        try {
+            int rowUpdated = jdbcTemplate.update(sql, brewery.getName(), brewery.getAddress(), brewery.getAddress2(), brewery.getCity(), brewery.getState_abbr(), brewery.getZip_code(), brewery.getPhone(), brewery.getWebsite(), brewery.getOperation_hours(), brewery.getHistory(), brewery.getImage(), id);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+    }
 
     private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brew = new Brewery();
