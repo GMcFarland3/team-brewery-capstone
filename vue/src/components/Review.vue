@@ -143,6 +143,10 @@ export default {
 
     methods: {
         submitReview() {
+            if (this.user_id == 0 || this.user_id == null) {
+                this.showCompletionMessage("You must be logged in to submit a review!");
+                return;
+            }
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
             this.review.beer_id = this.oneBeer.beer_Id; // Set the beer ID

@@ -218,8 +218,9 @@ export default {
                 .updateBrewery(this.updateBrew)
                 .then(response => {
                     if (response.status === 201) {
-                        this.updateBrew = response.data; // Assigning the updated data to updateBrew
                         this.showCompletionMessage("Brewery updated successfully!");
+                        this.updateBrew = response.data; // Assigning the updated data to updateBrew
+
                     }
                 })
                 .catch(error => {
@@ -235,6 +236,7 @@ export default {
                     .updateBeer(this.upBeers)
                     .then(response => {
                         if (response.status === 201) {
+                            this.showCompletionMessage("Beer updated successfully!");
                             this.upBeers.brewId = 0;
                             this.upBeers.name = '';
                             this.upBeers.type = '';
@@ -242,7 +244,7 @@ export default {
                             this.upBeers.abv = '';
                             this.upBeers.image = '';
                             this.upBeers.status = false;
-                            this.showCompletionMessage("Beer updated successfully!");
+
                         }
                     })
                     .catch(error => {
