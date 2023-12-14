@@ -28,7 +28,7 @@ export default {
     }
   },
   created() {
-    if (this.$store.state.user.id == 3) {
+    if (this.$store.state.user.id == 3 || this.$store.state.user.id == 4) {
       this.showAdmin = true;
     } else {
       this.showAdmin = false;
@@ -42,7 +42,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url('..\assets\img\scoutImage.png');
+  background-image: url('C:\Users\Student\workspace\team-brewery-capstone\vue\src\assets\img\header2.png');
   /* Replace 'your-image.jpg' with the actual image file name */
   background-size: cover;
   /* Adjust to your needs, 'cover' makes the image cover the entire element */
@@ -50,9 +50,8 @@ export default {
   /* Prevent repeating the image */
   background-position: center center;
   /* Center the background image */
-  padding: 10px; /* Reduce padding to make the header smaller */
-  /* You can also set a background color as a fallback */
-  background-color: rgb(199, 170, 2);
+  padding: 15px;
+  height: 20rem;
 }
 
 
@@ -66,8 +65,7 @@ export default {
 }
 
 .logo {
-  max-width: 100px;
-  margin-bottom: 225px;
+  max-width: 15rem;
 }
 
 #banner {
@@ -77,10 +75,12 @@ export default {
 }
 
 .brand {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   margin-bottom: 20px;
   margin-left: 100px;
-  color: rgb(166, 237, 42);
+  color: rgb(255, 255, 255);
   text-shadow: black 2px 2px 2px;
 }
 

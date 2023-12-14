@@ -13,7 +13,7 @@ export default {
 
 <style scoped>
 h3 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     font-size: 1.5em;
     color: #fff;

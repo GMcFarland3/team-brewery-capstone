@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <div id="home">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+      <router-link v-bind:to="{ name: 'home' }" class="white-link">Home</router-link>
     </div>
     <form v-on:submit.prevent="login">
       <h1>Please Sign In</h1>
@@ -21,10 +21,10 @@
       </div>
       <button type="submit">Sign in</button>
       <p>
-        <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link>
+        <router-link v-bind:to="{ name: 'register' }" class="white-link">Need an account? Sign up.</router-link>
       </p>
     </form>
-    <img id="brewscout" src="../assets/img/giphy.gif" alt="">
+
 
   </div>
 
@@ -74,15 +74,14 @@ export default {
 </script>
 
 <style scoped>
-#home {
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  font-size: 2rem;
-  text-decoration: none;
+.white-link {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 
 p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.5rem;
   text-decoration: none;
 }
@@ -99,8 +98,10 @@ p {
   margin-top: 2rem;
 }
 
+
+
 input {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 9rem;
   height: 1rem;
   margin-bottom: 1rem;
@@ -109,29 +110,48 @@ input {
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2rem;
 }
 
 .form-input-group {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 2rem;
   text-align: center;
-  color: gold;
+  color: rgb(0, 0, 0);
   font-weight: bold;
 }
 
 label {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-right: 0.5rem;
   text-align: center;
 
 }
 
 #login {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(113, 112, 112);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url('../assets/img/homePage2.png');
   height: 52rem;
   text-align: center;
+}
+
+#home {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-size: 12px;
+  text-decoration: none;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <div id="home">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+      <router-link v-bind:to="{ name: 'home' }" class="white-link">Home</router-link>
     </div>
     <div id="register" class="text-center">
       <form v-on:submit.prevent="register">
@@ -22,10 +22,11 @@
           <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
         </div>
         <button type="submit">Create Account</button>
-        <p><router-link v-bind:to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
+        <p><router-link v-bind:to="{ name: 'login' }" class="white-link">Already have an account? Log in.</router-link>
+        </p>
       </form>
     </div>
-    <img id="brewscout" src="../assets/img/giphy.gif" alt="">
+
 
   </div>
   <div class="footer">
@@ -87,6 +88,12 @@ export default {
 </script>
 
 <style scoped>
+.white-link {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
 #brewscout {
   width: 20rem;
   height: 20rem;
@@ -95,35 +102,48 @@ export default {
 
 
 #login {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgb(113, 112, 112);
   height: 52rem;
   text-align: center;
+  background-image: url('../assets/img/homePage2.png');
 }
 
 .form-input-group {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   margin-bottom: 1rem;
-  color: gold;
+  color: rgb(9, 9, 9);
   font-weight: bold;
 
 }
 
 label {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-right: 0.5rem;
 }
 
 #home {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   font-size: 2rem;
   text-decoration: none;
 }
 
 p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.5rem;
+  text-decoration: none;
+}
+
+button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-size: 12px;
   text-decoration: none;
 }
 </style>
