@@ -50,7 +50,7 @@ export default {
   /* Prevent repeating the image */
   background-position: center center;
   /* Center the background image */
-  padding: 15px;
+  padding: 10px; /* Reduce padding to make the header smaller */
   /* You can also set a background color as a fallback */
   background-color: rgb(199, 170, 2);
 }
