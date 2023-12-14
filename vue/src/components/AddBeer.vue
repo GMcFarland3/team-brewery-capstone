@@ -26,6 +26,9 @@
                     <input type="url" id="beerImage" v-model="beer.image" maxlength="500" required>
                 </div>
                 <button class="submitbeerbutton" type="submit">Submit Add Beer</button>
+                <div class="completion-message" :class="{ 'show-message': showMessage }">
+                    {{ messageText }}
+                </div>
             </form>
         </div>
 
@@ -79,10 +82,11 @@
                 <div class="completion-message" :class="{ 'show-message': showMessage }">
                     {{ messageText }}
                 </div>
-
-                <button type="submit">Submit Brewery</button>
+                <button class="brewerybutton" type="submit">Submit Brewery</button>
             </form>
         </div>
+
+
         <div class="updateBeer">
             <h1>Update Beer</h1>
             <form @submit.prevent="updateBeer">
@@ -192,12 +196,14 @@ export default {
 
     methods: {
         submitBeer() {
+            this.beer.brewId = this.brewery.brew_id;
             BreweriesService
                 .insertBeer(this.beer)
                 .then(response => {
                     if (response.status === 201) {
-                        this.beers.push(response.data);
-                        this.showCompletionMessage("Beer submitted successfully!");
+                        this.beersList.push(response.data);
+                        this.showCompletionMessage("Beer added successfully!");
+
                     }
                 })
                 .catch(error => {
@@ -224,7 +230,6 @@ export default {
                     console.error('Error updating brewery:', error);
                 });
         },
-
 
         updateBeer() {
             setTimeout(() => {
@@ -490,4 +495,5 @@ input {
     /* Set a fixed width for each form */
     height: 350px;
     /* Set a fixed height for each form */
-}</style>
+}
+</style>

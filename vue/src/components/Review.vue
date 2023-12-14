@@ -151,7 +151,7 @@ export default {
 
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
-            this.review.beer_id = this.oneBeer.beer_id; // Set the beer ID
+            this.review.beer_id = this.oneBeer.beer_Id; // Set the beer ID
             this.review.beerName = this.oneBeer.name; // Set the beer name
             this.review.image = this.photoUrl; // Set the beer image
             brewService
