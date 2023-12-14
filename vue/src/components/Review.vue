@@ -170,7 +170,7 @@ form {
     height: 18rem;
     margin: auto;
     border-radius: 1rem;
-    background-color: white;
+    background-color: rgb(189, 185, 185);
     border: black solid 1px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), /* Existing shadow */
               0px 0px 10px gold; /* Additional gold shadow */
@@ -208,8 +208,10 @@ h1 {
     /* margin: 0 0 3rem 34rem; */
     border-radius: 1rem;
     border: black solid 1px;
-    box-shadow: gray 5px 5px 5px 10px;
-    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), /* Existing shadow */
+              0px 0px 10px gold; /* Additional gold shadow */
+    padding: 20px;
+    background-color: rgb(165, 161, 161);
     padding: 20px;
 
 }
@@ -242,18 +244,21 @@ ul {
 .name {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
+    margin-right: 110px;
     text-align: center;
 }
 
 .rating {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
+    margin-right: 110px;
     text-align: center;
 }
 
 .comment {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
+    margin-right: 110px;
     text-align: center;
 }
 
