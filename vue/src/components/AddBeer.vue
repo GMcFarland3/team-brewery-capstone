@@ -76,7 +76,11 @@
                     <label for="updateBreweryImage">Brewery Image</label>
                     <input id="updateBreweryImage" v-model="updateBrew.image" type="url">
                 </div>
-                <button class="brewerybutton" type="submit">Submit Brewery</button>
+                <div class="completion-message" :class="{ 'show-message': showMessage }">
+  {{ messageText }}
+</div>
+
+                <button type="submit">Submit Brewery</button>
             </form>
         </div>
         <div class="updateBeer">
@@ -118,6 +122,9 @@
                     </select>
                 </div>
                 <button class="beerbutton" type="submit">Submit Beer</button>
+                <div class="completion-message" :class="{ 'show-message': showMessage }">
+  {{ messageText }}
+</div>
             </form>
         </div>
     </div>
@@ -166,6 +173,8 @@ export default {
                 image: '',
                 status: ''
             },
+            showMessage: false,
+            messageText: '',
             beersList: [],
         }
     },
@@ -183,34 +192,46 @@ export default {
 
     methods: {
         submitBeer() {
-            this.beer.brewId = this.brewery.brew_id;
-            BreweriesService
-                .insertBeer(this.beer)
-                .then(response => {
-                    if (response.status === 201) {
-                        // Handle successful creation (e.g., update this.beer)
-                        this.beer.push(response.data); // Add the new ber to the local beers array
-                    }
-                })
-                .catch(error => {
-                    console.error('Error submitting beer:', error);
-                });
-        },
+    BreweriesService
+        .insertBeer(this.beer)
+        .then(response => {
+            if (response.status === 201) {
+                this.beers.push(response.data);
+                this.showCompletionMessage("Beer submitted successfully!");
+            }
+        })
+        .catch(error => {
+            console.error('Error submitting beer:', error);
+        });
+},
 
-        updateBrewery() {
-            this.updateBrew.brew_id = this.brewery.brew_id;
-            BreweriesService
-                .updateBrewery(this.updateBrew)
-                .then(response => {
-                    if (response.status === 201) {
-                        // Handle successful creation (e.g., update this.beer)
-                        this.updateBrew.push(response.data); // Add the new ber to the local beers array
-                    }
-                })
-                .catch(error => {
-                    console.error('Error updating brewery:', error);
-                });
-        }, updateBeer() {
+updateBrewery() {
+
+    setTimeout(() => {
+        // Display a completion message
+        this.showCompletionMessage("Brewery updated successfully!");
+    }, 1000); // Adjust the delay as needed
+
+    this.updateBrew.brew_id = this.brewery.brew_id;
+    BreweriesService
+        .updateBrewery(this.updateBrew)
+        .then(response => {
+            if (response.status === 201) {
+                this.updateBrew = response.data; // Assigning the updated data to updateBrew
+            }
+        })
+        .catch(error => {
+            console.error('Error updating brewery:', error);
+        });
+},
+
+        
+        updateBeer() {
+            setTimeout(() => {
+        // Display a completion message
+        this.showCompletionMessage("Beer updated or added successfully!");
+    }, 1000); // Adjust the delay as needed
+
             if (this.upBeers.brewId > 0) {
                 this.upBeers.brewId = this.brewery.brew_id;
                 BreweriesService
@@ -224,6 +245,7 @@ export default {
                             this.upBeers.abv = '';
                             this.upBeers.image = '';
                             this.upBeers.status = false;
+                            this.showCompletionMessage("Beer updated successfully!");
                         }
                     })
                     .catch(error => {
@@ -241,16 +263,54 @@ export default {
                         console.error('Error submitting beer:', error);
                     });
             }
-        }
+        },
 
+        showCompletionMessage(message) {
+      this.showMessage = true;
+      this.messageText = message;
+
+      // Hide the message after 3 seconds (adjust duration as needed)
+      setTimeout(() => {
+        this.showMessage = false;
+      }, 3000);
     }
-}
+  },
+
+ }
+
 
 </script>
 
 <style scoped>
 .beers {
     margin-bottom: 1rem;
+}
+.completion-message {
+  font-family: Arial, Helvetica, sans-serif;
+  color: gold;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(17, 17, 17, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+/* Show the completion message */
+.show-message {
+  display: block;
+}
+ul li {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .submitbeerbutton {
@@ -381,6 +441,35 @@ input {
     /* Set a fixed width for each form */
     height: 600px;
     /* Set a fixed height for each form */
+/* Set forms to be flex containers */
+}
+.page {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../assets/img/homePage2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 0;
+    /* Remove margin */
+    padding: 0;
+    /* Remove padding */
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    justify-content: space-around;
+    align-items: center;
+    /* Center vertically */
+
+}
+
+.forms-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .submitBeer {
