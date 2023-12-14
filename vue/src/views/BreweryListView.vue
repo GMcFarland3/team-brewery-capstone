@@ -5,12 +5,7 @@
     <div class="list">
       <section class="breweries-list">
         <!-- Using v-for directly on the BreweryList component -->
-        <BreweryList 
-          class="breweries" 
-          :breweries="breweries" 
-          :key="breweries.brew_Id" 
-          v-for="breweries in breweries"
-        />
+        <BreweryList class="breweries" :breweries="breweries" :key="breweries.brew_Id" v-for="breweries in breweries" />
       </section>
     </div>
     <FooterView />
@@ -71,7 +66,8 @@ h1 {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  font-size: 4rem; /* Increase the font size */
+  font-size: 4rem;
+  /* Increase the font size */
 }
 
 
@@ -81,7 +77,7 @@ h1 {
   flex-direction: column;
   min-height: 100vh;
   /* Make the content take up at least the full viewport height */
-  
+
   /* Adjust as needed to prevent the footer from overlapping content */
   background-image: url('../assets/img/homePage2.png');
   background-size: cover;
