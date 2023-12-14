@@ -33,8 +33,8 @@
                     <button type="submit">Submit Review</button>
                 </div>
                 <div class="completion-message" :class="{ 'show-message': showMessage }">
-  {{ messageText }}
-</div>
+                    {{ messageText }}
+                </div>
 
             </form>
         </div>
@@ -145,13 +145,13 @@ export default {
         submitReview() {
 
             setTimeout(() => {
-        // Display a completion message
-        this.showCompletionMessage("Review added successfully!");
-    }, 1000); // Adjust the delay as needed
+                // Display a completion message
+                this.showCompletionMessage("Review added successfully!");
+            }, 1000); // Adjust the delay as needed
 
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
-            this.review.beer_id = this.oneBeer.beerId; // Set the beer ID
+            this.review.beer_id = this.oneBeer.beer_Id; // Set the beer ID
             this.review.beerName = this.oneBeer.name; // Set the beer name
             this.review.image = this.photoUrl; // Set the beer image
             brewService
@@ -170,43 +170,42 @@ export default {
         },
 
         showCompletionMessage(message) {
-      this.showMessage = true;
-      this.messageText = message;
+            this.showMessage = true;
+            this.messageText = message;
 
-      // Hide the message after 3 seconds (adjust duration as needed)
-      setTimeout(() => {
-        this.showMessage = false;
-      }, 3000);
-    }
-  },
+            // Hide the message after 3 seconds (adjust duration as needed)
+            setTimeout(() => {
+                this.showMessage = false;
+            }, 3000);
+        }
+    },
 
 };
 </script>
   
 
 <style scoped>
-
 .completion-message {
-  font-family: Arial, Helvetica, sans-serif;
-  color: gold;
-  margin-top: 10px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(17, 17, 17, 0.9);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gold;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(17, 17, 17, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 /* Show the completion message */
 .show-message {
-  display: block;
+    display: block;
 }
 
 form {
