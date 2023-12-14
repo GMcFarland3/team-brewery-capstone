@@ -56,8 +56,8 @@ export default {
 <style scoped>
 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  color: gold;
-  text-align: center;
+  color: white;
+  text-align: left;
   font-weight: bolder;
   margin: 0;
   padding: 20px 0;

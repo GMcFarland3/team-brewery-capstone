@@ -92,6 +92,7 @@ export default {
 .featured-section,
 .beer-section {
   width: calc(50% - 10px);
+  object-fit: contain;
 }
 
 .featured-section h1,

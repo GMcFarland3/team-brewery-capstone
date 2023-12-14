@@ -19,7 +19,7 @@ public class JdbcBeerDao implements BeerDao{
     @Override
     public List<Beer> listBeers(){
         List<Beer> beers = new ArrayList<>();
-        String sql = "SELECT beer_id, brew_id, name, type, description, abv, image, status FROM beers;";
+        String sql = "SELECT beer_id, brew_id, name, type, description, abv, image, status FROM beers  ORDER BY name;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
