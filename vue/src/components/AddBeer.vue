@@ -27,8 +27,8 @@
                 </div>
                 <button class="submitbeerbutton" type="submit">Submit Add Beer</button>
                 <div class="completion-message" :class="{ 'show-message': showMessage }">
-  {{ messageText }}
-</div>
+                    {{ messageText }}
+                </div>
             </form>
         </div>
 
@@ -80,12 +80,13 @@
                     <input id="updateBreweryImage" v-model="updateBrew.image" type="url">
                 </div>
                 <div class="completion-message" :class="{ 'show-message': showMessage }">
-  {{ messageText }}
-</div>
-
-                <button type="submit">Submit Brewery</button>
+                    {{ messageText }}
+                </div>
+                <button class="brewerybutton" type="submit">Submit Brewery</button>
             </form>
         </div>
+
+
         <div class="updateBeer">
             <h1>Update Beer</h1>
             <form @submit.prevent="updateBeer">
@@ -126,8 +127,8 @@
                 </div>
                 <button class="beerbutton" type="submit">Submit Beer</button>
                 <div class="completion-message" :class="{ 'show-message': showMessage }">
-  {{ messageText }}
-</div>
+                    {{ messageText }}
+                </div>
             </form>
         </div>
     </div>
@@ -195,50 +196,46 @@ export default {
 
     methods: {
         submitBeer() {
+            this.beer.brewId = this.brewery.brew_id;
+            BreweriesService
+                .insertBeer(this.beer)
+                .then(response => {
+                    if (response.status === 201) {
+                        this.beersList.push(response.data);
+                        this.showCompletionMessage("Beer added successfully!");
+
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting beer:', error);
+                });
+        },
+
+        updateBrewery() {
 
             setTimeout(() => {
-        // Display a completion message
-        this.showCompletionMessage("Brewery updated successfully!");
-    }, 1000);
-    BreweriesService
-        .insertBeer(this.beer)
-        .then(response => {
-            if (response.status === 201) {
-                this.beers.push(response.data);
-                this.showCompletionMessage("Beer submitted successfully!");
-            }
-        })
-        .catch(error => {
-            console.error('Error submitting beer:', error);
-        });
-},
+                // Display a completion message
+                this.showCompletionMessage("Brewery updated successfully!");
+            }, 1000); // Adjust the delay as needed
 
-updateBrewery() {
+            this.updateBrew.brew_id = this.brewery.brew_id;
+            BreweriesService
+                .updateBrewery(this.updateBrew)
+                .then(response => {
+                    if (response.status === 201) {
+                        this.updateBrew = response.data; // Assigning the updated data to updateBrew
+                    }
+                })
+                .catch(error => {
+                    console.error('Error updating brewery:', error);
+                });
+        },
 
-    setTimeout(() => {
-        // Display a completion message
-        this.showCompletionMessage("Brewery updated successfully!");
-    }, 1000); // Adjust the delay as needed
-
-    this.updateBrew.brew_id = this.brewery.brew_id;
-    BreweriesService
-        .updateBrewery(this.updateBrew)
-        .then(response => {
-            if (response.status === 201) {
-                this.updateBrew = response.data; // Assigning the updated data to updateBrew
-            }
-        })
-        .catch(error => {
-            console.error('Error updating brewery:', error);
-        });
-},
-
-        
         updateBeer() {
             setTimeout(() => {
-        // Display a completion message
-        this.showCompletionMessage("Beer updated or added successfully!");
-    }, 1000); // Adjust the delay as needed
+                // Display a completion message
+                this.showCompletionMessage("Beer updated or added successfully!");
+            }, 1000); // Adjust the delay as needed
 
             if (this.upBeers.brewId > 0) {
                 this.upBeers.brewId = this.brewery.brew_id;
@@ -274,17 +271,17 @@ updateBrewery() {
         },
 
         showCompletionMessage(message) {
-      this.showMessage = true;
-      this.messageText = message;
+            this.showMessage = true;
+            this.messageText = message;
 
-      // Hide the message after 3 seconds (adjust duration as needed)
-      setTimeout(() => {
-        this.showMessage = false;
-      }, 3000);
-    }
-  },
+            // Hide the message after 3 seconds (adjust duration as needed)
+            setTimeout(() => {
+                this.showMessage = false;
+            }, 3000);
+        }
+    },
 
- }
+}
 
 
 </script>
@@ -293,28 +290,30 @@ updateBrewery() {
 .beers {
     margin-bottom: 1rem;
 }
+
 .completion-message {
-  font-family: Arial, Helvetica, sans-serif;
-  color: gold;
-  margin-top: 10px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(17, 17, 17, 0.9);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gold;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(17, 17, 17, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 /* Show the completion message */
 .show-message {
-  display: block;
+    display: block;
 }
+
 ul li {
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
@@ -449,8 +448,9 @@ input {
     /* Set a fixed width for each form */
     height: 600px;
     /* Set a fixed height for each form */
-/* Set forms to be flex containers */
+    /* Set forms to be flex containers */
 }
+
 .page {
     font-family: Arial, Helvetica, sans-serif;
     background-image: url('../assets/img/homePage2.png');
