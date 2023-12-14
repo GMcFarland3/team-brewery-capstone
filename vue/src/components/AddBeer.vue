@@ -1,23 +1,5 @@
 <template>
     <div class="page">
-        <!-- <div class="makeBeer">
-        <div class="forms-container">
-        <div class="makeBeer">
-            <h1>Add Beer</h1>
-            <form @submit.prevent="submitBeer">
-                <label for="name">/ Beer name \</label>
-                <input type="text" id="name" v-model="beer.name" maxlength="30" required>
-                <label for="type">/ Beer type \</label>
-                <input type="text" id="beerType" v-model="beer.type" maxlength="25" required>
-                <label for="Description">/ Description \</label>
-                <input type="text" id="Description" v-model="beer.description" maxlength="500" required>
-                <label for="ABV">/ Beer abv \</label>
-                <input type="text" id="beerAbv" v-model="beer.abv" maxlength="5" required>
-                <label for="image">/ Beer image \</label>
-                <input type="url" id="beerImage" v-model="beer.image" maxlength="500" required>
-                <button type="submit">Submit Add Beer</button>
-            </form>
-        </div> -->
         <div class="updateBrewery">
             <h1>Update Brewery</h1>
             <form @submit.prevent="updateBrewery">
@@ -65,6 +47,10 @@
                     <label for="updateBreweryImage">Brewery Image</label>
                     <input id="updateBreweryImage" v-model="updateBrew.image" type="url">
                 </div>
+                <div class="completion-message" :class="{ 'show-message': showMessage }">
+  {{ messageText }}
+</div>
+
                 <button type="submit">Submit Brewery</button>
             </form>
         </div>
@@ -93,6 +79,10 @@
                     <option :key="true" :value="true">True</option>
                     <option :key="false" :value="false">False</option>
                 </select>
+                <div class="completion-message" :class="{ 'show-message': showMessage }">
+  {{ messageText }}
+</div>
+
                 <button type="submit">Submit Beer</button>
             </form>
         </div>
@@ -142,6 +132,8 @@ export default {
                 image: '',
                 status: ''
             },
+            showMessage: false,
+            messageText: '',
             beersList: [],
         }
     },
@@ -159,33 +151,46 @@ export default {
 
     methods: {
         submitBeer() {
-            BreweriesService
-                .insertBeer(this.beer)
-                .then(response => {
-                    if (response.status === 201) {
-                        // Handle successful creation (e.g., update this.beer)
-                        this.beers.push(response.data); // Add the new ber to the local beers array
-                    }
-                })
-                .catch(error => {
-                    console.error('Error submitting beer:', error);
-                });
-        },
+    BreweriesService
+        .insertBeer(this.beer)
+        .then(response => {
+            if (response.status === 201) {
+                this.beers.push(response.data);
+                this.showCompletionMessage("Beer submitted successfully!");
+            }
+        })
+        .catch(error => {
+            console.error('Error submitting beer:', error);
+        });
+},
 
-        updateBrewery() {
-            this.updateBrew.brew_id = this.brewery.brew_id;
-            BreweriesService
-                .updateBrewery(this.updateBrew)
-                .then(response => {
-                    if (response.status === 201) {
-                        // Handle successful creation (e.g., update this.beer)
-                        this.updateBrew.push(response.data); // Add the new ber to the local beers array
-                    }
-                })
-                .catch(error => {
-                    console.error('Error updating brewery:', error);
-                });
-        }, updateBeer() {
+updateBrewery() {
+
+    setTimeout(() => {
+        // Display a completion message
+        this.showCompletionMessage("Brewery updated successfully!");
+    }, 1000); // Adjust the delay as needed
+
+    this.updateBrew.brew_id = this.brewery.brew_id;
+    BreweriesService
+        .updateBrewery(this.updateBrew)
+        .then(response => {
+            if (response.status === 201) {
+                this.updateBrew = response.data; // Assigning the updated data to updateBrew
+            }
+        })
+        .catch(error => {
+            console.error('Error updating brewery:', error);
+        });
+},
+
+        
+        updateBeer() {
+            setTimeout(() => {
+        // Display a completion message
+        this.showCompletionMessage("Beer updated or added successfully!");
+    }, 1000); // Adjust the delay as needed
+
             if (this.upBeers.brewId > 0) {
                 this.upBeers.brewId = this.brewery.brew_id;
                 BreweriesService
@@ -199,6 +204,7 @@ export default {
                             this.upBeers.abv = '';
                             this.upBeers.image = '';
                             this.upBeers.status = false;
+                            this.showCompletionMessage("Beer updated successfully!");
                         }
                     })
                     .catch(error => {
@@ -216,14 +222,47 @@ export default {
                         console.error('Error submitting beer:', error);
                     });
             }
-        }
+        },
 
+        showCompletionMessage(message) {
+      this.showMessage = true;
+      this.messageText = message;
+
+      // Hide the message after 3 seconds (adjust duration as needed)
+      setTimeout(() => {
+        this.showMessage = false;
+      }, 3000);
     }
-}
+  },
+
+ }
+
 
 </script>
 
 <style scoped>
+.completion-message {
+  font-family: Arial, Helvetica, sans-serif;
+  color: gold;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(17, 17, 17, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+/* Show the completion message */
+.show-message {
+  display: block;
+}
 ul li {
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
@@ -325,48 +364,6 @@ select#status {
     height: 1.2rem;
     /* Reduced input height */
     margin-bottom: 1rem;
-}
-
-
-.updateBrewery {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 1rem auto;
-    /* Center the forms horizontally */
-    border-radius: 1rem;
-    border: rgb(190, 197, 5) solid 1px;
-    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
-    background-color: rgb(201, 199, 186);
-    padding: 20px;
-    height: auto;
-    width: 50%;
-    /* Adjusted width for better spacing */
-}
-
-.updateBeer {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 1rem auto;
-    border-radius: 1rem;
-    border: rgb(190, 197, 5) solid 1px;
-    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
-    background-color: rgb(201, 199, 186);
-    padding: 20px;
-    width: 50%;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 5px;
-    width: 40%;
-    /* Adjusted input width to make the boxes the same size */
-    height: 1.2rem;
-    /* Reduced input height */
-    margin-bottom: 1rem;
-    /* Adjusted spacing between inputs */
 }
 
 /* Set forms to be flex containers */

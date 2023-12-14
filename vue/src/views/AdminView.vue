@@ -1,39 +1,41 @@
 <template>
     <div>
-        <header-view />
-        <div class="addBrewery">
-            <h3>Add Brewery</h3>
-            <form @submit.prevent="addBrewery"> <!-- Call addBrewery on form submission -->
-                <div>
-                    <label for="breweryId">Brewery Id => </label>
-                    <input type="number" id="breweryId" v-model="brewery.brew_id" required>
-                </div>
-                <div>
-                    <label for="userId">User Id => </label>
-                    <input type="number" id="userId" v-model="brewery.user_id" required>
-                </div>
-                <div>
-                    <label for="breweryName">Brewery Name => </label>
-                    <input type="text" id="breweryName" v-model="brewery.name" required>
-                </div>
-                <div class="submit">
-                    <button type="submit">Add Brewery</button>
-                </div>
-            </form>
-            <div v-if="showMessage" class="completion-message">Brewery added successfully!</div>
-        </div>
-    </div>
-
-    <div class="RegUsers">
+      <HeaderView />
+  
+      <div class="addBrewery">
+        <h3>Add Brewery</h3>
+        <form @submit.prevent="submitForm">
+          <div>
+            <label for="breweryId">Brewery Id => </label>
+            <input type="number" id="breweryId" v-model="brewery.brew_id" required>
+          </div>
+          <div>
+            <label for="userId">User Id => </label>
+            <input type="number" id="userId" v-model="brewery.user_id" required>
+          </div>
+          <div>
+            <label for="breweryName">Brewery Name => </label>
+            <input type="text" id="breweryName" v-model="brewery.name" required>
+          </div>
+          <div class="submit">
+            <button type="submit" @click="showCompletionMessage">Add Brewery</button>
+          </div>
+        </form>
+        <div class="completion-message" :class="{ 'show-message': showMessage }">
+  {{ messageText }}
+</div>
+      </div>
+  
+      <div class="RegUsers">
         <h3>All Registered Users</h3>
         <ul>
-            <li v-for="user in userList" :key="user.id" value="user">{{ user.username }}</li>
+          <li v-for="user in userList" :key="user.id" value="user">{{ user.username }}</li>
         </ul>
+      </div>
+  
+      <FooterView />
     </div>
-
-    <footer-view />
-</template>
-
+  </template>
 <script>
 import HeaderView from './HeaderView.vue';
 import FooterView from './FooterView.vue';
@@ -59,33 +61,52 @@ export default {
                 image: ''
             },
             userList: [],
-            selectedUserId: "", // Add selectedUserId data property
+            selectedUserId: "",
+            messageText: '', // Add selectedUserId data property
             showMessage: false, // Add a data property to control the completion message
         };
     },
 
     methods: {
-        addBrewery() {
-            brewService
-                .addBrewery(this.brewery)
-                .then((response) => {
-                    if (response.status == 201) {
-                        // this.breweries = response.data;
-                    }
-                })
-                .catch((error) => {
-                    const response = error.response;
-                    if (response.status === 401) {
-                        this.invalidCredentials = true;
-                    }
-                });
-        },
-
-        showCompletionMessage() {
-            this.showMessage = true;
-        },
-
+    submitForm() {
+       
+      // Call addBrewery method when the form is submitted
+      this.addBrewery();
     },
+
+    addBrewery() {
+        setTimeout(() => {
+        // Display a completion message
+        this.showCompletionMessage("Brewery added successfully!");
+    }, 1000); // Adjust the delay as needed
+      // Use this.brewery to pass data to the API
+      brewService
+        .addBrewery(this.brewery)
+        .then((response) => {
+          if (response.status == 201) {
+             // Show completion message on successful addition
+          }
+        })
+        .catch((error) => {
+          const response = error.response;
+          if (response.status === 401) {
+            // Handle error scenarios as needed
+            console.error("Error adding brewery:", error);
+          }
+        });
+    },  
+    
+    showCompletionMessage(message) {
+      this.showMessage = true;
+      this.messageText = message;
+
+      // Hide the message after 3 seconds (adjust duration as needed)
+      setTimeout(() => {
+        this.showMessage = false;
+      }, 3000);
+    }
+  
+  },
     components: {
         HeaderView,
         FooterView,
@@ -113,13 +134,24 @@ export default {
 
 <style scoped>
 .completion-message {
-    font-family: Arial, Helvetica, sans-serif;
-    color: green;
-    /* Change the color to your preference */
-    margin-top: 10px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: gold;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(7, 7, 7, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+.show-message {
+  display: block;
 }
 
 
