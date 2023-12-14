@@ -31,8 +31,7 @@
         <ul>
             <li v-for="user in userList" :key="user.id" value="user">{{ user.username }} : {{ user.id }}</li>
         </ul>
-      </div>
-  
+      
       <FooterView />
     </div>
   </template>
@@ -134,15 +133,6 @@ export default {
 
 <style scoped>
 .completion-message {
-<<<<<<< HEAD
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: green;
-    /* Change the color to your preference */
-    margin-top: 10px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-=======
   font-family: Arial, Helvetica, sans-serif;
   color: gold;
   margin-top: 10px;
@@ -161,7 +151,6 @@ export default {
 }
 .show-message {
   display: block;
->>>>>>> logan
 }
 
 
