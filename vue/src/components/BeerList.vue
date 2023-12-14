@@ -104,9 +104,11 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), /* Existing shadow */
-              0px 0px 10px gold; /* Additional gold shadow */
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1),
+    /* Existing shadow */
+    0px 0px 10px gold;
+  /* Additional gold shadow */
 }
 
 .beer-image-container {
@@ -144,5 +146,6 @@ ul {
 li {
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
+  color: white;
 }
 </style>

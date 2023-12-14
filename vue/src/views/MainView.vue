@@ -81,7 +81,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('../assets/img/homePage2.png');
+  background-image: url('../assets/img/beerstar.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -97,9 +97,9 @@ export default {
 
 .featured-section h1,
 .beer-section h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2.5rem;
-  margin-bottom: 20px;
+
 }
 
 .slideshow-container {
@@ -108,17 +108,22 @@ export default {
   justify-content: space-around;
   object-fit: contain;
   gap: 20px;
-  position: relative; /* Set parent container to relative positioning */
-  z-index: 1; /* Ensure the slideshow is above other elements */
-  height: 600px; /* Adjust the height of the slideshow area */
+  position: relative;
+  /* Set parent container to relative positioning */
+  z-index: 1;
+  /* Ensure the slideshow is above other elements */
+
+  /* Adjust the height of the slideshow area */
   margin-bottom: 50px;
 }
 
 .featured-section,
 .beer-section {
   width: calc(50% - 10px);
-  z-index: 2; /* Ensure the slideshows are above the "About Us" box */
-  height: 100%; /* Fill the entire height of the slideshow area */
+  z-index: 2;
+  /* Ensure the slideshows are above the "About Us" box */
+  height: 100%;
+  /* Fill the entire height of the slideshow area */
   margin-bottom: 50px;
 }
 
@@ -127,7 +132,7 @@ export default {
 }
 
 .about-box {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #F5F5F5;
   padding: 20px;
   border: 1px solid #ddd;

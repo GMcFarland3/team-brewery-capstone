@@ -4,10 +4,10 @@
         <div class="addBrewery">
             <h3>Add Brewery</h3>
             <form @submit.prevent="addBrewery"> <!-- Call addBrewery on form submission -->
-                <div>
+                <!-- <div>
                     <label for="breweryId">Brewery Id => </label>
-                    <input type="number" id="breweryId" v-model="brewery.brew_id" required>
-                </div>
+                    <input type="number" id="breweryId" v-model="brewery.brew_id">
+                </div> -->
                 <div>
                     <label for="userId">User Id => </label>
                     <input type="number" id="userId" v-model="brewery.user_id" required>
@@ -27,7 +27,7 @@
     <div class="RegUsers">
         <h3>All Registered Users</h3>
         <ul>
-            <li v-for="user in userList" :key="user.id" value="user">{{ user.username }}</li>
+            <li v-for="user in userList" :key="user.id" value="user">{{ user.username }} : {{ user.id }}</li>
         </ul>
     </div>
 
@@ -113,7 +113,7 @@ export default {
 
 <style scoped>
 .completion-message {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: green;
     /* Change the color to your preference */
     margin-top: 10px;
@@ -160,13 +160,13 @@ button:hover {
 }
 
 h3 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 10px;
     padding-left: 10px;
 }
 
 label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: inline-block;
     text-align: left;
     padding-left: 5px;
@@ -174,25 +174,25 @@ label {
 }
 
 input {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-left: 5px;
     width: 400px;
 }
 
 select {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-left: 5px;
     width: 400px;
 }
 
 option {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-left: 5px;
     width: 400px;
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
     color: rgb(212, 216, 5);
     margin-right: 20px;

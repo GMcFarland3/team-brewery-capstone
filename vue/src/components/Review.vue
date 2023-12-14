@@ -166,14 +166,16 @@ form {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    width: 35rem;
-    height: 18rem;
+    width: 30rem;
+    height: 15rem;
     margin: auto;
     border-radius: 1rem;
     background-color: rgb(189, 185, 185);
     border: black solid 1px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), /* Existing shadow */
-              0px 0px 10px gold; /* Additional gold shadow */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1),
+        /* Existing shadow */
+        0px 0px 10px gold;
+    /* Additional gold shadow */
     padding: 20px;
 }
 
@@ -193,7 +195,6 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5rem;
 }
 
 .beers {
@@ -205,14 +206,12 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin: 0 0 3rem 34rem; */
     border-radius: 1rem;
     border: black solid 1px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), /* Existing shadow */
-              0px 0px 10px gold; /* Additional gold shadow */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1),
+        0px 0px 10px gold;
     padding: 20px;
     background-color: rgb(165, 161, 161);
-    padding: 20px;
 
 }
 
@@ -226,26 +225,12 @@ img {
 li {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
-    width: 32rem;
-    /* Add space between each review */
-    padding: 2px;
+    width: 30rem;
     /* Add padding to create individual areas for comments */
     border: 2px solid #0A0A0A;
     text-align: center;
     background-color: rgb(214, 213, 213);
     /* Add a border to separate each comment area */
-}
-
-ul {
-    list-style-type: none;
-    /* Remove the bullets */
-}
-
-.name {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 20px;
-    margin-right: 110px;
-    text-align: center;
 }
 
 .rating {
@@ -258,8 +243,6 @@ ul {
 .comment {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
-    margin-right: 110px;
-    text-align: center;
 }
 
 .submit {
@@ -290,21 +273,8 @@ label {
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     text-align: left;
-    padding-left: 5px;
     width: 180px;
     font-size: 1rem;
 
-}
-
-input {
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 5px;
-    width: 400px;
-}
-
-input,
-select {
-    width: 250px;
-    /* Adjust width of input boxes */
 }
 </style>
