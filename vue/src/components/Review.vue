@@ -10,7 +10,6 @@
                             {{ beer.name }}</option>
                     </select>
                 </div>
-
                 <div class="rating">
                     <label for="rating">Rating => </label>
                     <select id="rating" v-model="review.rating" required>
@@ -45,7 +44,7 @@
                         <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
                         <p>{{ review.review }}</p>
                         <div class="reviewImage">
-                            <img :src="review.image" alt="pic not found">
+                            <img :src="review.image" alt="">
                         </div>
                     </div>
                 </li>
@@ -116,7 +115,6 @@ export default {
         filteredBeers() {
             return this.beersList.filter(beer => beer.brewId == this.brew_id);
         },
-
     },
 
     created() {

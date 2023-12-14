@@ -21,7 +21,7 @@ public class JdbcBrewDao implements BrewDao {
     @Override
     public List<Brewery> listBreweries() {
         List<Brewery> breweries = new ArrayList<>();
-        String sql = "SELECT brew_id, user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image FROM breweries";
+        String sql = "SELECT brew_id, user_id, name, address, address2, city, state_abbr, zip_code, phone, website, operation_hours, history, image FROM breweries  ORDER BY name";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {

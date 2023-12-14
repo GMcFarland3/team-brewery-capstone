@@ -11,8 +11,7 @@
         <router-link v-bind:to="{ name: 'login' }" v-if="!$store.state.token" class="nav-link">Login</router-link>
         <router-link v-bind:to="{ name: 'register' }" v-if="!$store.state.token" class="nav-link">Register</router-link>
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token" class="nav-link">Logout</router-link>
-        <router-link v-bind:to="{ name: 'admin' }" class="nav-link">Admin</router-link>
-        <router-link v-bind:to="{ name: 'brewer' }" class="nav-link">Brewer</router-link>
+        <router-link v-bind:to="{ name: 'admin' }" v-if="showAdmin" class="nav-link">Admin</router-link>
       </div>
     </div>
     <router-link v-bind:to="{ name: 'home' }" class="logo">
@@ -21,7 +20,23 @@
   </header>
 </template>
   
-  
+<script>
+export default {
+  data() {
+    return {
+      showAdmin: false,
+    }
+  },
+  created() {
+    if (this.$store.state.user.id == 3) {
+      this.showAdmin = true;
+    } else {
+      this.showAdmin = false;
+    }
+  },
+}
+</script>
+
 <style scoped>
 .header {
   display: flex;

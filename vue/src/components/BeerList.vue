@@ -11,7 +11,7 @@
             <li>{{ beer.description }}</li>
             <li>Type: {{ beer.type }}</li>
             <li>ABV: {{ beer.abv }}</li>
-            <li>Average Rating: {{ displayAverageRating(beer.beerId) }}</li>
+            <li>Average Rating: {{ displayAverageRating(beer.beer_Id) }}</li>
             <li v-if="beer.status">** OUT OF STOCK **</li>
           </ul>
         </div>

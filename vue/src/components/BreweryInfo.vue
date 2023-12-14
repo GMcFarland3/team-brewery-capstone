@@ -14,13 +14,13 @@
         <div class="details">
             <h3>Details</h3>
             <ul>
-                <li>Address: {{ brewery.address }}</li>
-                <li>City: {{ brewery.city }}</li>
-                <li>State: {{ brewery.state_abbr }}</li>
-                <li>Zip Code: {{ brewery.zip_code }}</li>
-                <li>Phone: {{ brewery.phone }}</li>
-                <li>Hours: {{ brewery.operation_hours }}</li>
-                <li>Website:<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
+                <li>Address : {{ brewery.address }}</li>
+                <li>City : {{ brewery.city }}</li>
+                <li>State : {{ brewery.state_abbr }}</li>
+                <li>Zip Code : {{ brewery.zip_code }}</li>
+                <li>Phone : {{ brewery.phone }}</li>
+                <li>Hours : {{ brewery.operation_hours }}</li>
+                <li>Website :<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
             </ul>
             <div>
                 <!-- <router-link v-if="this.showAdmin" :to="'/brewAdmin/' + breweries.brew_id" class="nav-link">Brewer Admin</router-link> -->
@@ -87,7 +87,7 @@ img {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    width: 200rem;
+    /* width: 180rem; */
     padding-left: 1.5rem;
     flex-grow: 2;
     padding-right: 1.5rem;
@@ -98,7 +98,7 @@ ul {
     list-style-type: none;
     font-size: 1.5rem;
     justify-content: center;
-    margin-top: 1px;
+    margin: 1px 0px 0px 0px;
 }
 
 li {
