@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .page {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url('../assets/img/homePage2.png');
     background-size: cover;
     background-repeat: no-repeat;
