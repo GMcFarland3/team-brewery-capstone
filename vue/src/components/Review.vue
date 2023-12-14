@@ -143,12 +143,6 @@ export default {
 
     methods: {
         submitReview() {
-
-            setTimeout(() => {
-                // Display a completion message
-                this.showCompletionMessage("Review added successfully!");
-            }, 1000); // Adjust the delay as needed
-
             this.review.user_id = this.user_id; // Set the user ID
             this.review.brew_id = this.brew_id; // Set the brewery ID
             this.review.beer_id = this.oneBeer.beer_Id; // Set the beer ID
@@ -158,9 +152,10 @@ export default {
                 .insertReview(this.review)
                 .then(response => {
                     if (response.status === 201) {
-                        // Handle successful creation (e.g., update this.reviews)
+
                         this.reviews.push(response.data); // Add the new review to the local reviews array
-                        // console.log('Review submitted successfully:', response.data);
+                        this.showCompletionMessage("Review added successfully!");
+
                     }
                 })
                 .catch(error => {

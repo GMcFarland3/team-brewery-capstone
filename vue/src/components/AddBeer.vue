@@ -97,10 +97,10 @@
                             {{ beer.name }}</option>
                     </select>
                 </div>
-                <div class="updatebeername">
+                <!-- <div class="updatebeername">
                     <label for="name">Beer name</label>
                     <input type="text" id="name" v-model="upBeers.name" maxlength="30" required>
-                </div>
+                </div> -->
                 <div class="updatebeertype">
                     <label for="type">Beer type</label>
                     <input type="text" id="beerType" v-model="upBeers.type" maxlength="25" required>
@@ -213,17 +213,13 @@ export default {
 
         updateBrewery() {
 
-            setTimeout(() => {
-                // Display a completion message
-                this.showCompletionMessage("Brewery updated successfully!");
-            }, 1000); // Adjust the delay as needed
-
             this.updateBrew.brew_id = this.brewery.brew_id;
             BreweriesService
                 .updateBrewery(this.updateBrew)
                 .then(response => {
                     if (response.status === 201) {
                         this.updateBrew = response.data; // Assigning the updated data to updateBrew
+                        this.showCompletionMessage("Brewery updated successfully!");
                     }
                 })
                 .catch(error => {
@@ -232,11 +228,7 @@ export default {
         },
 
         updateBeer() {
-            setTimeout(() => {
-                // Display a completion message
-                this.showCompletionMessage("Beer updated or added successfully!");
-            }, 1000); // Adjust the delay as needed
-
+            this.upBeers.brewId = this.brewery.brew_id;
             if (this.upBeers.brewId > 0) {
                 this.upBeers.brewId = this.brewery.brew_id;
                 BreweriesService

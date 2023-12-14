@@ -6,6 +6,7 @@
         <BrewerySlideshow :breweries="sixRandom" />
       </div>
       <div class="beer-section">
+        <h1>Featured Beers</h1>
         <BeerSlideshow :beers="featuredBeers" />
       </div>
     </div>
@@ -99,6 +100,8 @@ export default {
 .beer-section h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2.5rem;
+  color: whitesmoke;
+  text-shadow: black 2px 2px 2px;
 
 }
 
