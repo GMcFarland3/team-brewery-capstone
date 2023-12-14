@@ -73,8 +73,8 @@
             <form @submit.prevent="updateBeer">
                 <div class="beers">
                     <label for="beerList">Select a Beer if updating => </label>
-                    <select id="beerList" v-model="upBeers">
-                        <option v-for="beer in filteredBeers" :key="beer.beerId" :value="beer">
+                    <select id="beerList" v-model="upBeers.beer_Id">
+                        <option v-for="beer in filteredBeers" :key="beer.beerId" :value="beer.beer_Id">
                             {{ beer.name }}</option>
                     </select>
                 </div>
@@ -89,7 +89,7 @@
                 <label for="image">Beer image</label>
                 <input type="url" id="beerImage" v-model="upBeers.image" maxlength="500">
                 <label for="status">Out of stock => </label>
-                <select id="status" v-model="upBeers">
+                <select id="status" v-model="upBeers.status">
                     <option :key="true" :value="true">True</option>
                     <option :key="false" :value="false">False</option>
                 </select>
@@ -418,4 +418,5 @@ select#status {
     /* Set a fixed width for each form */
     height: 700px;
     /* Set a fixed height for each form */
-}</style>
+}
+</style>
