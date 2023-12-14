@@ -26,6 +26,9 @@
                     <input type="url" id="beerImage" v-model="beer.image" maxlength="500" required>
                 </div>
                 <button class="submitbeerbutton" type="submit">Submit Add Beer</button>
+                <div class="completion-message" :class="{ 'show-message': showMessage }">
+  {{ messageText }}
+</div>
             </form>
         </div>
 
@@ -192,6 +195,11 @@ export default {
 
     methods: {
         submitBeer() {
+
+            setTimeout(() => {
+        // Display a completion message
+        this.showCompletionMessage("Brewery updated successfully!");
+    }, 1000);
     BreweriesService
         .insertBeer(this.beer)
         .then(response => {
