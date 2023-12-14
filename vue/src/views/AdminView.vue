@@ -1,6 +1,8 @@
 <template>
+<div class="page">
     <div>
         <header-view />
+        <div class="mainview">
         <div class="addBrewery">
             <h3>Add Brewery</h3>
             <form @submit.prevent="addBrewery"> <!-- Call addBrewery on form submission -->
@@ -25,12 +27,16 @@
             </div>
         </div>
     </div>
+    
 
     <div class="RegUsers">
         <h3>All Registered Users</h3>
         <ul>
             <li v-for="user in userList" :key="user.id" value="user">{{ user.username }} : {{ user.id }}</li>
         </ul>
+    </div>
+</div>
+
 
         <FooterView />
     </div>
@@ -128,6 +134,14 @@ export default {
 </script>
 
 <style scoped>
+.page {
+    
+    background-image: url('../assets/img/homePage2.png');
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
 .completion-message {
     font-family: Arial, Helvetica, sans-serif;
     color: gold;
@@ -158,9 +172,18 @@ button:hover {
 }
 
 .addBrewery {
-    border-style: groove;
+    background-color: aliceblue;
+    border-radius: 8px;
+  border: 1px solid rgb(199, 170, 2);
+  /* Box shadow for a slight lift effect */
+  box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;
+  transition: transform 0.3s ease-in-out;
+
     padding: 2px 2px 15px 2px;
-    margin: 5px 0px 5px 0px;
+    margin: 10px 10px 10px 10px;
+    width: 25%;
+    margin-top: 50px;
+    
 }
 
 .addBeer {
@@ -169,10 +192,23 @@ button:hover {
     margin: 5px 0px 5px 0px;
 }
 
+.brewery-card:hover {
+  transform: translateY(-5px); /* Add a slight lift on hover */
+}
+
 .RegUsers {
-    border-style: groove;
+    background-color: aliceblue;
+    border-radius: 8px;
+  border: 1px solid rgb(199, 170, 2);
+  /* Box shadow for a slight lift effect */
+  box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;
+  transition: transform 0.3s ease-in-out;
+
     padding: 2px 2px 15px 2px;
-    margin: 5px 0px 5px 0px;
+    margin: 10px 10px 10px 10px;
+    width: 25%;
+    margin-bottom: 50px;
+    margin-top: 10px;
 }
 
 .UpdateUsers {
