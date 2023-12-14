@@ -1,6 +1,8 @@
 <template>
     <div class="page">
         <!-- <div class="makeBeer">
+        <div class="forms-container">
+        <div class="makeBeer">
             <h1>Add Beer</h1>
             <form @submit.prevent="submitBeer">
                 <label for="name">/ Beer name \</label>
@@ -222,19 +224,6 @@ export default {
 </script>
 
 <style scoped>
-.page {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url('../assets/img/homePage2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    margin: 0;
-    /* Remove margin */
-    padding: 0;
-    /* Remove padding */
-}
-
 ul li {
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
@@ -276,6 +265,7 @@ button {
     background-color: rgb(159, 159, 5);
     margin: 0.5rem 1rem 0.5rem 1rem;
     width: 70%;
+    margin-top: 100px;
 }
 
 button:hover {
@@ -369,5 +359,63 @@ select#status {
     background-color: rgb(201, 199, 186);
     padding: 20px;
     width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5px;
+    width: 40%;
+    /* Adjusted input width to make the boxes the same size */
+    height: 1.2rem;
+    /* Reduced input height */
+    margin-bottom: 1rem;
+    /* Adjusted spacing between inputs */
 }
-</style>
+
+/* Set forms to be flex containers */
+.page {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../assets/img/homePage2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 0;
+    /* Remove margin */
+    padding: 0;
+    /* Remove padding */
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    justify-content: space-around;
+    align-items: center;
+    /* Center vertically */
+
+}
+
+.forms-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Style for individual forms */
+.makeBeer,
+.updateBeer,
+.updateBrewery {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    border: rgb(190, 197, 5) solid 1px;
+    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
+    background-color: rgb(201, 199, 186);
+    padding: 20px;
+    width: 350px;
+    /* Set a fixed width for each form */
+    height: 700px;
+    /* Set a fixed height for each form */
+}</style>
