@@ -21,8 +21,8 @@
                 </div>
             </form>
             <div class="completion-message" :class="{ 'show-message': showMessage }">
-  {{ messageText }}
-</div>
+                {{ messageText }}
+            </div>
         </div>
     </div>
 
@@ -31,10 +31,10 @@
         <ul>
             <li v-for="user in userList" :key="user.id" value="user">{{ user.username }} : {{ user.id }}</li>
         </ul>
-      
-      <FooterView />
+
+        <FooterView />
     </div>
-  </template>
+</template>
 <script>
 import HeaderView from './HeaderView.vue';
 import FooterView from './FooterView.vue';
@@ -67,45 +67,41 @@ export default {
     },
 
     methods: {
-    submitForm() {
-       
-      // Call addBrewery method when the form is submitted
-      this.addBrewery();
+        submitForm() {
+
+            // Call addBrewery method when the form is submitted
+            this.addBrewery();
+        },
+
+        addBrewery() {
+            brewService
+                .addBrewery(this.brewery)
+                .then((response) => {
+                    if (response.status == 201) {
+                        this.showCompletionMessage("Brewery added successfully!");
+                        // Show completion message on successful addition
+                    }
+                })
+                .catch((error) => {
+                    const response = error.response;
+                    if (response.status === 401) {
+                        // Handle error scenarios as needed
+                        console.error("Error adding brewery:", error);
+                    }
+                });
+        },
+
+        showCompletionMessage(message) {
+            this.showMessage = true;
+            this.messageText = message;
+
+            // Hide the message after 3 seconds (adjust duration as needed)
+            setTimeout(() => {
+                this.showMessage = false;
+            }, 3000);
+        }
+
     },
-
-    addBrewery() {
-        setTimeout(() => {
-        // Display a completion message
-        this.showCompletionMessage("Brewery added successfully!");
-    }, 1000); // Adjust the delay as needed
-      // Use this.brewery to pass data to the API
-      brewService
-        .addBrewery(this.brewery)
-        .then((response) => {
-          if (response.status == 201) {
-             // Show completion message on successful addition
-          }
-        })
-        .catch((error) => {
-          const response = error.response;
-          if (response.status === 401) {
-            // Handle error scenarios as needed
-            console.error("Error adding brewery:", error);
-          }
-        });
-    },  
-    
-    showCompletionMessage(message) {
-      this.showMessage = true;
-      this.messageText = message;
-
-      // Hide the message after 3 seconds (adjust duration as needed)
-      setTimeout(() => {
-        this.showMessage = false;
-      }, 3000);
-    }
-  
-  },
     components: {
         HeaderView,
         FooterView,
@@ -133,24 +129,25 @@ export default {
 
 <style scoped>
 .completion-message {
-  font-family: Arial, Helvetica, sans-serif;
-  color: gold;
-  margin-top: 10px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(7, 7, 7, 0.9);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gold;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(7, 7, 7, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
 }
+
 .show-message {
-  display: block;
+    display: block;
 }
 
 
