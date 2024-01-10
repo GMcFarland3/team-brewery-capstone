@@ -4,25 +4,25 @@
             <img :src="brewery.image" alt="image broken"> <!-- Use the brewery's image source -->
         </div>
 
-        <div class="history">
+        <div class="brewInfo">
             <div class="info">
                 <h1>{{ brewery.name }}</h1>
             </div>
-            <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
+            <div class="history">
+                <h2>{{ brewery.history }}</h2> <!-- Display the brewery's description -->
+            </div>
         </div>
 
         <div class="details">
-            <h3>Details</h3>
+            <h3>DETAILS</h3>
             <ul>
-                <li>Address : {{ brewery.address }}</li>
-                <li>City : {{ brewery.city }}</li>
-                <li>State : {{ brewery.state_abbr }}</li>
-                <li>Zip Code : {{ brewery.zip_code }}</li>
-                <li>Phone : {{ brewery.phone }}</li>
-                <li>Hours : {{ brewery.operation_hours }}</li>
-                <li>Website :<a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
+                <li>{{ brewery.address }}</li>
+                <li>{{ brewery.city }}, {{ brewery.state_abbr }} {{ brewery.zip_code }}</li>
+                <li>{{ brewery.phone }}</li>
+                <li>{{ brewery.operation_hours }}</li>
+                <li><a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
             </ul>
-            <div>
+            <div id="babutton">
                 <!-- <router-link v-if="this.showAdmin" :to="'/brewAdmin/' + breweries.brew_id" class="nav-link">Brewer Admin</router-link> -->
                 <router-link v-if="this.showAdmin" :to="{ name: 'brewAdmin' }" class="nav-link">Brewer Admin</router-link>
             </div>
@@ -83,18 +83,27 @@ img {
     margin: 15px 0px 15px 0px;
 }
 
-.history {
-    font-family: Arial, Helvetica, sans-serif;
+.brewInfo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
-    /* width: 180rem; */
     padding-left: 1.5rem;
     flex-grow: 2;
     padding-right: 1.5rem;
+    color: white;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 3rem;
+}
+h2 {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 ul {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     list-style-type: none;
     font-size: 1.5rem;
     justify-content: center;
@@ -102,35 +111,52 @@ ul {
 }
 
 li {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 10px;
     text-align: center;
 }
 
 .details {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: flex-end;
-    background-color: rgb(202, 194, 194);
+    background-color: white;
     padding-right: 2rem;
-    border: 2.5px solid rgb(199, 170, 2);
+    border: 2.5px solid darkorange;;
     margin: 15px 0px 15px 0px;
 }
 
 .info {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: xx-large;
+    height: 5rem;
+    margin-top: 1rem;
+    border-style: solid;
+    border-width: 4px;
+    border-left: cadetblue;
+    border-right: cadetblue;
+}
+.history {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    border-style: solid;
+    border-width: 4px;
+    border-top: cadetblue;
+    border-bottom: cadetblue;
 }
 
 .details>h3 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: xx-large;
+    color: darkorange;
     text-decoration: underline;
     justify-content: center;
     align-items: center;
@@ -138,7 +164,7 @@ li {
 }
 
 .AddBeer {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,20 +173,20 @@ li {
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     justify-content: center;
     align-items: center;
 }
 
 form {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     margin: 1rem 0 2rem 0rem;
 }
 
 
 .makeBeer {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -172,7 +198,7 @@ form {
 }
 
 .nav {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     font-size: 2rem;
     padding-left: 4rem;
@@ -186,23 +212,27 @@ form {
 
 /* Improved button styles and hover effect */
 .nav-link {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
     text-align: center;
-    color: rgb(202, 200, 200);
+    color: white;
     font-size: 1.5rem;
     transition: color 0.3s;
     border: 1px solid gray;
     padding: 0px 2px 0px 4px;
     border-radius: 5px;
-    background-color: rgb(59, 59, 59);
+    background-color: darkorange;
     margin: 0px 0px 0px 0px;
 }
 
 .nav-link:hover {
-    color: #FFCC00;
+    color: darkorange;
     background-color: gray;
     /* Change text color on hover */
     /* Add additional styling for the hover effect, e.g., background color change */
+}
+
+#babutton {
+    margin-top: 1rem;
 }
 </style>

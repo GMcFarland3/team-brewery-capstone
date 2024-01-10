@@ -81,13 +81,14 @@ export default {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  background-image: url('../assets/img/beerstar.png');
+  /* background-image: url('../assets/img/Municipal-Brew-Works-2.png'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-color: rgb(199, 170, 2);
+  background-color:cadetblue;
 }
 
 .featured-section,
@@ -102,13 +103,15 @@ export default {
   font-size: 2.5rem;
   color: whitesmoke;
   text-shadow: black 2px 2px 2px;
-
+  text-align: center;
 }
 
 .slideshow-container {
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  justify-content: space-evenly;
   object-fit: contain;
   gap: 20px;
   position: relative;

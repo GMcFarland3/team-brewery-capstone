@@ -103,10 +103,10 @@ export default {
 
 #login {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(113, 112, 112);
+  background-color:  cadetblue;
   height: 52rem;
   text-align: center;
-  background-image: url('../assets/img/homePage2.png');
+  /* background-image: url('../assets/img/homePage2.png'); */
 }
 
 .form-input-group {

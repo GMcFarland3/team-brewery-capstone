@@ -286,7 +286,7 @@ export default {
 }
 
 .completion-message {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: gold;
     margin-top: 10px;
     text-align: center;
@@ -309,13 +309,13 @@ export default {
 }
 
 ul li {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 10px;
     text-align: center;
 }
 
 .submitbeerbutton {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     font-size: 1.5rem;
     text-decoration: none;
@@ -331,7 +331,7 @@ ul li {
 }
 
 .beerbutton {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     font-size: 1.5rem;
     text-decoration: none;
@@ -348,7 +348,7 @@ ul li {
 }
 
 .brewerybutton {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     font-size: 1.5rem;
     text-decoration: none;
@@ -374,7 +374,7 @@ button:active {
 }
 
 form {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -383,21 +383,21 @@ form {
 }
 
 label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: inline-block;
     padding-left: 5px;
     width: 40%;
 }
 
 input {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 50%;
     height: 1.2rem;
     margin-bottom: 1rem;
 }
 
 .page {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url('../assets/img/homePage2.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -413,7 +413,7 @@ input {
 }
 
 .updateBeer {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -428,7 +428,7 @@ input {
 }
 
 .updateBrewery {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -446,7 +446,7 @@ input {
 }
 
 .page {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url('../assets/img/homePage2.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -475,7 +475,7 @@ input {
 }
 
 .submitBeer {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;

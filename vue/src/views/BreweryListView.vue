@@ -61,7 +61,8 @@ h1 {
   font-weight: bolder;
   margin: 0;
   padding: 20px 0;
-  background-image: url('../assets/img/beerstar.png');
+  /* background-image: url('../assets/img/beerstar.png'); */
+  background-color:  cadetblue;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -76,10 +77,9 @@ h1 {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* Make the content take up at least the full viewport height */
-
   /* Adjust as needed to prevent the footer from overlapping content */
-  background-image: url('../assets/img/beerstar.png');
+  /* background-image: url('../assets/img/beerstar.png'); */
+  background-color:  cadetblue;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

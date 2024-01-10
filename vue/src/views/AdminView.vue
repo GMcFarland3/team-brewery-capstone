@@ -135,15 +135,15 @@ export default {
 
 <style scoped>
 .page {
-    
-    background-image: url('../assets/img/homePage2.png');
-    background-size: cover;
+  /* background-image: url('../assets/img/homePage2.png'); */
+  background-color:  cadetblue;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
 }
 .completion-message {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: gold;
     margin-top: 10px;
     text-align: center;
@@ -172,8 +172,8 @@ button:hover {
 }
 
 .addBrewery {
-    background-color: aliceblue;
-    border-radius: 8px;
+  background-color: aliceblue;
+  border-radius: 8px;
   border: 1px solid rgb(199, 170, 2);
   /* Box shadow for a slight lift effect */
   box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;
@@ -197,8 +197,8 @@ button:hover {
 }
 
 .RegUsers {
-    background-color: aliceblue;
-    border-radius: 8px;
+  background-color: aliceblue;
+  border-radius: 8px;
   border: 1px solid rgb(199, 170, 2);
   /* Box shadow for a slight lift effect */
   box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;

@@ -64,7 +64,8 @@ export default {
 <style scoped>
 
 .page {
-    background-image: url('../assets/img/homePage2.png');
+  /* background-image: url('../assets/img/homePage2.png'); */
+  background-color:  cadetblue;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

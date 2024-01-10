@@ -7,13 +7,17 @@
         </div>
         <div class="beer-info">
           <h3>{{ beer.name }}</h3>
-          <ul>
-            <li>{{ beer.description }}</li>
-            <li>Type: {{ beer.type }}</li>
-            <li>ABV: {{ beer.abv }}</li>
-            <li>Average Rating: {{ displayAverageRating(beer.beer_Id) }}</li>
-            <li v-if="beer.status">** OUT OF STOCK **</li>
-          </ul>
+          <div id="description">{{ beer.description }}</div>
+          <div id="subset">
+            <div class="details">{{ beer.type }}</div>
+            <div class="spacer"></div>
+            <div class="details">Average Star Rating(s) {{ displayAverageRating(beer.beer_Id) }}</div>
+            <div class="spacer"></div>
+            <div class="details">{{ beer.abv }} abv</div>
+          </div>
+          <div class="topspacer"></div>
+          <router-link :to="{ name: 'brewAdmin' }" class="nav-link">Click here to read reviews and/or leave a reaview</router-link>
+          <div id="stock" v-if="beer.status">** OUT OF STOCK **</div>
         </div>
       </div>
     </section>
@@ -40,6 +44,7 @@ export default {
       },
       reviews: [],
       filteredReviews: [],
+      
     };
   },
 
@@ -89,63 +94,143 @@ export default {
 </script>
 <style scoped>
 .beers-list {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
   gap: 20px;
+  margin-left: 1rem;
 }
 
 .beer-card {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: 1px solid #080808;
   padding: 10px;
-  width: 300px;
+  width: 80rem;
+  height: 350px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   text-align: center;
 
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1),
     /* Existing shadow */
-    0px 0px 10px gold;
+    0px 0px 10px darkorange;
   /* Additional gold shadow */
 }
 
 .beer-image-container {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 10px;
-  width: 100%;
+  /* width: 100%; */
+  width: 300px;
+  height: 300px;
 }
 
 .beer-image {
-  font-family: Arial, Helvetica, sans-serif;
-  max-width: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* max-width: 100%;
   height: auto;
-  width: 100%;
+  width: 100%; */
+  width: 300px;
+  height: 300px;
 }
 
 .beer-info {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: column;
-  font-size: x-large;
+  flex-grow: 3;
+  color: white;
+  margin-left: 1rem;
 }
 
 h3 {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 5px 0;
-  color: gold;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 2rem;
   color: white;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+#description {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-left: cadetblue;
+  border-top: cadetblue;
+  border-right: cadetblue;
+}
+
+#subset {
+  display: flex;
+  flex-direction: row;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+#stock {
+  margin-top: 2rem;
+}
+
+.spacer {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: cadetblue;
+  border-top: cadetblue;
+  border-right: cadetblue;
+}
+
+.topspacer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: cadetblue;
+  border-left: cadetblue;
+  border-right: cadetblue;
+}
+
+.nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    font-size: 2rem;
+    padding-left: 4rem;
+    justify-content: center;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+    text-decoration: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+/* Improved button styles and hover effect */
+.nav-link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    border: 1px solid gray;
+    padding: 0px 2px 0px 4px;
+    border-radius: 5px;
+    background-color: darkorange;
+    margin: 0px 0px 0px 0px;
+}
+
+.nav-link:hover {
+    color: darkorange;
+    background-color: gray;
+    /* Change text color on hover */
+    /* Add additional styling for the hover effect, e.g., background color change */
 }
 </style>

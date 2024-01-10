@@ -5,17 +5,17 @@
         <h1>BrewScout</h1>
       </div>
       <div class="nav">
-        <router-link v-bind:to="{ name: 'home' }" class="nav-link">Home</router-link>
-        <router-link v-bind:to="{ name: 'breweries' }" class="nav-link">Breweries</router-link>
-        <router-link v-bind:to="{ name: 'login' }" v-if="!$store.state.token" class="nav-link">Login</router-link>
-        <router-link v-bind:to="{ name: 'register' }" v-if="!$store.state.token" class="nav-link">Register</router-link>
-        <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token" class="nav-link">Logout</router-link>
-        <router-link v-bind:to="{ name: 'admin' }" v-if="showAdmin" class="nav-link">Admin</router-link>
+        <router-link v-bind:to="{ name: 'home' }" class="nav-link">HOME</router-link>
+        <router-link v-bind:to="{ name: 'breweries' }" class="nav-link">BREWERIES</router-link>
+        <router-link v-bind:to="{ name: 'login' }" v-if="!$store.state.token" class="nav-link">LOGIN</router-link>
+        <router-link v-bind:to="{ name: 'register' }" v-if="!$store.state.token" class="nav-link">REGISTER</router-link>
+        <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token" class="nav-link">LOGOUT</router-link>
+        <router-link v-bind:to="{ name: 'admin' }" v-if="showAdmin" class="nav-link">ADMIN</router-link>
       </div>
     </div>
-    <router-link v-bind:to="{ name: 'home' }" class="logo">
+    <!-- <router-link v-bind:to="{ name: 'home' }" class="logo">
       <img id="banner" src="../assets/img/BrewScout.png" alt="BrewScout Logo">
-    </router-link>
+    </router-link> -->
   </header>
 </template>
   
@@ -41,8 +41,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url('C:..\assets\img\scoutImage.png');
-  /* background-image: url(..\assets\img\header2.png); */
+  background-image: url('C:..\assets\img\BSH.jpg');
   /* Replace 'your-image.jpg' with the actual image file name */
   background-size: cover;
   /* Adjust to your needs, 'cover' makes the image cover the entire element */
@@ -62,8 +61,8 @@ export default {
   justify-content: center;
   flex-grow: 1;
   text-align: center;
-  margin-bottom: 100px;
-  margin-left: 50px;
+  margin-bottom: 50px;
+  /* margin-left: 50px; */
 }
 
 .logo {
@@ -83,7 +82,7 @@ export default {
   text-align: center;
   margin-bottom: 10px;
   margin-left: 100px;
-  color: rgb(42, 206, 1);
+  color:darkorange;
   text-shadow: rgb(3, 4, 68) 8px 5px 5px;
   display: inline-block; /* To allow padding and border */
   padding: 10px 20px; /* Add padding */
@@ -97,18 +96,18 @@ h1 {
 }
 .nav {
   display: flex;
-  gap: 10px;
-  margin-left: 100px;
+  gap: 10px; 
+  margin-bottom: 2rem;
 }
 .nav-link {
   text-decoration: none;
-  color: gold;
-  padding: 15px 30px; /* Increase padding for a bigger button */
+  color: white;
+  padding: 10px 20px; /* Increase padding for a bigger button */
   border-radius: 25px;
   transition: all 0.3s; /* Simplified transition property */
-  background-color: rgb(59, 59, 59);
-  margin-top: 30px;
-  font-size: 1.2rem; /* Increase font size for larger text */
+  background-color: darkorange;
+  font-weight: bold;
+  font-size: 2rem; /* Increase font size for larger text */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add box shadow for depth */
 }
 

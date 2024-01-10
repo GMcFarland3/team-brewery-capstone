@@ -185,7 +185,7 @@ export default {
 
 <style scoped>
 .completion-message {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: gold;
     margin-top: 10px;
     text-align: center;
@@ -208,7 +208,7 @@ export default {
 }
 
 form {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     width: 30rem;
@@ -225,18 +225,18 @@ form {
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 3rem;
     text-align: center;
     margin: 10px 0;
 }
 
 .leaveReview {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .allReviews {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -247,7 +247,7 @@ h1 {
 }
 
 .review {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -268,7 +268,7 @@ img {
 }
 
 li {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px;
     width: 30rem;
     /* Add padding to create individual areas for comments */
@@ -279,25 +279,25 @@ li {
 }
 
 .rating {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px;
     margin-right: 110px;
     text-align: center;
 }
 
 .comment {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px;
 }
 
 .submit {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     margin-top: 30px;
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgba(199, 170, 3, 0.836);
     border: 1 solid black;
     color: white;
@@ -308,14 +308,14 @@ button {
 }
 
 h2 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 2rem;
     text-align: center;
 }
 
 /* Update label and input width and padding */
 label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: inline-block;
     text-align: left;
     width: 180px;

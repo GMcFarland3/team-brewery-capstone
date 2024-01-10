@@ -131,7 +131,8 @@ label {
 
 #login {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url('../assets/img/homePage2.png');
+  /* background-image: url('../assets/img/homePage2.png'); */
+  background-color:  cadetblue;
   height: 52rem;
   text-align: center;
 }
