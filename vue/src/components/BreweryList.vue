@@ -28,9 +28,9 @@ export default {
   padding: 10px;
   width: 200px;
   border-radius: 8px;
-  border: 1px solid rgb(199, 170, 2);
+  border: 1px solid darkorange;
   /* Box shadow for a slight lift effect */
-  box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;
+  box-shadow: darkorange 2px 2px 2px 2px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -59,6 +59,6 @@ img {
 h1 {
   font-size: 1.2rem;
   margin: 0;
-  color: gold;
+  color: white;
 }
 </style>

@@ -16,8 +16,8 @@
             <div class="details">{{ beer.abv }} abv</div>
           </div>
           <div class="topspacer"></div>
-          <router-link :to="{ name: 'brewAdmin' }" class="nav-link">Click here to read reviews and/or leave a reaview</router-link>
-          <div id="stock" v-if="beer.status">** OUT OF STOCK **</div>
+          <router-link :to="'/reviews/' + beer.beer_Id" class="nav-link">Click here to read reviews and/or leave a reaview</router-link>
+          <div id="stock" v-if="beer.status">== OUT OF STOCK ==</div>
         </div>
       </div>
     </section>
@@ -178,7 +178,9 @@ h3 {
 }
 
 #stock {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .spacer {

@@ -15,13 +15,11 @@
 
         <div class="details">
             <h3>DETAILS</h3>
-            <ul>
-                <li>{{ brewery.address }}</li>
-                <li>{{ brewery.city }}, {{ brewery.state_abbr }} {{ brewery.zip_code }}</li>
-                <li>{{ brewery.phone }}</li>
-                <li>{{ brewery.operation_hours }}</li>
-                <li><a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></li>
-            </ul>
+            <div class="dets">{{ brewery.address }}</div>
+            <div class="dets">{{ brewery.city }}, {{ brewery.state_abbr }} {{ brewery.zip_code }}</div>
+            <div class="dets">{{ brewery.phone }}</div>
+            <div class="dets">{{ brewery.operation_hours }}</div>
+            <div class="dets"><a v-bind:href="brewery.website" target="_blank"> {{ brewery.website }}</a></div>
             <div id="babutton">
                 <!-- <router-link v-if="this.showAdmin" :to="'/brewAdmin/' + breweries.brew_id" class="nav-link">Brewer Admin</router-link> -->
                 <router-link v-if="this.showAdmin" :to="{ name: 'brewAdmin' }" class="nav-link">Brewer Admin</router-link>
@@ -102,31 +100,36 @@ h2 {
     padding-right: 1rem;
 }
 
-ul {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    list-style-type: none;
-    font-size: 1.5rem;
-    justify-content: center;
-    margin: 1px 0px 0px 0px;
-}
-
-li {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 10px;
-    text-align: center;
-}
-
 .details {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-content: flex-end;
+    justify-content: top;
     background-color: white;
-    padding-right: 2rem;
+    padding-right: 3px;
+    padding-left: 3px;
     border: 2.5px solid darkorange;;
     margin: 15px 0px 15px 0px;
+}
+
+.dets {
+    font-size: 1.25rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.details>h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: darkorange;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#babutton{
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .info {
@@ -153,24 +156,7 @@ li {
     border-bottom: cadetblue;
 }
 
-.details>h3 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: xx-large;
-    color: darkorange;
-    text-decoration: underline;
-    justify-content: center;
-    align-items: center;
-    margin: 25px 0px 15px 15px;
-}
 
-.AddBeer {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    text-align: center;
-}
 
 button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -182,19 +168,6 @@ form {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     margin: 1rem 0 2rem 0rem;
-}
-
-
-.makeBeer {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 1rem;
-    border: black solid 1px;
-    box-shadow: gray 5px 5px 5px 10px;
-    padding: 20px;
-
 }
 
 .nav {
@@ -232,7 +205,5 @@ form {
     /* Add additional styling for the hover effect, e.g., background color change */
 }
 
-#babutton {
-    margin-top: 1rem;
-}
+
 </style>

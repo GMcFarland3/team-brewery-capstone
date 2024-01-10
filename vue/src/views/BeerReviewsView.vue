@@ -4,8 +4,8 @@
         <section class="Brewery-Info">
             <div v-if="brewery">
                 <BreweryInfo :brewery="brewery" :brew_id="brewery.brew_id" />
-                <BeerList :beers="beers" />
-                <!-- <Review :reviews="reviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" /> -->
+                <!-- <BeerList :beers="beers" /> -->
+                <Review :reviews="filteredReviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" />
             </div>
         </section>
         <FooterView />
@@ -16,47 +16,44 @@
 import HeaderView from './HeaderView.vue';
 import FooterView from './FooterView.vue';
 import BreweryInfo from '../components/BreweryInfo.vue';
-import BeerList from '../components/BeerList.vue';
+// import BeerList from '../components/BeerList.vue';
 import brewService from '../services/BreweriesService';
 import Review from '../components/Review.vue';
 
 export default {
+    props: {
+        beer_id: {
+            type: Number,
+            required: true
+        },
+    },
     data() {
         return {
             brewery: {},
-            beers: [],
-            reviews: [] // Initialize the reviews array here
+            beer: {},
+            filteredReviews: [],
         }
     },
 
     created() {
-        const brew_Id = this.$route.params.brew_Id;
-        this.brewery = this.$store.state.breweries.find(b => b.brew_id == brew_Id);
-
-        brewService
-            .getBeers()
-            .then(response => {
-                if (response.status == 200) {
-                    this.$store.commit('SET_BEERS', response.data);
-                    this.beers = this.$store.state.beers.filter(b => b.brewId == brew_Id);
-                    console.log('Beers Data:', this.beers);
-                }
-            })
-            .catch(error => {
-                const response = error.response;
-                if (response.status === 401) {
-                    this.invalidCredentials = true;
-                }
-            });
+        const beer_id = this.$route.params.beer_id;
+        this.beer = this.$store.state.beers.find(b => b.beer_id == beer_id);
+        this.brewery = this.$store.state.breweries.find(brew => brew.brew_id == this.beer.brew_id);
+        this.filteredReviews = this.reviews.filter(review => review.beer_id == beer_id);
     },
 
     components: {
         HeaderView,
         BreweryInfo,
-        BeerList,
-        // Review,
+        // BeerList,
+        Review,
         FooterView
     },
+    // methods: {
+    // filterReviewsByBeer(beerId) {
+    //   this.filteredReviews = this.reviews.filter(review => review.beer_id == beerId);
+    //     }
+    // }
 }
 </script>
 

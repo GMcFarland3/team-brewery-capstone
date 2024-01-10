@@ -30,7 +30,7 @@ USER node
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 5432
+EXPOSE 5433
 
 # Run the application.
-CMD run
+CMD brewscout

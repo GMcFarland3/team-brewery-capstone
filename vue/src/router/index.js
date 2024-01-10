@@ -10,6 +10,7 @@ import RegisterView from '../views/RegisterView.vue';
 import AdminView from '../views/AdminView.vue';
 import BreweryInfoView from '../views/BreweryInfoView.vue';
 import BrewAdminView from '../views/brewerView.vue';
+import BeerReviewsView from '../views/BeerReviewsView.vue';
 
 // Define routes
 const routes = [
@@ -49,6 +50,13 @@ const routes = [
     path: '/breweries/beers',
     name: 'beers',
     component: BreweryInfoView,
+    props: true
+  },
+
+  {
+    path: '/reviews/:beer_id',
+    name: 'reviews',
+    component: BeerReviewsView,
     props: true
   },
 

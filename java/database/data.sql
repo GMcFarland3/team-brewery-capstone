@@ -157,7 +157,7 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
     VALUES (11, 'Anniversary Series #2', 'Double IPA', 'This Double IPA was released at their 2nd anniversary event. With the addition of honey, this beer is just as sweet and boozy as it is hoppy.', '10.0%', 'https://assets.untappd.com/photos/2018_12_23/2e35263874349c0e2a94afb240e314cd_640x640.jpg', 'true');
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
-	VALUES (11, 'Scout IPA', 'IPA', 'A true mosaic of flavors make up this beer’s profile as hints of orange peel and kumquats greet you up front while the bite of grapefruit and pine resin make up the encore.', '6.5%', 'https://assets.untappd.com/photos/2023_11_25/cd16e32885e1a0408a9ab5d77013653c_640x640.jpg', 'false');
+	VALUES (11, 'Scout IPA', 'IPA', 'A true mosaic of flavors make up this beer’s profile as hints of orange peel and kumquats greet you up front while the bite of grapefruit and pine resin make up the encore.', '6.5%', 'https://assets.untappd.com/photos/2023_11_25/cd16e32885e1a0408a9ab5d77013653c_640x640.jpg', 'true');
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
 	VALUES (11, 'The Duelist', 'Belgian Stout', 'Strong roasted malt flavors dominate here, with intense notes of bitter dark chocolate out front and wisps of licorice and campfire smoke dancing in the background.', '8.0%', 'https://assets.untappd.com/photos/2020_08_07/f4d14a0f5435ad4fc75fc610f59c10e2_640x640.jpg', 'false');
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
@@ -173,7 +173,7 @@ INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
 	VALUES (11, 'Station 2', 'Rye', 'Our unique pale ale has generous amounts of rye for that "bite" yet the hops bring it right around at the end.', '5.12%', 'https://assets.untappd.com/photos/2022_03_16/39d931610bafba1718ce370036381e2a_640x640.jpg', 'false');
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
-	VALUES (11, '1791 Oktoberfest', 'Festbier', 'This rich Amber brew expertly captures the smells, flavors, and colors of autumn with hints of dried fruit and molasses on the nose and notes of caramel and toffee on the tongue.', '7.0%', 'https://assets.untappd.com/photos/2023_10_02/eaf3c641968e42da6e27c2f6fb8de525_640x640.jpg', 'false');
+	VALUES (11, '1791 Oktoberfest', 'Festbier', 'This rich Amber brew expertly captures the smells, flavors, and colors of autumn with hints of dried fruit and molasses on the nose and notes of caramel and toffee on the tongue.', '7.0%', 'https://assets.untappd.com/photos/2023_10_02/eaf3c641968e42da6e27c2f6fb8de525_640x640.jpg', 'true');
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
 	VALUES (11, 'Weiz Guys', 'Wheat', 'This quaffable wheat beer has a nose that you will go bananas for and a bright lemony finish.', '4.3%', 'https://assets.untappd.com/photos/2022_09_18/d3a7c71543a355020c1b47ee0463f674_640x640.jpg', 'false');
 INSERT INTO public.beers(brew_id, name, type, description, abv, image, status)
@@ -186,4 +186,8 @@ COMMIT TRANSACTION;
 BEGIN TRANSACTION;
 INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 51, 'Approachable Blond', 'Love this blonde!', 5, true, true, 'https://assets.untappd.com/photos/2023_12_01/13ea1cda364bf537445a90990651a4d7_640x640.jpg');
 INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 53, 'Orange Agave Blonde', 'Love this orange blonde!', 5, true, true, 'https://assets.untappd.com/photos/2023_11_27/efc0b04ecf3f05da8704038eb2a8fb18_640x640.jpg');
+INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 54, 'Anniversary Series #2', 'what can i say', 5, true, true, 'https://assets.untappd.com/photos/2023_12_01/13ea1cda364bf537445a90990651a4d7_640x640.jpg');
+INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 55, 'Scout IPA', 'Scouts honor', 3, true, true, 'https://assets.untappd.com/photos/2023_12_01/13ea1cda364bf537445a90990651a4d7_640x640.jpg');
+INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 51, 'Approachable Blond', 'Cant get enough', 5, true, true, 'https://assets.untappd.com/photos/2023_12_01/13ea1cda364bf537445a90990651a4d7_640x640.jpg');
+INSERT INTO public.reviews(user_id, brew_id, beer_id, beerName, review, rating, favorite, liked, image) VALUES(3, 11, 53, 'Orange Agave Blonde', 'Go orange', 3, true, true, 'https://assets.untappd.com/photos/2023_12_01/13ea1cda364bf537445a90990651a4d7_640x640.jpg');
 COMMIT TRANSACTION;
