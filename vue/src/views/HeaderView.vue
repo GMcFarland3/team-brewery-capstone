@@ -53,7 +53,6 @@ export default {
   height: 20rem;
 }
 
-
 .content {
   display: flex;
   flex-direction: column;
@@ -63,12 +62,6 @@ export default {
   text-align: center;
   margin-bottom: 50px;
   /* margin-left: 50px; */
-}
-
-.logo {
-  max-width: 10rem;
-  margin-bottom: 158px;
-  margin-left: 10px;
 }
 
 #banner {

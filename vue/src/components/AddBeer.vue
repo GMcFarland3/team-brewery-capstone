@@ -1,6 +1,6 @@
 <template>
+    <div id="return"><router-link :to="'/breweryInfo/' + this.updateBrew.brew_id">Return to brewery page</router-link></div>
     <div class="page">
-
         <div class="submitBeer">
             <h1>Add Beer</h1>
             <form @submit.prevent="submitBeer">
@@ -282,6 +282,16 @@ export default {
     margin-bottom: 1rem;
 }
 
+#return {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 .completion-message {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: gold;
@@ -374,7 +384,6 @@ form {
     flex-direction: column;
     width: 100%;
     height: 50rem;
-
 }
 
 label {

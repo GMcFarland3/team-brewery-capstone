@@ -1,6 +1,7 @@
 <template>
   <div>
     <section class="beers-list">
+      <div><h1>Beers</h1></div>
       <div v-for="beer in beers" :key="beer.beer_id" class="beer-card">
         <div class="beer-image-container">
           <img :src="beer.image" alt="beer" class="beer-image" />
@@ -93,6 +94,23 @@ export default {
 };
 </script>
 <style scoped>
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  text-align: left;
+  font-weight: bolder;
+  margin: 0;
+  padding: 20px 0;
+  /* background-image: url('../assets/img/beerstar.png'); */
+  background-color:  cadetblue;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  font-size: 4rem;
+  /* Increase the font size */
+}
 .beers-list {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;

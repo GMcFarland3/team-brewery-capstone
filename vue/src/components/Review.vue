@@ -1,16 +1,17 @@
 <template>
     <section>
+        <div id="return"><router-link :to="'/breweryInfo/' + this.brew_id">Return to brewery page</router-link></div>
         <div class="leaveReview">
             <h1>Leave a Review</h1>
             <form @submit.prevent="submitReview">
-                <div class="beers">
-                    <label for="beerList">Beers => </label>
-                    <select id="beerList" v-model="oneBeer">
+                <div class="revinfo">
+                    <label for="beerList">Beer => </label>
+                    <select id="beerList" v-model="oneBeer" required>
                         <option v-for="beer in filteredBeers" :key="beer.beerId" :value="beer">
                             {{ beer.name }}</option>
                     </select>
                 </div>
-                <div class="rating">
+                <div class="revinfo">
                     <label for="rating">Rating => </label>
                     <select id="rating" v-model="review.rating" required>
                         <option value="">Select a rating</option>
@@ -21,11 +22,11 @@
                         <option value="5">5 stars</option>
                     </select>
                 </div>
-                <div class="comment">
+                <div class="revinfo">
                     <label for="comment">Comment => </label>
                     <input type="src" id="comment" v-model="review.review" maxlength="500" required>
                 </div>
-                <div>
+                <div class="revinfo">
                     <label for="image">Image URL => </label>
                     <input type="src" id="image" v-model="photoUrl">
                 </div>
@@ -202,6 +203,16 @@ export default {
     display: none;
 }
 
+#return {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 /* Show the completion message */
 .show-message {
     display: block;
@@ -211,8 +222,8 @@ form {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
-    width: 30rem;
-    height: 15rem;
+    width: 50rem;
+    height: 20rem;
     margin: auto;
     border-radius: 1rem;
     background-color: white;
@@ -253,7 +264,6 @@ h2 {
 .spacer {
   border-style: solid;
   border-width: 1px;
-
 }
 
 .review {
@@ -288,16 +298,8 @@ img {
     align-items: center;
     justify-content: center;
 }
-.beers {
-    margin-bottom: 20px;
-}
 
-.rating {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 20px;
-}
-
-.comment {
+.revinfo {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px;
 }
@@ -315,7 +317,7 @@ button {
     color: white;
     padding: 9px 12px;
     display: inline-block;
-    font-size: 1rem;
+    font-size: 1.5rem;
     border-radius: 2rem;
 }
 
@@ -324,7 +326,18 @@ label {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: inline-block;
     text-align: left;
-    width: 180px;
-    font-size: 1rem;
+    width: 200px;
+    font-size: 1.25rem;
+}
+
+select {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 500px;
+    font-size: 1.25rem;
+}
+input {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 500px;
+    font-size: 1.25rem;
 }
 </style>
