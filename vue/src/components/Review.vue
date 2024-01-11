@@ -39,20 +39,23 @@
             </form>
         </div>
         <div class="allReviews">
-            <h2>Reviews</h2>
-            <ul class="review">
-                <li v-for="(review, index) in filteredReviews" :key="index">
-                    <div>
-                        <h1>{{ review.name }}</h1>
-                        <h3>{{ review.beerName }}</h3>
-                        <span v-for="star in parseInt(review.rating)" :key="star">⭐</span>
-                        <p>{{ review.review }}</p>
-                        <div class="reviewImage">
-                            <img :src="review.image" alt="">
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <h1>Reviews</h1>
+            <div class="review" v-for="(review, index) in filteredReviews" :key="index">
+                <div class="reviewImage">
+                    <img :src="review.image" alt="">
+                </div>
+                <div class="det">
+                <div class="dets">
+                    <div><h2>{{ review.name }}</h2></div>
+                    <div class="spacer"></div>
+                    <div><h3>{{ review.beerName }}</h3></div>
+                    <div class="spacer"></div>
+                    <div><span v-for="star in parseInt(review.rating)" :key="star">⭐</span></div>
+                    <div class="spacer"></div>
+                    <div><p>{{ review.review }}</p></div>
+                </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>
@@ -108,18 +111,18 @@ export default {
             type: Number,
             required: false
         },
-        // beer_id: {
-        //     type: Number,
-        //     required: false
-        // },
+        beer_id: {
+            type: Number,
+            required: false
+        },
     },
 
     computed: {
         filteredReviews() {
-            return this.reviews.filter(review => review.brew_id == this.brew_id);
+            return this.reviews.filter(review => review.beer_id == this.beer_id);
         },
         filteredBeers() {
-            return this.beersList.filter(beer => beer.brewId == this.brew_id);
+            return this.beersList.filter(beer => beer.beer_Id == this.beer_id);
         },
     },
 
@@ -156,16 +159,13 @@ export default {
                 .insertReview(this.review)
                 .then(response => {
                     if (response.status === 201) {
-
                         this.reviews.push(response.data); // Add the new review to the local reviews array
                         this.showCompletionMessage("Review added successfully!");
-
                     }
                 })
                 .catch(error => {
                     console.error('Error submitting review:', error);
                 });
-
         },
 
         showCompletionMessage(message) {
@@ -215,11 +215,11 @@ form {
     height: 15rem;
     margin: auto;
     border-radius: 1rem;
-    background-color: rgb(189, 185, 185);
+    background-color: white;
     border: black solid 1px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1),
         /* Existing shadow */
-        0px 0px 10px gold;
+        0px 0px 10px darkorange;
     /* Additional gold shadow */
     padding: 20px;
 }
@@ -229,6 +229,15 @@ h1 {
     font-size: 3rem;
     text-align: center;
     margin: 10px 0;
+    color: darkorange;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin: 10px 0;
+    color: white;
 }
 
 .leaveReview {
@@ -241,23 +250,36 @@ h1 {
     flex-direction: column;
     align-items: center;
 }
+.spacer {
+  border-style: solid;
+  border-width: 1px;
 
-.beers {
-    margin-bottom: 20px;
 }
 
 .review {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     border-radius: 1rem;
     border: black solid 1px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1),
-        0px 0px 10px gold;
+        0px 0px 10px darkorange;
     padding: 20px;
-    background-color: rgb(165, 161, 161);
+    margin-bottom: 1rem;
+    width: 60rem;
+}
+.det {
+    flex-grow: 3;
+}
 
+.dets {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    margin-left: 1rem;
 }
 
 img {
@@ -266,23 +288,13 @@ img {
     align-items: center;
     justify-content: center;
 }
-
-li {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.beers {
     margin-bottom: 20px;
-    width: 30rem;
-    /* Add padding to create individual areas for comments */
-    border: 2px solid #0A0A0A;
-    text-align: center;
-    background-color: rgb(214, 213, 213);
-    /* Add a border to separate each comment area */
 }
 
 .rating {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px;
-    margin-right: 110px;
-    text-align: center;
 }
 
 .comment {
@@ -298,19 +310,13 @@ li {
 
 button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgba(199, 170, 3, 0.836);
+    background-color: darkorange;
     border: 1 solid black;
     color: white;
     padding: 9px 12px;
     display: inline-block;
     font-size: 1rem;
     border-radius: 2rem;
-}
-
-h2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 2rem;
-    text-align: center;
 }
 
 /* Update label and input width and padding */
@@ -320,6 +326,5 @@ label {
     text-align: left;
     width: 180px;
     font-size: 1rem;
-
 }
 </style>

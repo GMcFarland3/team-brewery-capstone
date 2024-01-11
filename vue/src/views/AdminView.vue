@@ -166,24 +166,22 @@ export default {
 
 
 button:hover {
-    background-color: rgb(137, 157, 4);
-    color: rgb(238, 211, 4);
-
+    background-color: black;
+    /* color: rgb(238, 211, 4); */
 }
 
 .addBrewery {
-  background-color: aliceblue;
+  background-color: white;
   border-radius: 8px;
-  border: 1px solid rgb(199, 170, 2);
+  border: 1px solid darkorange;
   /* Box shadow for a slight lift effect */
-  box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;
+  box-shadow: darkorange 2px 2px 2px 2px;
   transition: transform 0.3s ease-in-out;
 
     padding: 2px 2px 15px 2px;
     margin: 10px 10px 10px 10px;
     width: 25%;
     margin-top: 50px;
-    
 }
 
 .addBeer {
@@ -197,11 +195,11 @@ button:hover {
 }
 
 .RegUsers {
-  background-color: aliceblue;
+  background-color: white;
   border-radius: 8px;
-  border: 1px solid rgb(199, 170, 2);
+  border: 1px solid darkorange;
   /* Box shadow for a slight lift effect */
-  box-shadow: rgb(137, 147, 3) 2px 2px 2px 2px;
+  box-shadow: darkorange 2px 2px 2px 2px;
   transition: transform 0.3s ease-in-out;
 
     padding: 2px 2px 15px 2px;
@@ -258,12 +256,12 @@ option {
 button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
-    color: rgb(212, 216, 5);
+    color: white;
     margin-right: 20px;
     transition: color 0.3s;
     border: 1px solid gray;
     padding: 8px 15px;
     border-radius: 5px;
-    background-color: rgb(98, 98, 98);
+    background-color: darkorange;
 }
 </style>

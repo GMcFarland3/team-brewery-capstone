@@ -5,7 +5,7 @@
             <div v-if="brewery">
                 <BreweryInfo :brewery="brewery" :brew_id="brewery.brew_id" />
                 <!-- <BeerList :beers="beers" /> -->
-                <Review :reviews="filteredReviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" />
+                <Review :reviews="filteredReviews" :user_id="$store.state.user.id" :brew_id="brewery.brew_id" :beer_id="beer_id" />
             </div>
         </section>
         <FooterView />
@@ -37,10 +37,10 @@ export default {
 
     created() {
         const beer_id = this.$route.params.beer_id;
-        this.beer = this.$store.state.beers.find(b => b.beer_id == beer_id);
-        this.brewery = this.$store.state.breweries.find(brew => brew.brew_id == this.beer.brew_id);
-        this.filteredReviews = this.reviews.filter(review => review.beer_id == beer_id);
-    },
+        this.beer = this.$store.state.beers.find(b => b.beer_Id == beer_id);
+        this.brewery = this.$store.state.breweries.find(brew => brew.brew_id == this.beer.brewId);
+        this.filteredReviews = this.$store.state.reviews.filter(review => review.beer_id == beer_id);
+},
 
     components: {
         HeaderView,

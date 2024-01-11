@@ -18,7 +18,7 @@ import FooterView from './FooterView.vue';
 import BreweryInfo from '../components/BreweryInfo.vue';
 import BeerList from '../components/BeerList.vue';
 import brewService from '../services/BreweriesService';
-import Review from '../components/Review.vue';
+// import Review from '../components/Review.vue';
 
 export default {
     data() {
@@ -39,8 +39,7 @@ export default {
                 if (response.status == 200) {
                     this.$store.commit('SET_BEERS', response.data);
                     this.beers = this.$store.state.beers.filter(b => b.brewId == brew_Id);
-                    console.log('Beers Data:', this.beers);
-                }
+                 }
             })
             .catch(error => {
                 const response = error.response;

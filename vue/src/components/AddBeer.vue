@@ -1,7 +1,6 @@
 <template>
     <div class="page">
 
-
         <div class="submitBeer">
             <h1>Add Beer</h1>
             <form @submit.prevent="submitBeer">
@@ -276,8 +275,6 @@ export default {
     },
 
 }
-
-
 </script>
 
 <style scoped>
@@ -320,11 +317,11 @@ ul li {
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
-    color: #050505;
+    color: white;
     padding: 10px 20px;
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
-    background-color: rgb(159, 159, 5);
+    background-color: darkorange;
     margin: 0.5rem 1rem 0.5rem 1rem;
     width: 70%;
     margin-left: 3rem;
@@ -336,15 +333,14 @@ ul li {
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
-    color: #050505;
+    color: white;
     padding: 10px 20px;
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
-    background-color: rgb(159, 159, 5);
+    background-color: darkorange;
     margin: 0.5rem 1rem 0.5rem 1rem;
     width: 70%;
     margin-left: 3rem;
-
 }
 
 .brewerybutton {
@@ -353,15 +349,14 @@ ul li {
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
-    color: #050505;
+    color: white;
     padding: 10px 20px;
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
-    background-color: rgb(159, 159, 5);
+    background-color: darkorange;
     margin: 0.5rem 1rem 0.5rem 1rem;
     width: 70%;
     margin-left: 3rem;
-
 }
 
 button:hover {
@@ -398,7 +393,8 @@ input {
 
 .page {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url('../assets/img/homePage2.png');
+    /* background-image: url('../assets/img/homePage2.png'); */
+    background-color: cadetblue;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -419,9 +415,9 @@ input {
     align-items: center;
     margin: 1rem auto;
     border-radius: 1rem;
-    border: rgb(190, 197, 5) solid 1px;
-    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
-    background-color: rgb(201, 199, 186);
+    border: black solid 1px;
+    box-shadow: darkorange 5px 5px 5px 10px;
+    background-color: white;
     padding: 20px;
     width: 350px;
     height: 430px;
@@ -434,44 +430,12 @@ input {
     align-items: center;
     margin: 1rem auto;
     border-radius: 1rem;
-    border: rgb(190, 197, 5) solid 1px;
-    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
-    background-color: rgb(201, 199, 186);
+    border: black solid 1px;
+    box-shadow: darkorange 5px 5px 5px 10px;
+    background-color: white;
     padding: 20px;
     width: 350px;
-    /* Set a fixed width for each form */
     height: 600px;
-    /* Set a fixed height for each form */
-    /* Set forms to be flex containers */
-}
-
-.page {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url('../assets/img/homePage2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    margin: 0;
-    /* Remove margin */
-    padding: 0;
-    /* Remove padding */
-    height: 1000px;
-    display: flex;
-    justify-content: center;
-    /* Center horizontally */
-    justify-content: space-around;
-    align-items: center;
-    /* Center vertically */
-
-}
-
-.forms-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
 }
 
 .submitBeer {
@@ -481,13 +445,11 @@ input {
     align-items: center;
     margin: 1rem auto;
     border-radius: 1rem;
-    border: rgb(190, 197, 5) solid 1px;
-    box-shadow: rgb(137, 147, 3) 5px 5px 5px 10px;
-    background-color: rgb(201, 199, 186);
+    border: black solid 1px;
+    box-shadow: darkorange 5px 5px 5px 10px;
+    background-color: white;
     padding: 20px;
     width: 350px;
-    /* Set a fixed width for each form */
     height: 350px;
-    /* Set a fixed height for each form */
 }
 </style>
