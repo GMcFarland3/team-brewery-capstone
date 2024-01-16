@@ -17,7 +17,7 @@
             <div class="details">{{ beer.abv }} abv</div>
           </div>
           <div class="topspacer"></div>
-          <router-link :to="'/reviews/' + beer.beer_Id" class="nav-link">Click here to read reviews and/or leave a reaview</router-link>
+          <router-link :to="'/reviews/' + beer.beer_Id" class="nav-link">Click here to read review(s) and/or leave a review</router-link>
           <div id="stock" v-if="beer.status">== OUT OF STOCK ==</div>
         </div>
       </div>
@@ -175,7 +175,7 @@ h3 {
 
 #description {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 0.5rem;
+  font-weight: 1.25rem;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   color: white;
